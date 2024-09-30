@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  body {
+    @apply m-0 p-0 bg-white dark:bg-black text-black dark:text-white font-DanaFaNum-500;
+  }
+  div#root {
+    @apply w-full h-full px-10 pt-6 pb-[72px];
+  }
+  ul {
+    list-style: none;
+  }
+};
+
+@layer base {
+  @font-face {
+    font-family: DanaFaNum Hairline;
+    src: local("Dana"), url("./assets/fonts/danaFaNum/DanaFaNum-Hairline.woff2"),
+      format("woff2");
+  }
+  @font-face {
+    font-family: DanaFaNum Thin;
+    src: local("Dana"), url("./assets/fonts/danaFaNum/DanaFaNum-Thin.woff2"),
+      format("woff2");
+  }
+  @font-face {
+    font-family: DanaFaNum UltraLight;
+    src: local("Dana"), url("./assets/fonts/danaFaNum/DanaFaNum-UltraLight.woff2"),
+      format("woff2");
+  }
+  @font-face {
+    font-family: DanaFaNum Light;
+    src: local("Dana"), url("./assets/fonts/danaFaNum/DanaFaNum-Light.woff2"),
+      format("woff2");
+  }
+  @font-face {
+    font-family: DanaFaNum Regular;
+    src: local("Dana"), url("./assets/fonts/danaFaNum/DanaFaNum-Regular.woff2"),
+      format("woff2");
+  }
+  @font-face {
+    font-family: DanaFaNum Medium;
+    src: local("Dana"), url("./assets/fonts/danaFaNum/DanaFaNum-Medium.woff2"),
+      format("woff2");
+  }
+  @font-face {
+    font-family: DanaFaNum DemiBold;
+    src: local("Dana"), url("./assets/fonts/danaFaNum/DanaFaNum-DemiBold.woff2"),
+      format("woff2");
+  }
+  @font-face {
+    font-family: DanaFaNum Bold;
+    src: local("Dana"), url("./assets/fonts/danaFaNum/DanaFaNum-Bold.woff2"),
+      format("woff2");
+  }
+  @font-face {
+    font-family: DanaFaNum ExtraBold;
+    src: local("Dana"), url("./assets/fonts/danaFaNum/DanaFaNum-ExtraBold.woff2"),
+      format("woff2");
+  }
+};
