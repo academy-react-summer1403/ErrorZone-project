@@ -1,0 +1,31 @@
+.step-item {
+ @apply relative top-[20px] right-[50px] flex  flex-col justify-center items-center w-[300px] ;
+}
+
+.step-item::before {
+    @apply content-[''] bg-slate-200 absolute w-full h-[8px] rounded-[9px]  top-1/3 -translate-y-2/4   ;
+}
+
+.step{
+    @apply w-10 h-10 flex justify-center items-center z-10 relative top-[-30px] rounded-full font-semibold text-white bg-slate-700 ;
+}
+
+.btn{
+    @apply  text-gray-100 font-medium px-7 py-1 w-32 h-16 ;
+}
+
+.active .step {
+    @apply bg-sky-600  ;
+}
+
+.complete .step {
+    @apply bg-green-600 ;
+}
+
+.complete p {
+    @apply text-green-600;
+}
+
+.complete::before {
+    @apply bg-green-600 ;
+}

@@ -4,6 +4,8 @@ import Landing from "../../screens/Landing";
 import StudentPanel from "../../screens/StudentPanel"
 import NotFound from "../../screens/NotFound";
 import { LoginRegisterForgetPassLayout } from "../../components/User/LoginRegisterForgetPass/LoginRegisterForgetPassLayout";
+import { LoginForm } from "../../components/User/LoginRegisterForgetPass/LoginHolder/LoginForm";
+import LoginVerifyCode from "../../components/User/LoginRegisterForgetPass/LoginHolder/LoginVerifyCode";
 
 import Courses from "../../screens/Courses";
 import Articles from "../../screens/Articles";
@@ -29,6 +31,13 @@ export const TestingRoutes = createBrowserRouter([
     ],
   },
 
+  
+  { path: "/login", element: <LoginRegisterForgetPassLayout /> , children:[
+    {path: "/login" , element:<LoginForm />},
+    {path: "/login/verifycode" , element:<LoginVerifyCode />},    
+  ]},
+
+
 
   { path: "/StudentPanel", element: <StudentPanel />, children:[
     {path: "/StudentPanel/dashboard", element:<Dashboard /> , },
@@ -39,6 +48,6 @@ export const TestingRoutes = createBrowserRouter([
     {path: "/StudentPanel/profile", element:<Profile /> , },
 
   ] },
-  { path: "/login", element: <LoginRegisterForgetPassLayout /> },
+  
   { path: "/*", element: <NotFound /> },
 ]);
