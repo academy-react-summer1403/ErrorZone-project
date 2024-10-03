@@ -4,6 +4,10 @@ import Landing from "../../screens/Landing";
 import StudentPanel from "../../screens/StudentPanel"
 import NotFound from "../../screens/NotFound";
 import { LoginRegisterForgetPassLayout } from "../../components/User/LoginRegisterForgetPass/LoginRegisterForgetPassLayout";
+
+import Courses from "../../screens/Courses";
+import Articles from "../../screens/Articles";
+
 import Dashboard from "../../components/StudentPanelHolder/StudentPanelPage/Dashboard/Dashboard";
 import MyCourse from "../../components/StudentPanelHolder/StudentPanelPage/MyCourse/MyCourse";
 import ReservesCourse from "../../components/StudentPanelHolder/StudentPanelPage/reservesCourse/reservesCourse";
@@ -13,14 +17,19 @@ import Profile from "../../components/StudentPanelHolder/StudentPanelPage/profil
 
 
 
+
 export const TestingRoutes = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
       { path: "/", element: <Landing /> },
+      { path: "/courses", element: <Courses /> },
+      { path: "/articles", element: <Articles /> },
     ],
   },
+
+
   { path: "/StudentPanel", element: <StudentPanel />, children:[
     {path: "/StudentPanel/dashboard", element:<Dashboard /> , },
     {path: "/StudentPanel/myCourse", element: <MyCourse />, } ,

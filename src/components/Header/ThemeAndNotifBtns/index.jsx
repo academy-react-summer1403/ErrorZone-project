@@ -4,7 +4,7 @@ import ThemeToggle from './ThemeToggle'
 
 const ThemeAndNotifBtns = () => {
   return (
-    <div className='flex flex-nowrap gap-2'>
+    <div className='hidden flex-nowrap gap-2 tablet:flex'>
       <NotificationBtn />
       <ThemeToggle />
     </div>

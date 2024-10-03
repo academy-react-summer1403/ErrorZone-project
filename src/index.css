@@ -7,10 +7,16 @@
     @apply m-0 p-0 bg-white dark:bg-black text-black dark:text-white font-DanaFaNum-500;
   }
   div#root {
-    @apply w-full h-full px-10 pt-6 pb-[72px];
+    @apply w-full h-full ;
   }
   ul {
     list-style: none;
+  }
+  .is-active{
+    display: block;
+  }
+  button{
+    @apply rounded-full;
   }
 };
 
