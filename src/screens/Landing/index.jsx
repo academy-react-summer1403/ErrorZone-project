@@ -1,17 +1,17 @@
-import React from 'react'
-import LandingHolder from '../../components/LandingHolder'
-import { getQuery } from '../../core/services/api/reactQuery/getQuery';
+import React, { useEffect } from "react";
+import LandingHolder from "../../components/LandingHolder";
+import { getQuery } from "../../core/services/api/reactQuery/getQuery";
 
 const Landing = () => {
-  
-  getQuery("topCourses","/Home/GetCoursesTop?Count=4");
-  
-  return (
-    <div className='px-4 tablet:px-10 pb-[72px] w-full max-w-[1520px] mx-auto '>
-        {/* landing holder */}
-        <LandingHolder />
-    </div>
-  )
-}
+  getQuery("topCourses", "/Home/GetCoursesTop?Count=4");
+  getQuery("landingInfo", "/Home/LandingReport");
 
-export default Landing
+  return (
+    <div className="px-4 tablet:px-10 pb-[72px] w-full max-w-[1520px] mx-auto ">
+      {/* landing holder */}
+      <LandingHolder />
+    </div>
+  );
+};
+
+export default Landing;
