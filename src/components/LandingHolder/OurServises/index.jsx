@@ -15,7 +15,6 @@ const OurServices = () => {
               title={item.title}
               description={item.description}
               image={item.image}
-              color={item.color}
               iconColor={item.iconColor}
               key={index}
             />

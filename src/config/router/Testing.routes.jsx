@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../../app/index";
 import Landing from "../../screens/Landing";
-import StudentPanel from "../../screens/StudentPanel"
+import StudentPanel from "../../screens/StudentPanel";
 import NotFound from "../../screens/NotFound";
 import { LoginRegisterForgetPassLayout } from "../../components/User/LoginRegisterForgetPass/LoginRegisterForgetPassLayout";
 import { LoginForm } from "../../components/User/LoginRegisterForgetPass/LoginHolder/LoginForm";
@@ -17,9 +17,6 @@ import CoursesFav from "../../components/StudentPanelHolder/StudentPanelPage/Cou
 import BlogFav from "../../components/StudentPanelHolder/StudentPanelPage/Blogfav/Blogfav";
 import Profile from "../../components/StudentPanelHolder/StudentPanelPage/profile/profile";
 
-
-
-
 export const TestingRoutes = createBrowserRouter([
   {
     path: "/",
@@ -31,23 +28,27 @@ export const TestingRoutes = createBrowserRouter([
     ],
   },
 
-  
-  { path: "/login", element: <LoginRegisterForgetPassLayout /> , children:[
-    {path: "/login" , element:<LoginForm />},
-    {path: "/login/verifycode" , element:<LoginVerifyCode />},    
-  ]},
+  {
+    path: "/login",
+    element: <LoginRegisterForgetPassLayout />,
+    children: [
+      { path: "/login", element: <LoginForm /> },
+      { path: "/login/verifycode", element: <LoginVerifyCode /> },
+    ],
+  },
 
+  {
+    path: "/StudentPanel",
+    element: <StudentPanel />,
+    children: [
+      { path: "/StudentPanel/dashboard", element: <Dashboard /> },
+      { path: "/StudentPanel/myCourse", element: <MyCourse /> },
+      { path: "/StudentPanel/reservesCourse", element: <ReservesCourse /> },
+      { path: "/StudentPanel/Coursesfav", element: <CoursesFav /> },
+      { path: "/StudentPanel/Blogfav", element: <BlogFav /> },
+      { path: "/StudentPanel/profile", element: <Profile /> },
+    ],
+  },
 
-
-  { path: "/StudentPanel", element: <StudentPanel />, children:[
-    {path: "/StudentPanel/dashboard", element:<Dashboard /> , },
-    {path: "/StudentPanel/myCourse", element: <MyCourse />, } ,
-    {path: "/StudentPanel/reservesCourse", element:<ReservesCourse />, },
-    {path: "/StudentPanel/Coursesfav", element: <CoursesFav /> , },
-    {path: "/StudentPanel/Blogfav", element:<BlogFav /> , },
-    {path: "/StudentPanel/profile", element:<Profile /> , },
-
-  ] },
-  
   { path: "/*", element: <NotFound /> },
 ]);

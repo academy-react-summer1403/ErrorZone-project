@@ -15,7 +15,6 @@ const OurGoalsSec = () => {
               title={item.title}
               description={item.description}
               image={item.image}
-              color={item.color}
               key={index}
             />
           );
