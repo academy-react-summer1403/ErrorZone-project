@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
-import http from "../../../core/services/interceptor";
 import CourseCard from "../../common/CourseCard";
-import { getQuery } from "../../../core/services/api/reactQuery/getQuery";
 import { useQuery } from "@tanstack/react-query";
 
 
 
 const TopCourses = () => {
+
   const { data } = useQuery({
     queryKey: ["topCourses"],
   });
