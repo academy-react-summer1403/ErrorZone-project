@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const BestTeacherSecDescribe = () => {
   return (
-    <div className="w-[527px] space-y-6 mt-6">
+    <div className="w-80w tablet:w-[527px] space-y-6 mt-6">
     <span className="font-DanaFaNum-700 text-2xl">
       اساتید برتر هفته آکادمی
     </span>

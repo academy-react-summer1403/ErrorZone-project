@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import LandingHolder from "../../components/LandingHolder";
-import { getQuery, getQueryFiltterByCount } from "../../core/services/api/reactQuery/getQuery";
+import {
+  getQuery,
+  getQueryFiltterByCount,
+} from "../../core/services/api/reactQuery/getQuery";
 import LandingBestTaechers from "../../components/LandingBestTaechers/LandingBestTaechers";
 
 const Landing = () => {
@@ -9,7 +12,7 @@ const Landing = () => {
   getQueryFiltterByCount("TopBlogs", "/News/GetListNewsCategory", 3);
 
   return (
-    <div className=" w-full max-w-[1520px] space-y-[72px] mx-auto ">
+    <div className=" w-full max-w-[1520px] space-y-[72px] mx-auto overflow-x-hidden">
       {/* landing holder */}
       <LandingHolder />
       {/* Teacers of the week */}

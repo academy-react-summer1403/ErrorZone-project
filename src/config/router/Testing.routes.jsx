@@ -25,6 +25,7 @@ export const TestingRoutes = createBrowserRouter([
       { path: "/", element: <Landing /> },
       { path: "/courses", element: <Courses /> },
       { path: "/articles", element: <Articles /> },
+      { path: "/teachers", element: <Landing /> },
     ],
   },
 
