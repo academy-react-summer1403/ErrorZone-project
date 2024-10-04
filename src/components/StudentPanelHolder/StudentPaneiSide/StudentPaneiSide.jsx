@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../common/Logo";
+import LogoWithTypo from "../../common/LogoWithTypo";
 import {
   Activity01Icon,
   Book02Icon,
@@ -26,7 +26,7 @@ function StudentPaneiSide() {
   return (
     <div className="side w-[20%] text-white flex flex-col justify-between">
       <div className="w-fit space-y-8">
-        <Logo />
+        <LogoWithTypo />
         {sideBarItem?.map((item, index) => (
           <div key={index} className="font-DanaFaNum-500 text-lg">
             <Link

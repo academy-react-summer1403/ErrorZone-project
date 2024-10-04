@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "../../common/Logo";
 import NotificationBtn from "../../Header/ThemeAndNotifBtns/NotificationBtn";
 import ThemeToggle from "../../Header/ThemeAndNotifBtns/ThemeToggle";
 
