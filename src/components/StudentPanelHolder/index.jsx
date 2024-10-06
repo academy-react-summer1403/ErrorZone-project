@@ -5,7 +5,7 @@ import StudentPanelPage from "./StudentPanelPage/StudentPanelPage";
 
 const studentPanelHolder = ({Outlet}) => {
   return (
-    <div className="bg-blackPanel h-screen flex justify-between flex-nowrap">
+    <div className="bg-blackPanel h-screen flex justify-between flex-nowrap px-6 pb-6 pt-3">
 
 <StudentPaneiSide />
 

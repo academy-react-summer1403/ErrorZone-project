@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../../app/index";
 import Landing from "../../screens/Landing";
-import StudentPanel from "../../screens/StudentPanel"
+import StudentPanel from "../../screens/StudentPanel";
 import NotFound from "../../screens/NotFound";
 import { LoginRegisterForgetPassLayout } from "../../components/User/LoginRegisterForgetPass/LoginRegisterForgetPassLayout";
 
@@ -15,9 +15,6 @@ import CoursesFav from "../../components/StudentPanelHolder/StudentPanelPage/Cou
 import BlogFav from "../../components/StudentPanelHolder/StudentPanelPage/Blogfav/Blogfav";
 import Profile from "../../components/StudentPanelHolder/StudentPanelPage/profile/profile";
 
-
-
-
 export const TestingRoutes = createBrowserRouter([
   {
     path: "/",
@@ -28,17 +25,18 @@ export const TestingRoutes = createBrowserRouter([
       { path: "/articles", element: <Articles /> },
     ],
   },
-
-
-  { path: "/StudentPanel", element: <StudentPanel />, children:[
-    {path: "/StudentPanel/dashboard", element:<Dashboard /> , },
-    {path: "/StudentPanel/myCourse", element: <MyCourse />, } ,
-    {path: "/StudentPanel/reservesCourse", element:<ReservesCourse />, },
-    {path: "/StudentPanel/Coursesfav", element: <CoursesFav /> , },
-    {path: "/StudentPanel/Blogfav", element:<BlogFav /> , },
-    {path: "/StudentPanel/profile", element:<Profile /> , },
-
-  ] },
+  {
+    path: "/StudentPanel",
+    element: <StudentPanel />,
+    children: [
+      { path: "/StudentPanel/dashboard", element: <Dashboard /> },
+      { path: "/StudentPanel/myCourse", element: <MyCourse /> },
+      { path: "/StudentPanel/reservesCourse", element: <ReservesCourse /> },
+      { path: "/StudentPanel/Coursesfav", element: <CoursesFav /> },
+      { path: "/StudentPanel/Blogfav", element: <BlogFav /> },
+      { path: "/StudentPanel/profile", element: <Profile /> },
+    ],
+  },
   { path: "/login", element: <LoginRegisterForgetPassLayout /> },
   { path: "/*", element: <NotFound /> },
 ]);
