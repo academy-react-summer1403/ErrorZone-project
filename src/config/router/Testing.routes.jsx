@@ -16,6 +16,10 @@ import ReservesCourse from "../../components/StudentPanelHolder/StudentPanelPage
 import CoursesFav from "../../components/StudentPanelHolder/StudentPanelPage/Coursesfav/Coursesfav";
 import BlogFav from "../../components/StudentPanelHolder/StudentPanelPage/Blogfav/Blogfav";
 import Profile from "../../components/StudentPanelHolder/StudentPanelPage/profile/profile";
+import RegisterFormStep1 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep1";
+import RegisterFormStep2 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep2";
+import RegisterFormStep3 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep3";
+import RegisterStepper from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterForm";
 
 
 
@@ -34,7 +38,10 @@ export const TestingRoutes = createBrowserRouter([
   
   { path: "/login", element: <LoginRegisterForgetPassLayout /> , children:[
     {path: "/login" , element:<LoginForm />},
-    {path: "/login/verifycode" , element:<LoginVerifyCode />},    
+    {path: "/login/verifycode" , element:<LoginVerifyCode />},
+    {path: "/login/register/step1" , element:<RegisterFormStep1 />}, 
+    {path: "/login/register/step2" , element:<RegisterFormStep2 />},           
+    {path: "/login/register/step3" , element:<RegisterFormStep3 />},
   ]},
 
 
