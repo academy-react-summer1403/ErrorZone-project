@@ -1,5 +1,3 @@
-import { Menu02Icon } from "hugeicons-react";
-
 import React, { useState } from "react";
 import HamMenuBtn from "./HamMenuBtn";
 import HamMenuContainer from "./HamMenuContainer";
