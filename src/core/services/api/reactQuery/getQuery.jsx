@@ -12,3 +12,18 @@ export const getQuery = (queryKey, apiAddress) => {
 
     return data;
 }
+
+export const getQueryFiltterByCount =  (queryKey, apiAddress, count) => {
+    const { data, isError, isLoading } = useQuery({
+        queryKey: [queryKey],
+        queryFn: async () => {
+            const res = await http.get(apiAddress)
+            return res.filter((el) => el.id <= count);
+        }
+    })
+
+    if (isError) alert("Fetching is onSuccessfull");
+    if (isLoading) <div> "Loading" </div>
+
+    return data;
+}

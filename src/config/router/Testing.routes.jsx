@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../../app/index";
 import Landing from "../../screens/Landing";
-import StudentPanel from "../../screens/StudentPanel"
+import StudentPanel from "../../screens/StudentPanel";
 import NotFound from "../../screens/NotFound";
 import { LoginRegisterForgetPassLayout } from "../../components/User/LoginRegisterForgetPass/LoginRegisterForgetPassLayout";
 import { LoginForm } from "../../components/User/LoginRegisterForgetPass/LoginHolder/LoginForm";
@@ -21,9 +21,6 @@ import RegisterFormStep2 from "../../components/User/LoginRegisterForgetPass/Reg
 import RegisterFormStep3 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep3";
 import RegisterStepper from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterForm";
 
-
-
-
 export const TestingRoutes = createBrowserRouter([
   {
     path: "/",
@@ -32,8 +29,10 @@ export const TestingRoutes = createBrowserRouter([
       { path: "/", element: <Landing /> },
       { path: "/courses", element: <Courses /> },
       { path: "/articles", element: <Articles /> },
+      { path: "/teachers", element: <Landing /> },
     ],
   },
+
 
   
   { path: "/login", element: <LoginRegisterForgetPassLayout /> , children:[
@@ -46,15 +45,18 @@ export const TestingRoutes = createBrowserRouter([
 
 
 
-  { path: "/StudentPanel", element: <StudentPanel />, children:[
-    {path: "/StudentPanel/dashboard", element:<Dashboard /> , },
-    {path: "/StudentPanel/myCourse", element: <MyCourse />, } ,
-    {path: "/StudentPanel/reservesCourse", element:<ReservesCourse />, },
-    {path: "/StudentPanel/Coursesfav", element: <CoursesFav /> , },
-    {path: "/StudentPanel/Blogfav", element:<BlogFav /> , },
-    {path: "/StudentPanel/profile", element:<Profile /> , },
+  {
+    path: "/StudentPanel",
+    element: <StudentPanel />,
+    children: [
+      { path: "/StudentPanel/dashboard", element: <Dashboard /> },
+      { path: "/StudentPanel/myCourse", element: <MyCourse /> },
+      { path: "/StudentPanel/reservesCourse", element: <ReservesCourse /> },
+      { path: "/StudentPanel/Coursesfav", element: <CoursesFav /> },
+      { path: "/StudentPanel/Blogfav", element: <BlogFav /> },
+      { path: "/StudentPanel/profile", element: <Profile /> },
+    ],
+  },
 
-  ] },
-  
   { path: "/*", element: <NotFound /> },
 ]);
