@@ -1,10 +1,9 @@
 import React from "react";
 
-const OurSeviceCard = ({ title, description, image, color, iconColor }) => {
+const OurSeviceCard = ({ title, description, image, iconColor }) => {
   return (
     <div
-      className="card  border-2 text-right rounded-3xl p-5 w-full tablet:w-[45%] h-36 flex items-center bg-gray-100 dark:bg-black"
-      style={{ borderColor: color }}
+      className="card  border-2 border-gray-400 hover:border-blue hover:cursor-pointer text-right rounded-3xl p-5 w-full tablet:w-[45%] h-36 flex items-center bg-gray-100 dark:bg-black"
     >
       <div className="flex justify-start gap-4 items-center">
         <div
