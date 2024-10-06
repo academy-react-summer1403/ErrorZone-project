@@ -5,7 +5,8 @@ const BlueInputField = ({
   name,
   placeholder,
   isDisabled,
-  icon
+  icon,
+  
 }) => {
   return (
     <div className="w-[370px] h-[78px] mx-auto my-[6px] relative z-[1px]">
@@ -23,7 +24,7 @@ const BlueInputField = ({
           type={type}
           name={name}
           placeholder={placeholder}
-          className={`border-2 border-gray-400 bg-white rounded-3xl w-[398px] h-[48px]  relative top-[1px] focus:bg-transparent bg-transparent text-bluePrimary text-[14px] focus:text-textBlack placeholder:text-[14px] placeholder:text-bluePrimary pr-4`}
+          className={`border-2 border-gray-400 bg-white dark:bg-gray-500 darK:text-white rounded-3xl w-[398px] h-[48px]  relative top-[1px] dark:focus:bg-gray-500 dark:focus:text-white  bg-transparent text-bluePrimary text-[14px] focus:text-textBlack placeholder:text-[14px] placeholder:text-bluePrimary pr-4`}
           disabled={isDisabled}
           icon={icon}
         />
