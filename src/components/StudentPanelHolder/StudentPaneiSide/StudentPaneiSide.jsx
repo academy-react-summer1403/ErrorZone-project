@@ -1,9 +1,5 @@
 import React from "react";
-
-
-import LogoWithTypo from "../../common/LogoWithTypo";
-
-
+import LogoWithTypo from "../../common/LogoWithTypo/";
 import {
   Activity01Icon,
   Book02Icon,
@@ -18,13 +14,37 @@ import { Link } from "react-router-dom";
 
 function StudentPaneiSide() {
   const sideBarItem = [
-    { title: "داشبرد", icon: <Activity01Icon />, path: "/StudentPanel/dashboard" },
+    {
+      title: "داشبرد",
+      icon: <Activity01Icon />,
+      path: "/StudentPanel/dashboard",
+    },
     { title: "دوره من", icon: <CourseIcon />, path: "/StudentPanel/myCourse" },
-    { title: "رزرو من", icon: <Book02Icon />, path: "/StudentPanel/reservesCourse" },
-    { title: "دوره های موردعلاقه", icon: <Books02Icon />, path: "/StudentPanel/Coursesfav" },
-    { title: "بلاگ های موردعلاقه", icon: <LibraryIcon />, path: "/StudentPanel/Blogfav" },
-    { title: "پروفایل", icon: <UserSquareIcon />, path: "/StudentPanel/profile" },
-    { title: "پرداخت ها", icon: <MoneySend02Icon />, path: "/StudentPanel/payment" },
+    {
+      title: "رزرو من",
+      icon: <Book02Icon />,
+      path: "/StudentPanel/reservesCourse",
+    },
+    {
+      title: "دوره های موردعلاقه",
+      icon: <Books02Icon />,
+      path: "/StudentPanel/Coursesfav",
+    },
+    {
+      title: "بلاگ های موردعلاقه",
+      icon: <LibraryIcon />,
+      path: "/StudentPanel/Blogfav",
+    },
+    {
+      title: "پروفایل",
+      icon: <UserSquareIcon />,
+      path: "/StudentPanel/profile",
+    },
+    {
+      title: "پرداخت ها",
+      icon: <MoneySend02Icon />,
+      path: "/StudentPanel/payment",
+    },
   ];
 
   return (
@@ -44,9 +64,8 @@ function StudentPaneiSide() {
         ))}
       </div>
       <div className=" border border-red rounded-full py-4 pr-4 pl-18 flex justify-start items-center gap-2 text-red ">
-            <Logout03Icon />
-    <span>خروج از حساب کاربری</span>
-
+        <Logout03Icon />
+        <span>خروج از حساب کاربری</span>
       </div>
     </div>
   );

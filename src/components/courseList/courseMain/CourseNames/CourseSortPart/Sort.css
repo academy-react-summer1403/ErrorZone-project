@@ -1,0 +1,19 @@
+.sort {
+  display: flex;
+}
+.SortBtn > input {
+  display: none;
+}
+
+.SortBtn > label {
+  border: 1px solid black;
+  border-radius: 34px;
+  padding: 8px 16px;
+}
+
+.SortBtn > input:checked + label {
+  border: 1px solid #FF5353;
+  color: #FF5353;
+  padding-right:44px ;
+  background: url("../../../../../assets/images/cancel-01.png")no-repeat 85% 50%;
+}
