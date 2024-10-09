@@ -728,6 +728,7 @@ video {
   left: 50%;
 }
 
+
 .left-\[10\%\] {
   left: 10%;
 }
@@ -958,6 +959,16 @@ video {
 
 .top-\[32px\] {
   top: 32px;
+
+}
+
+.top-\[3px\] {
+  top: 3px;
+}
+
+.top-\[40px\] {
+  top: 40px;
+
 }
 
 .top-\[3px\] {
@@ -1006,14 +1017,27 @@ video {
 
 .z-0 {
   z-index: 0;
+
 }
 
 .z-10 {
   z-index: 10;
 }
 
+.top-\[68px\] {
+  top: 68px;
+}
+
+.top-\[80px\] {
+  top: 80px;
+}
+
+.top-\[85px\] {
+  top: 85px;
+]
 .z-20 {
   z-index: 20;
+
 }
 
 .z-30 {
@@ -1143,6 +1167,7 @@ video {
   margin-bottom: 6px;
 }
 
+
 .my-\[calc\(\(theme\(spacing\.5\)-theme\(spacing\.1\)\)\/2\)\] {
   margin-top: calc((1.25rem - 0.25rem) / 2);
   margin-bottom: calc((1.25rem - 0.25rem) / 2);
@@ -1178,6 +1203,7 @@ video {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
+
 
 .mb-32 {
   margin-bottom: 8rem;
@@ -1235,6 +1261,7 @@ video {
   margin-inline-start: 0.5rem;
 }
 
+
 .mt-1 {
   margin-top: 0.25rem;
 }
@@ -1245,6 +1272,14 @@ video {
 
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mt-2\.5 {
+  margin-top: 0.625rem;
+}
+
+.mt-20 {
+  margin-top: 5rem;
 }
 
 .mt-52 {
@@ -1480,9 +1515,11 @@ video {
   height: 293px;
 }
 
+
 .h-\[2px\] {
   height: 2px;
 }
+
 
 .h-\[30px\] {
   height: 30px;
@@ -1540,6 +1577,10 @@ video {
   height: 960px;
 }
 
+
+.h-\[calc\(100\%_-_45px\)\] {
+  height: calc(100% - 45px);
+
 .h-\[calc\(100dvh_-_var\(--navbar-height\)\)\] {
   height: calc(100dvh - var(--navbar-height));
 }
@@ -1550,6 +1591,7 @@ video {
 
 .h-\[var\(--picker-height\)\] {
   height: var(--picker-height);
+
 }
 
 .h-auto {
@@ -1582,12 +1624,17 @@ video {
   height: 100vh;
 }
 
+
+.min-h-\[1190px\] {
+  min-height: 1190px;
+
 .max-h-64 {
   max-height: 16rem;
 }
 
 .max-h-\[calc\(100\%_-_8rem\)\] {
   max-height: calc(100% - 8rem);
+
 }
 
 .min-h-10 {
@@ -1597,6 +1644,14 @@ video {
 .min-h-12 {
   min-height: 3rem;
 }
+
+
+.w-2\/3 {
+  width: 66.666667%;
+}
+
+.w-3\/5 {
+  width: 60%;
 
 .min-h-14 {
   min-height: 3.5rem;
@@ -1688,6 +1743,7 @@ video {
 
 .w-3\.5 {
   width: 0.875rem;
+
 }
 
 .w-32 {
@@ -2002,12 +2058,17 @@ video {
   max-width: 64rem;
 }
 
+
+.gap-12 {
+  gap: 3rem;
+
 .max-w-\[1024px\] {
   max-width: 1024px;
 }
 
 .max-w-\[1280px\] {
   max-width: 1280px;
+
 }
 
 .max-w-\[1520px\] {
@@ -2133,6 +2194,11 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+
+.rounded-s-full {
+  border-start-start-radius: 9999px;
+  border-end-start-radius: 9999px;
+
 .translate-x-1 {
   --tw-translate-x: 0.25rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2161,6 +2227,7 @@ video {
 .rotate-0 {
   --tw-rotate: 0deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+
 }
 
 .rotate-180 {
@@ -8437,8 +8504,14 @@ button {
   opacity: 1;
 }
 
+
+.bg-gray-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(75 85 99 / var(--tw-bg-opacity));
+
 .group[data-selected="true"] .group-data-\[selected\=true\]\:opacity-60 {
   opacity: 0.6;
+
 }
 
 .group[data-focus-visible="true"] .group-data-\[focus-visible\=true\]\:ring-2 {
@@ -8509,9 +8582,20 @@ button {
   margin-left: 0.125rem;
 }
 
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-0\.5 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+
 .group[data-focus="true"] .group-data-\[focus\=true\]\:after\:w-full::after {
   content: var(--tw-content);
   width: 100%;
+
 }
 
 .group[data-open="true"] .group-data-\[open\=true\]\:after\:translate-y-0::after {
@@ -8539,10 +8623,16 @@ button {
   background-color: hsl(var(--nextui-danger) / var(--nextui-danger-opacity, var(--tw-bg-opacity)));
 }
 
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
 .group[data-required="true"] .group-data-\[required\=true\]\:after\:text-danger::after {
   content: var(--tw-content);
   --tw-text-opacity: 1;
   color: hsl(var(--nextui-danger) / var(--nextui-danger-opacity, var(--tw-text-opacity)));
+
 }
 
 .group[data-selected="true"] .group-data-\[selected\=true\]\:after\:opacity-100::after {
@@ -8550,9 +8640,18 @@ button {
   opacity: 1;
 }
 
+
+.pb-6 {
+  padding-bottom: 1.5rem;
+}
+
+.pb-\[72px\] {
+  padding-bottom: 72px;
+
 .group[data-required="true"] .group-data-\[required\=true\]\:after\:content-\[\'\*\'\]::after {
   --tw-content: '*';
   content: var(--tw-content);
+
 }
 
 .group[data-invalid="true"] .group-data-\[invalid\=true\]\:hover\:border-danger:hover {
@@ -8564,6 +8663,22 @@ button {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--nextui-danger-100) / var(--nextui-danger-100-opacity, var(--tw-bg-opacity)));
 }
+
+
+.pr-3 {
+  padding-right: 0.75rem;
+}
+
+.pr-4 {
+  padding-right: 1rem;
+}
+
+.pt-16 {
+  padding-top: 4rem;
+}
+
+.pt-3 {
+  padding-top: 0.75rem;
 
 .group[data-invalid="true"] .group-data-\[invalid\=true\]\:focus-within\:hover\:border-danger:hover:focus-within {
   --tw-border-opacity: 1;
@@ -8579,6 +8694,7 @@ button {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: hsl(var(--nextui-default-100) / var(--nextui-default-100-opacity, var(--tw-bg-opacity)));
+
 }
 
 .group[aria-selected="false"][data-hover="true"] .group-aria-\[selected\=false\]\:group-data-\[hover\=true\]\:before\:opacity-70::before {
@@ -8639,9 +8755,18 @@ button {
   border-width: 1px;
 }
 
+
+.text-6xl {
+  font-size: 40px;
+}
+
+.text-\[14px\] {
+  font-size: 14px;
+
 .dark\:border-gray-500:is(.dark *) {
   --tw-border-opacity: 1;
   border-color: rgb(107 114 128 / var(--tw-border-opacity));
+
 }
 
 .dark\:border-white:is(.dark *) {
@@ -8801,8 +8926,13 @@ button {
   background-color: hsl(var(--nextui-success-400) / 0.2);
 }
 
+
+.dark\:border:is(.dark *) {
+  border-width: 1px;
+
 .dark\:focus\:bg-warning-400\/20:focus:is(.dark *) {
   background-color: hsl(var(--nextui-warning-400) / 0.2);
+
 }
 
 .dark\:focus\:text-white:focus:is(.dark *) {

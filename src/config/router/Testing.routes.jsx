@@ -21,6 +21,7 @@ import RegisterFormStep2 from "../../components/User/LoginRegisterForgetPass/Reg
 import RegisterFormStep3 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep3";
 import RegisterStepper from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterForm";
 
+
 export const TestingRoutes = createBrowserRouter([
   {
     path: "/",
@@ -33,7 +34,6 @@ export const TestingRoutes = createBrowserRouter([
     ],
   },
 
-
   
   { path: "/login", element: <LoginRegisterForgetPassLayout /> , children:[
     {path: "/login" , element:<LoginForm />},
@@ -42,6 +42,7 @@ export const TestingRoutes = createBrowserRouter([
     {path: "/login/register/step2" , element:<RegisterFormStep2 />},           
     {path: "/login/register/step3" , element:<RegisterFormStep3 />},
   ]},
+
 
   {
     path: "/StudentPanel",
@@ -55,6 +56,7 @@ export const TestingRoutes = createBrowserRouter([
       { path: "/StudentPanel/profile", element: <Profile /> },
     ],
   },
+
 
   { path: "/*", element: <NotFound /> },
 ]);
