@@ -20,6 +20,7 @@ import RegisterFormStep1 from "../../components/User/LoginRegisterForgetPass/Reg
 import RegisterFormStep2 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep2";
 import RegisterFormStep3 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep3";
 import RegisterStepper from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterForm";
+import ArticlesDetail from "../../screens/ArticlesDetail";
 
 
 export const TestingRoutes = createBrowserRouter([
@@ -31,6 +32,8 @@ export const TestingRoutes = createBrowserRouter([
       { path: "/courses", element: <Courses /> },
       { path: "/articles", element: <Articles /> },
       { path: "/teachers", element: <Landing /> },
+      { path: "/articles/detail/:articleId", element: <ArticlesDetail /> },
+      
     ],
   },
 
