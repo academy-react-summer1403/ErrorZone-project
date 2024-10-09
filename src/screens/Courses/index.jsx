@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
+import CourseNote from "../../components/courseList/courseNote/courseNote";
+import CourseMain from "../../components/courseList/courseMain/courseMain";
 
 const Courses = () => {
   return (
-    <div>Courses
-      
-    </div>
-  )
-}
+    <div className="w-full px-10">
+<CourseNote />
+<CourseMain />
 
-export default Courses
+    </div>
+  );
+};
+
+export default Courses;
