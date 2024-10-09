@@ -1,14 +1,22 @@
-import React from "react";
 import HeaderHolder from "../../components/Header/HeaderHolder";
-import Logo from "../../components/common/Logo";
+import LogoWithTypo from "../../components/common/LogoWithTypo";
 import ThemeAndNotifBtns from "../../components/Header/ThemeAndNotifBtns";
+import HamburgerMenu from "../../components/Header/HamburgerMenu";
+import LogoNoTypo from "../../components/common/LogoNoTypo";
+import HeaderHolderMobile from "../../components/Header/HeaderHolderMobile";
 
 const Header = () => {
   return (
-    <div className="w-full mx-auto flex justify-between">
-      <Logo />
-      <HeaderHolder />
-      <ThemeAndNotifBtns />
+    <div className="w-full max-w-[1520px] mx-auto flex justify-between h-14 tablet:h-auto px-4 tablet:px-10 pt-6">
+      <LogoWithTypo /> {/*in tablet mode will disapear*/}
+      <LogoNoTypo /> {/* in tablet mode will appear*/}
+      <HeaderHolder /> {/*in tablet mode will disapear*/}
+      <ThemeAndNotifBtns /> {/*in tablet mode will disapear*/}
+      <div className="flex items-center gap-2 flex-nowrap tablet:hidden">
+        <HeaderHolderMobile />
+        <HamburgerMenu />
+      </div>
+      {/* in tablet mode will appear*/}
     </div>
   );
 };
