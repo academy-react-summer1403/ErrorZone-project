@@ -2,11 +2,11 @@ import React from 'react'
 import CourseInfoTablePcView from './CourseInfoTablePcView'
 import CourseInfoTableMobView from './CourseInfoTableMobView'
 
-const CourseInfoTable = () => {
+const CourseInfoTable = ({data}) => {
   return (
     <>
-        <CourseInfoTablePcView />
-        <CourseInfoTableMobView />
+        <CourseInfoTablePcView data={data} />
+        <CourseInfoTableMobView data={data} />
     </>
   )
 }

@@ -8,8 +8,9 @@ import {
   TableCell,
   Chip,
 } from "@nextui-org/react";
+import { convertDate } from "../../../../core/utils/DateToShamsi";
 
-const CourseInfoTablePcView = () => {
+const CourseInfoTablePcView = ({data}) => {
   return (
     <div className="hidden tablet:block">
       <Table hideHeader aria-label="Example static collection table">
@@ -25,22 +26,24 @@ const CourseInfoTablePcView = () => {
 
             <TableCell>
               <div className="text-sm text-gray-800">وضعیت</div>
-              <Chip color="danger"></Chip>
+              <Chip color="danger">{data.courseStatusName}</Chip>
             </TableCell>
 
             <TableCell>
               <div className="text-sm text-gray-800">دسته‌بندی</div>
-              <Chip color="primary"></Chip>
+              {data.techs?.map((item,index)=>(
+              <Chip color="primary" key={index}>{item}</Chip>
+              ))}
             </TableCell>
 
             <TableCell>
               <div className="text-sm text-gray-800">سطح آموزشی</div>
-              <Chip color="secondary"></Chip>
+              <Chip color="secondary">{data.courseLevelName}</Chip>
             </TableCell>
 
             <TableCell>
               <div className="text-sm text-gray-800">استاد دوره</div>
-              <div></div>
+              <div>{data.teacherName}</div>
             </TableCell>
 
           </TableRow>
@@ -48,22 +51,22 @@ const CourseInfoTablePcView = () => {
           <TableRow key="2" className="border-t-2 border-gray-400 pb-3 mt-2 h-20">
             <TableCell>
             <span className="text-sm text-gray-800">تاریخ برگزاری</span>
-            <div></div>
+            <div>{convertDate(data.startTime)}</div>
             </TableCell>
 
             <TableCell>
             <span className="text-sm text-gray-800">تاریخ اتمام</span>
-            <div></div>
+            <div>{convertDate(data.endTime)}</div>
             </TableCell>
 
             <TableCell>
             <span className="text-sm text-gray-800">تعداد لایک</span>
-            <div></div>
+            <div>{data.likeCount}</div>
             </TableCell>
 
             <TableCell>
             <span className="text-sm text-gray-800">تعداد دیس‌لایک</span>
-            <div></div>
+            <div>{data.dissLikeCount}</div>
             </TableCell>
             
           </TableRow>

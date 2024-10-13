@@ -34,9 +34,6 @@ export const TestingRoutes = createBrowserRouter([
       { path: "/courses/:id", element: <CourseDetail /> },
     ],
   },
-
-
-  
   { path: "/login", element: <LoginRegisterForgetPassLayout /> , children:[
     {path: "/login" , element:<LoginForm />},
     {path: "/login/verifycode" , element:<LoginVerifyCode />},
@@ -44,7 +41,6 @@ export const TestingRoutes = createBrowserRouter([
     {path: "/login/register/step2" , element:<RegisterFormStep2 />},           
     {path: "/login/register/step3" , element:<RegisterFormStep3 />},
   ]},
-
   {
     path: "/StudentPanel",
     element: <StudentPanel />,
@@ -57,6 +53,5 @@ export const TestingRoutes = createBrowserRouter([
       { path: "/StudentPanel/profile", element: <Profile /> },
     ],
   },
-
   { path: "/*", element: <NotFound /> },
 ]);
