@@ -1599,6 +1599,58 @@ video {
   height: 100vh;
 }
 
+.h-\[\] {
+  height: ;
+}
+
+.h-\[calc\] {
+  height: calc;
+}
+
+.h-\[calc\(\)\] {
+  height: calc();
+}
+
+.h-\[calc\(100\)\] {
+  height: calc(100);
+}
+
+.h-\[calc\(100\%\)\] {
+  height: calc(100%);
+}
+
+.h-\[calc\(100\%_-_\)\] {
+  height: calc(100% - );
+}
+
+.h-\[calc\(100\%_-_1\)\] {
+  height: calc(100% - 1);
+}
+
+.h-\[calc\(100\%_-_100px\)\] {
+  height: calc(100% - 100px);
+}
+
+.h-\[calc\(100\%_-_10px\)\] {
+  height: calc(100% - 10px);
+}
+
+.h-\[calc\(100\%_-_20px\)\] {
+  height: calc(100% - 20px);
+}
+
+.h-\[calc\(100\%_-_50px\)\] {
+  height: calc(100% - 50px);
+}
+
+.h-\[calc\(100\%_-_4px\)\] {
+  height: calc(100% - 4px);
+}
+
+.h-\[calc\(100\%_-_40px\)\] {
+  height: calc(100% - 40px);
+}
+
 .max-h-64 {
   max-height: 16rem;
 }

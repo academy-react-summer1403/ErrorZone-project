@@ -3,13 +3,12 @@ import StudentPanelHeader from "./StudentPanelHeader/StudentPanelHeader";
 import StudentPaneiSide from "./StudentPaneiSide/StudentPaneiSide";
 import StudentPanelPage from "./StudentPanelPage/StudentPanelPage";
 
-const studentPanelHolder = ({Outlet}) => {
+const studentPanelHolder = ({ Outlet }) => {
   return (
-    <div className="bg-blackPanel h-screen flex justify-between flex-nowrap">
+    <div className="bg-blackPanel h-screen flex justify-between flex-nowrap p-6">
+      <StudentPaneiSide />
 
-<StudentPaneiSide />
-
-      <div className=" w-[78%]">
+      <div className=" w-[78%] space-y-3">
         <StudentPanelHeader />
         <StudentPanelPage Outlet={Outlet} />
       </div>
