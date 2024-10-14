@@ -15,6 +15,9 @@ import { ImHome } from "react-icons/im";
 import AuthFields from "../../../common/AuthFields/AuthFields";
 import { Home03Icon, ViewIcon } from "hugeicons-react";
 
+import { setItem } from "../../../../core/services/common/storage.services";
+
+
 const LoginForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
 
@@ -29,24 +32,21 @@ const LoginForm = () => {
       if (user.success === true) {
         if (user.token === null) {
           dispatch(onSetLoginInfo(value));
-          SuccessToastify(user.massage);
+
+          // SuccessToastify(user.massage)
+
           setTimeout(() => {
             Navigate("/login/verifycode");
           }, 2000);
           setIsDisabled(false);
         } else if (user.token !== null) {
-          SuccessToastify(error.massage);
+
+          //  SuccessToastify(error.massage)
           //console.log('error' , error.massage)
-          setItem(
-            "userList",
-            JSON.stringify([
-              {
-                token: user.token,
-                phoneNumber: user.phoneNumber,
-                isActiveUser: true,
-              },
-            ])
-          );
+          setItem("Token", {
+            token: user.token,
+          });
+
 
           setTimeout(() => {
             Navigate("/");
@@ -62,7 +62,9 @@ const LoginForm = () => {
 
   return (
     <>
+
       <div className="  w-full h-[87%] mt-[105px]" dir="rtl">
+
         <div className="flex gap-[20px] "></div>
         <p className="w-[200px] h-[40px] relative top-[100px] right-[60px] font-semibold text-3xl text-black font-DanaFaNum-600 dark:text-white ">
           {" "}
