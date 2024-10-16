@@ -53,4 +53,19 @@
     },
   ];
   
+//   <div>
+//   <Tooltip content="رزرو">
+//     <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+//       <BookDownloadIcon />
+//     </span>
+//   </Tooltip>
+// </div>
+
+// <div>
+//   <Tooltip color="danger" content="حذف">
+//     <span className="text-lg text-danger cursor-pointer active:opacity-50">
+//       <Cancel01Icon />
+//     </span>
+//   </Tooltip>
+// </div>
   export {columns, users};
