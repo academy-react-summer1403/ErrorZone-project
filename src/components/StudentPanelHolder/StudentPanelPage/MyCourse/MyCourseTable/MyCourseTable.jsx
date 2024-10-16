@@ -3,32 +3,40 @@ import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, User, C
 import {EditIcon} from "./EditIcon";
 import {DeleteIcon} from "./DeleteIcon";
 import {EyeIcon} from "./EyeIcon";
-import {columns, users} from "./data";
+// import {columns, users} from "./data";
+import { usequery } from '../../../../../core/services/api/reactQuery/usequery';
 
 
 const MyCourseTable = () => {
+  const columns = [
+    {name: "نام", uid: "courseTitle"},
+    {name: "مدرس", uid: "fullName"},
+    {name: "سطح", uid: "levelName"},
+    {name: "", uid: "actions"},
+  ];
+  
+  const userCourses = usequery('MyCourses');
+
     const renderCell = React.useCallback((user, columnKey) => {
         const cellValue = user[columnKey];
     
         switch (columnKey) {
-          case "name":
+          case "courseTitle":
             return (
               <User
-                avatarProps={{radius: "lg", src: user.avatar}}
-                description={user.email}
+                avatarProps={{radius: "lg", src: user.tumbImageAddress}}
                 name={cellValue}
               >
-                {user.email}
               </User>
             );
-          case "teacher":
+          case "fullName":
             return (
               <div className="flex flex-col">
                 <p className="text-bold text-sm capitalize">{cellValue}</p>
-                <p className="text-bold text-sm capitalize text-default-400">{user.team}</p>
+                {/* <p className="text-bold text-sm capitalize text-default-400">{user.team}</p> */}
               </div>
             );
-          case "level":
+          case "levelName":
             return (
               <Chip className="capitalize bg-[#FF37F5] text-white" size="sm" variant="flat">
                 {cellValue}
@@ -68,7 +76,7 @@ const MyCourseTable = () => {
               </TableColumn>
             )}
           </TableHeader>
-          <TableBody items={users}>
+          <TableBody items={userCourses}>
             {(item) => (
               <TableRow key={item.id}>
                 {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}

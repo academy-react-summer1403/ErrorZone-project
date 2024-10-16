@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-export const usequery = (queryKey, apiAddress) => {
+export const usequery = (queryKey) => {
     const { data, isError, isLoading } = useQuery({
         queryKey: [queryKey],
     })

@@ -1,9 +1,4 @@
-const columns = [
-    {name: "نام", uid: "name"},
-    {name: "مدرس", uid: "teacher"},
-    {name: "سطح", uid: "level"},
-    {name: "", uid: "actions"},
-  ];
+
   
   const users = [
     {
