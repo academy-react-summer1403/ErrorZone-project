@@ -1,9 +1,23 @@
 import React from 'react'
+import { getQuery } from '../../../../core/services/api/reactQuery/getQuery';
+import { usequery } from '../../../../core/services/api/reactQuery/usequery';
+import MyFavCourseTable from './MyFavCourseTable/MyFavCourseTable';
+import { Skeleton } from '@nextui-org/react';
+
+
 
 const CoursesFav = () => {
+  getQuery('myFavCourses', '/SharePanel/GetMyFavoriteCourses');
   return (
-    <div>F</div>
+    <div>
+      <div className='title font-DanaFaNum-700 text-2xl'>دوره های موردعلاقه</div>
+      <div className='min-h-20 mt-6'>
+        {usequery("myFavCourses") ? <MyFavCourseTable /> : <Skeleton className="rounded-2xl w-full min-h-52 h-full"/> }
+        
+      </div>
+    </div>
   )
 }
+
 
 export default CoursesFav

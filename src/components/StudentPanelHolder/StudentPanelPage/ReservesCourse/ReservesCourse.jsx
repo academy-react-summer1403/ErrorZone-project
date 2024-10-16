@@ -1,8 +1,12 @@
 import React from 'react'
+import { getQuery } from '../../../../core/services/api/reactQuery/getQuery'
 
 const ReservesCourse = () => {
+getQuery('myReservesCourses', '/SharePanel/GetMyCoursesReserve');
   return (
-    <div>reservesCourse</div>
+    <div>
+
+    </div>
   )
 }
 

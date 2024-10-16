@@ -1,5 +1,5 @@
 import React from "react";
-import ImageNotFound from "../ImageNotFound";
+// import ImageNotFound from "../ImageNotFound";
 import TagOfCard from "./TagOfCard";
 
 const CardTop = ({ item }) => {
@@ -15,10 +15,15 @@ const CardTop = ({ item }) => {
         <img
           src={tumbImageAddress}
           alt={title}
-          className="rounded-[32px] block w-full h-[293px] scale-105"
+          className="rounded-[32px] block w-full h-[293px]"
         />
       ) : (
-        <ImageNotFound />
+        // <ImageNotFound />
+        <img
+          src="https://classapi.sepehracademy.ir/\Pictures\Course\blank-thumbnail_009f5021-ce99-4a2d-9077-9d4417b6111f.jpg"
+          alt={title}
+          className="rounded-[32px] block w-full h-[293px]"
+        />        
       )}
     </div>
   );

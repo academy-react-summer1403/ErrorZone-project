@@ -14,7 +14,14 @@ const CourseDetailImagePart = ({ pic }) => {
           className="w-full object-fill"
         />
       ) : (
-        <ImageNotFound01Icon />
+        // <ImageNotFound01Icon />
+        <Image
+          width={"100%"}
+          height={424}
+          alt="NextUI hero Image with delay"
+          src="https://classapi.sepehracademy.ir/\Pictures\Course\blank-thumbnail_009f5021-ce99-4a2d-9077-9d4417b6111f.jpg"
+          className="w-full object-fill"
+        />        
       )}
     </div>
   );
