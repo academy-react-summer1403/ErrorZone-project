@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import { usequeryy } from "../../../../../../../core/services/api/reactQuery/useQuery";
 
 const DashHeaderLeft = () => {
+  const data = usequeryy('userInfo');
   return (
-    <div> texttttttttt</div>
-  )
-}
+      <span className="  flex  w-[40%] leading-5 ">
+        {data?.userAbout}
+      </span>
+  );
+};
 
-export default DashHeaderLeft
+export default DashHeaderLeft;

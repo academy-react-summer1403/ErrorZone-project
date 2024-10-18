@@ -15,7 +15,7 @@ const CardTop = ({ item }) => {
         <img
           src={tumbImageAddress}
           alt={title}
-          className="rounded-[32px] block w-full h-[293px] scale-105"
+          className="rounded-[32px] block w-full h-[293px]"
         />
       ) : (
         <ImageNotFound />

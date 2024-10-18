@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../../app/index";
 import Landing from "../../screens/Landing";
-import StudentPanel from "../../screens/StudentPanel";
+import StudentPanel from "../../screens/studentPanel";
 import NotFound from "../../screens/NotFound";
 import { LoginRegisterForgetPassLayout } from "../../components/User/LoginRegisterForgetPass/LoginRegisterForgetPassLayout";
 import { LoginForm } from "../../components/User/LoginRegisterForgetPass/LoginHolder/LoginForm";
