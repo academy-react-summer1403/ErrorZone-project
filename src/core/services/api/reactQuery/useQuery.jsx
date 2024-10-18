@@ -8,5 +8,5 @@ export const usequery = (queryKey) => {
     if (isError) alert("Fetching is onSuccessfull");
     if (isLoading) <div> "Loading" </div>
 
-    return data;
+    return data
 }
