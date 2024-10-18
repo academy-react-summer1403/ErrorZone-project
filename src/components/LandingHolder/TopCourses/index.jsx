@@ -7,6 +7,7 @@ const TopCourses = () => {
   const { data } = useQuery({
     queryKey: ["topCourses"],
   });
+  // console.log(data);
 
   return (
     <div className="space-y-12">

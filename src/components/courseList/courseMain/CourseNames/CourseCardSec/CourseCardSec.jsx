@@ -7,10 +7,12 @@ import { Card, Skeleton } from "@nextui-org/react";
 const CourseCardSec = () => {
   const data = usequery("corsesByPagination");
 
+  console.log(data);
+
   const { courseFilterDtos } = data ? data : false;
 
   const skeletArray = [];
-  
+
   for (let i = 0; i < 12; i++) {
     skeletArray.push({});
   }
