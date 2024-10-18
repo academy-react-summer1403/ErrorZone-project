@@ -21,6 +21,9 @@ import RegisterFormStep2 from "../../components/User/LoginRegisterForgetPass/Reg
 import RegisterFormStep3 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep3";
 import RegisterStepper from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterForm";
 
+import CourseDetail from "../../screens/CourseDetail/CourseDetail";
+
+import ArticlesDetail from "../../screens/ArticlesDetail";
 
 export const TestingRoutes = createBrowserRouter([
   {
@@ -31,18 +34,22 @@ export const TestingRoutes = createBrowserRouter([
       { path: "/courses", element: <Courses /> },
       { path: "/articles", element: <Articles /> },
       { path: "/teachers", element: <Landing /> },
+      { path: "/courses/:id", element: <CourseDetail /> },
+      { path: "/articles/detail/:articleId", element: <ArticlesDetail /> },
     ],
   },
 
-  
-  { path: "/login", element: <LoginRegisterForgetPassLayout /> , children:[
-    {path: "/login" , element:<LoginForm />},
-    {path: "/login/verifycode" , element:<LoginVerifyCode />},
-    {path: "/login/register/step1" , element:<RegisterFormStep1 />}, 
-    {path: "/login/register/step2" , element:<RegisterFormStep2 />},           
-    {path: "/login/register/step3" , element:<RegisterFormStep3 />},
-  ]},
-
+  {
+    path: "/login",
+    element: <LoginRegisterForgetPassLayout />,
+    children: [
+      { path: "/login", element: <LoginForm /> },
+      { path: "/login/verifycode", element: <LoginVerifyCode /> },
+      { path: "/login/register/step1", element: <RegisterFormStep1 /> },
+      { path: "/login/register/step2", element: <RegisterFormStep2 /> },
+      { path: "/login/register/step3", element: <RegisterFormStep3 /> },
+    ],
+  },
 
   {
     path: "/StudentPanel",
@@ -56,7 +63,6 @@ export const TestingRoutes = createBrowserRouter([
       { path: "/StudentPanel/profile", element: <Profile /> },
     ],
   },
-
 
   { path: "/*", element: <NotFound /> },
 ]);
