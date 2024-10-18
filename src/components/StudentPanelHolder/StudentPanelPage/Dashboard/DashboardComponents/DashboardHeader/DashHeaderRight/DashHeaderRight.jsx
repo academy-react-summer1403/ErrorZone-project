@@ -1,10 +1,10 @@
 import React from 'react'
 import DashDate from './DashDate'
 import { Calendar03Icon, Time02Icon } from 'hugeicons-react'
-import { usequeryy } from '../../../../../../../core/services/api/reactQuery/useQuery';
+import { usequery } from '../../../../../../../core/services/api/reactQuery/useQuery';
 
 const DashHeaderRight = () => {
-  const data = usequeryy('userInfo');
+  const data = usequery('userInfo');
 
   return (
     <div className='flex flex-col gap-4'> 

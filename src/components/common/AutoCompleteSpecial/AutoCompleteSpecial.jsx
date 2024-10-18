@@ -1,10 +1,10 @@
 import React from 'react'
 import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
-import { usequeryy } from '../../../core/services/api/reactQuery/useQuery';
+import { usequery} from '../../../core/services/api/reactQuery/useQuery';
 
 
 const AutoCompleteSpecial = ({queryKey, label, titleApi}) => {
-    const data = usequeryy(queryKey);
+    const data = usequery(queryKey);
 
   return (
     <div style={{direction:"rtl"}}>
