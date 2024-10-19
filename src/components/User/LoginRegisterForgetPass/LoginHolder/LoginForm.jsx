@@ -43,9 +43,15 @@ const LoginForm = () => {
 
           //  SuccessToastify(error.massage)
           //console.log('error' , error.massage)
-          setItem("Token", {
-            token: user.token,
-          });
+          // setItem("Token", {
+          //   token: user.token,
+          // });
+
+           setItem("Token", 
+             user.token,
+           );
+
+          
 
 
           setTimeout(() => {
