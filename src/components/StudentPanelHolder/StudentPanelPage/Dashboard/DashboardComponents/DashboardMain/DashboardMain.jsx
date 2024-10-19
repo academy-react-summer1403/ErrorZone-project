@@ -1,8 +1,12 @@
+
 import React from 'react'
+import ProgressCircle from './ProgressCircle/ProgressCircle'
 
 const DashboardMain = () => {
   return (
-    <div>DashboardMain</div>
+    <div>DashboardMain
+      <ProgressCircle />
+    </div>
   )
 }
 

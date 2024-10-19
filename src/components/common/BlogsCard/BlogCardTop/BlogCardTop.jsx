@@ -1,5 +1,5 @@
 import React from "react";
-import ImageNotFound from "../../CourseCard/ImageNotFound";
+// import ImageNotFound from "../../CourseCard/ImageNotFound";
 
 const BlogCardTop = ({item}) => {
 
@@ -14,7 +14,12 @@ const BlogCardTop = ({item}) => {
           className="rounded-[32px] block w-full h-[293px] scale-105"
         />
       ) : (
-        <ImageNotFound />
+        // <ImageNotFound />
+        <img
+          src="https://classapi.sepehracademy.ir/\Pictures\Course\blank-thumbnail_009f5021-ce99-4a2d-9077-9d4417b6111f.jpg"
+          alt={googleTitle}
+          className="rounded-[32px] block w-full h-[293px] scale object-contain"
+        />        
       )}
     </div>
   );

@@ -65,5 +65,5 @@ module.exports = {
   darkMode: "class",
   plugins: [nextui()],
 };
-// npx tailwindcss -i ./src/index.css -o ./src/app/App.css --watch
+// npx tailwindcss -i ./src/index.css -o ./src/app/appcss/App.css --watch
 
