@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../../app/index";
 import Landing from "../../screens/Landing";
-import StudentPanel from "../../screens/StudentPanel";
+import StudentPanel from "../../screens/studentPanel";
 import NotFound from "../../screens/NotFound";
 import { LoginRegisterForgetPassLayout } from "../../components/User/LoginRegisterForgetPass/LoginRegisterForgetPassLayout";
 import { LoginForm } from "../../components/User/LoginRegisterForgetPass/LoginHolder/LoginForm";
@@ -20,6 +20,7 @@ import RegisterFormStep1 from "../../components/User/LoginRegisterForgetPass/Reg
 import RegisterFormStep2 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep2";
 import RegisterFormStep3 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep3";
 import RegisterStepper from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterForm";
+
 import ArticlesDetail from "../../screens/ArticlesDetail";
 import ProfileUserInformation from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/ProfileUserInformation/ProfileUserInformation";
 import ProfileImages from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/ProfileImages/ProfileImages";
@@ -27,6 +28,11 @@ import ProfileAddress from "../../components/StudentPanelHolder/StudentPanelPage
 import UserLinks from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/UserLinks/UserLinks";
 import Profile from "../../components/StudentPanelHolder/StudentPanelPage/Profile/Profile";
 
+
+
+import CourseDetail from "../../screens/CourseDetail/CourseDetail";
+
+import ArticlesDetail from "../../screens/ArticlesDetail";
 
 export const TestingRoutes = createBrowserRouter([
   {
@@ -37,20 +43,22 @@ export const TestingRoutes = createBrowserRouter([
       { path: "/courses", element: <Courses /> },
       { path: "/articles", element: <Articles /> },
       { path: "/teachers", element: <Landing /> },
+      { path: "/courses/:id", element: <CourseDetail /> },
       { path: "/articles/detail/:articleId", element: <ArticlesDetail /> },
-      
     ],
   },
 
-  
-  { path: "/login", element: <LoginRegisterForgetPassLayout /> , children:[
-    {path: "/login" , element:<LoginForm />},
-    {path: "/login/verifycode" , element:<LoginVerifyCode />},
-    {path: "/login/register/step1" , element:<RegisterFormStep1 />}, 
-    {path: "/login/register/step2" , element:<RegisterFormStep2 />},           
-    {path: "/login/register/step3" , element:<RegisterFormStep3 />},
-  ]},
-
+  {
+    path: "/login",
+    element: <LoginRegisterForgetPassLayout />,
+    children: [
+      { path: "/login", element: <LoginForm /> },
+      { path: "/login/verifycode", element: <LoginVerifyCode /> },
+      { path: "/login/register/step1", element: <RegisterFormStep1 /> },
+      { path: "/login/register/step2", element: <RegisterFormStep2 /> },
+      { path: "/login/register/step3", element: <RegisterFormStep3 /> },
+    ],
+  },
 
   {
     path: "/StudentPanel",
@@ -69,7 +77,6 @@ export const TestingRoutes = createBrowserRouter([
       ]},
     ],
   },
-
 
   { path: "/*", element: <NotFound /> },
 ]);

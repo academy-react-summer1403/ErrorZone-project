@@ -1,14 +1,17 @@
 import React from "react";
 import NotificationBtn from "../../Header/ThemeAndNotifBtns/NotificationBtn";
 import ThemeToggle from "../../Header/ThemeAndNotifBtns/ThemeToggle";
+import { usequery} from "../../../core/services/api/reactQuery/useQuery";
 
 const StudentPanelHeader = () => {
+  const data = usequery('userInfo');
+  console.log(data);
   return (
     <div className="h-12 flex justify-between items-center ">
-      <div className=" ">
-        <img src="" alt="" />
+      <div className=" flex gap-2 items-center">
+        <img src={data?.currentPictureAddress} alt="" className="size-12 rounded-full" />
         <div className="text-white">
-          <div>پارسا آقایی</div>
+          <div>{data?.fName}{" "}{data?.lName}</div>
           <div className="text-sm"> دانشجو</div>
         </div>
       </div>

@@ -48,7 +48,7 @@ function StudentPaneiSide() {
   ];
 
   return (
-    <div className="side w-[20%] text-white flex flex-col justify-between">
+    <div className="side w-[20%] text-white flex flex-col justify-between h-full">
       <div className="w-fit space-y-8">
         <LogoWithTypo />
         {sideBarItem?.map((item, index) => (
