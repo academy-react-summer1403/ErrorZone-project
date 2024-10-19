@@ -15,12 +15,17 @@ import MyCourse from "../../components/StudentPanelHolder/StudentPanelPage/MyCou
 import ReservesCourse from "../../components/StudentPanelHolder/StudentPanelPage/reservesCourse/reservesCourse";
 import CoursesFav from "../../components/StudentPanelHolder/StudentPanelPage/Coursesfav/Coursesfav";
 import BlogFav from "../../components/StudentPanelHolder/StudentPanelPage/Blogfav/Blogfav";
-import Profile from "../../components/StudentPanelHolder/StudentPanelPage/profile/profile";
+
 import RegisterFormStep1 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep1";
 import RegisterFormStep2 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep2";
 import RegisterFormStep3 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep3";
 import RegisterStepper from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterForm";
 import ArticlesDetail from "../../screens/ArticlesDetail";
+import ProfileUserInformation from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/ProfileUserInformation/ProfileUserInformation";
+import ProfileImages from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/ProfileImages/ProfileImages";
+import ProfileAddress from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/ProfileAddress/ProfileAddress";
+import UserLinks from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/UserLinks/UserLinks";
+import Profile from "../../components/StudentPanelHolder/StudentPanelPage/Profile/Profile";
 
 
 export const TestingRoutes = createBrowserRouter([
@@ -56,7 +61,12 @@ export const TestingRoutes = createBrowserRouter([
       { path: "/StudentPanel/reservesCourse", element: <ReservesCourse /> },
       { path: "/StudentPanel/Coursesfav", element: <CoursesFav /> },
       { path: "/StudentPanel/Blogfav", element: <BlogFav /> },
-      { path: "/StudentPanel/profile", element: <Profile /> },
+      { path: "/StudentPanel/profile", element: <Profile /> , children:[
+        {path:"/StudentPanel/profile/Userinformation" ,element: <ProfileUserInformation />  },
+        {path:"/StudentPanel/profile/UserImages" ,element: <ProfileImages />  },      
+        {path:"/StudentPanel/profile/UserAddress" ,element: <ProfileAddress />  },      
+        {path:"/StudentPanel/profile/UserLinks" ,element: <UserLinks />  },               
+      ]},
     ],
   },
 
