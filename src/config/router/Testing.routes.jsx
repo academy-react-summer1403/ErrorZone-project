@@ -55,7 +55,7 @@ export const TestingRoutes = createBrowserRouter([
     path: "/StudentPanel",
     element: <StudentPanel />,
     children: [
-      { path: "/StudentPanel/dashboard", element: <Dashboard /> },
+      { path: "/StudentPanel/dashboard", element: <Dashboard />},
       { path: "/StudentPanel/myCourse", element: <MyCourse /> },
       { path: "/StudentPanel/reservesCourse", element: <ReservesCourse /> },
       { path: "/StudentPanel/Coursesfav", element: <CoursesFav /> },
