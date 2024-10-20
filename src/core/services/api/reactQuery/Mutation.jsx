@@ -1,4 +1,4 @@
-import { QueryClient, useMutation, useQueryClient } from "@tanstack/react-query";
+import { Mutation, QueryClient, useMutation, useQueryClient } from "@tanstack/react-query";
 
 const queryclient = useQueryClient();
 
@@ -9,3 +9,4 @@ export const updateQuery = (mutationKey) => {
   });
   
 };
+export default 

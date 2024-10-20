@@ -1,6 +1,6 @@
 import React from 'react'
 import instance from '../../interceptor'
-import { onSetFormData } from '../../../utils/onSetFormData/onSetFormData'
+import  onSetFormData  from '../../../utils/onSetFormData/onSetFormData'
 
 const ArticleDetailReplyComments = async (data) => {
    try {

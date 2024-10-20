@@ -15,7 +15,6 @@ import {
   getItem,
   removeItem,
 } from "../../core/services/common/storage.services";
-import { updateQuery } from "../../core/services/api/reactQuery/Mutation";
 
 const UserDropDown = () => {
   const data = usequery("userInfo");
@@ -36,7 +35,7 @@ const UserDropDown = () => {
     {
       key: "delete",
       label: "خروج از حساب",
-      fn: logout(),
+      // fn: logout(),
     },
   ];
   return (

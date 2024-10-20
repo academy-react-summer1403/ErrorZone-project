@@ -32,7 +32,7 @@ import Profile from "../../components/StudentPanelHolder/StudentPanelPage/Profil
 
 import CourseDetail from "../../screens/CourseDetail/CourseDetail";
 
-import ArticlesDetail from "../../screens/ArticlesDetail";
+// import ArticlesDetail from "../../screens/ArticlesDetail";
 
 export const TestingRoutes = createBrowserRouter([
   {
