@@ -2,14 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react'
 import BlogsCard from '../../common/BlogsCard/BlogsCard';
 import ViewMoreBtn from '../../common/ViewMoreBtn/ViewMoreBtn';
+import { usequery } from '../../../core/services/api/reactQuery/useQuery';
 
 const TopBlogs = () => {
 
-    const { data } = useQuery({
-        queryKey: ["TopBlogs"],
-    });
-    
-    data ? console.log(data) : false ;
+    const data = usequery("TopBlogs");
 
   return (
     <div className="space-y-12">

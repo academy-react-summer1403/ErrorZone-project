@@ -3,6 +3,7 @@ import React from 'react'
 import ButtonSpecial from '../../../common/ButtonSpecial'
 
 const CourseDetailButtonsPart = () => {
+
   return (
     <div className="flex items-center justify-between spay flex-wrap-reverse desktop:gap-2">
     <ButtonSpecial
