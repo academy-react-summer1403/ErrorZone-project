@@ -4,8 +4,10 @@ import ProgressCircle from './ProgressCircle/ProgressCircle'
 
 const DashboardMain = () => {
   return (
-    <div>DashboardMain
+    <div>
       <ProgressCircle />
+
+
     </div>
   )
 }
