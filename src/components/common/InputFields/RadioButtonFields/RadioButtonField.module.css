@@ -1,0 +1,20 @@
+.RadioButtonField {
+    appearance: none;
+  
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+  
+    border: 2px solid #999;
+    transition: 0.15s all linear;
+    margin-right: 5px;
+  
+    position: relative;
+    top: 4px;
+  }
+  
+  .RadioButtonField:checked {
+    border: 5px solid #406dd5;
+    box-shadow: 3px 3px -1px 2px #0000007f;
+  }
+  

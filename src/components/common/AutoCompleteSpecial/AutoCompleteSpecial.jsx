@@ -14,7 +14,7 @@ const AutoCompleteSpecial = ({queryKey, label, titleApi}) => {
       label={label + " " + "مورد نظر رو انتخاب کنید"} 
       variant="bordered"
       className="max-w-xs text-black bg-gray-200" 
-      defaultItems={data.length > 0 ? data : [] }
+      defaultItems={data ? data : [] }
     >
       {(items) => <AutocompleteItem key={items.id ? items.id : items.teacherId} textValue={items ? items[titleApi] : false}>{items ? items[titleApi] : false} </AutocompleteItem>}
     </Autocomplete>

@@ -1,5 +1,6 @@
 import { Calendar03Icon } from 'hugeicons-react';
 import React from 'react'
+import { convertDate } from '../../../../core/utils/DateToShamsi';
 
 const BlogCardBottom = ({item}) => {
     const {googleTitle, categoryName, insertDate} = item;
@@ -11,7 +12,7 @@ const BlogCardBottom = ({item}) => {
       <h4 className="text-gray-800 dark:text-gray-400">{categoryName}</h4>
 
       <div className="flex gap-1 items-center">
-        <span className="text-sm text-gray-800 dark:text-gray-400 mt-1">{insertDate}</span>
+        <span className="text-sm text-gray-800 dark:text-gray-400 mt-1">{convertDate(insertDate)}</span>
         <Calendar03Icon size={20} className='text-gray-800 dark:text-gray-400'/>
       </div>
     </div>
