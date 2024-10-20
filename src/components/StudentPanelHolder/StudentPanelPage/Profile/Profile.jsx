@@ -1,8 +1,9 @@
 import React from 'react'
+import ProfileComponents from '../ProfileComponents/ProfileComponents'
 
 const Profile = () => {
   return (
-    <div>profile</div>
+    <div className='w-[100%] h-[100%]'> <ProfileComponents /> </div>
   )
 }
 

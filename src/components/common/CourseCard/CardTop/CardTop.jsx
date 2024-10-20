@@ -3,13 +3,13 @@ import React from "react";
 import TagOfCard from "./TagOfCard";
 
 const CardTop = ({ item }) => {
-  const { levelName, typeName, tumbImageAddress, title } = item;
+  const { levelName, statusName, tumbImageAddress, title } = item;
 
   return (
     <div className="cardTop  relative overflow-hidden">
       <div className="absolute top-1.5 right-3 z-10 flex justify-center items-center gap-1">
         <TagOfCard title={levelName} />
-        <TagOfCard title={typeName} />
+        <TagOfCard title={statusName} />
       </div>
       {tumbImageAddress ? (
         <img

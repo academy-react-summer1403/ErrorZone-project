@@ -27,3 +27,15 @@ export const getQueryFiltterByCount =  (queryKey, apiAddress, count) => {
 
     return data;
 }
+
+export const getQueryNoApi = (queryKey, queryFn) => {
+    const { data, isError, isLoading } = useQuery({
+        queryKey: [queryKey],
+        queryFn: () => queryFn
+    })
+
+    if (isError) alert("Fetching is onSuccessfull");
+    if (isLoading) <div> "Loading" </div>
+
+    return data;
+}
