@@ -33,7 +33,6 @@ import Profile from "../../components/StudentPanelHolder/StudentPanelPage/Profil
 import CourseDetail from "../../screens/CourseDetail/CourseDetail";
 
 
-
 export const TestingRoutes = createBrowserRouter([
   {
     path: "/",

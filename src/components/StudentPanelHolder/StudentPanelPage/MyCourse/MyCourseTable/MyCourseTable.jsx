@@ -20,7 +20,7 @@ import { BookDownloadIcon, Cancel01Icon, ViewIcon } from "hugeicons-react";
 import { Link } from "react-router-dom";
 import { getQuery } from "../../../../../core/services/api/reactQuery/getQuery";
 
-const MyCourseTable = () => {
+const  MyCourseTable = () => {
   const columns = [
     { name: "نام", uid: "courseTitle" },
     { name: "مدرس", uid: "fullName" },
