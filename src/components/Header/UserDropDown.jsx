@@ -11,12 +11,6 @@ import {
   Button,
 } from "@nextui-org/react";
 import { Link } from "react-router-dom";
-import {
-  getItem,
-  removeItem,
-} from "../../core/services/common/storage.services";
-import { updateQuery } from "../../core/services/api/reactQuery/Mutation";
-
 const UserDropDown = () => {
   const data = usequery("userInfo");
   console.log(data);
@@ -31,12 +25,12 @@ const UserDropDown = () => {
       key: "پنل",
       label: "ورود به پنل",
       path: "/StudentPanel",
-      // fn: "",
+      fn: "",
     },
     {
       key: "delete",
       label: "خروج از حساب",
-      fn: logout(),
+      // fn: logout(),
     },
   ];
   return (

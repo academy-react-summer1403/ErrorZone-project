@@ -17,7 +17,6 @@ import { Home03Icon, ViewIcon } from "hugeicons-react";
 
 import { setItem } from "../../../../core/services/common/storage.services";
 
-
 const LoginForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
 
@@ -40,19 +39,13 @@ const LoginForm = () => {
           }, 2000);
           setIsDisabled(false);
         } else if (user.token !== null) {
-
           //  SuccessToastify(error.massage)
           //console.log('error' , error.massage)
           // setItem("Token", {
           //   token: user.token,
           // });
 
-           setItem("Token", 
-             user.token,
-           );
-
-          
-
+          setItem("Token", user.token);
 
           setTimeout(() => {
             Navigate("/");
@@ -68,9 +61,7 @@ const LoginForm = () => {
 
   return (
     <>
-
       <div className="  w-full h-[87%] mt-[105px]" dir="rtl">
-
         <div className="flex gap-[20px] "></div>
         <p className="w-[200px] h-[40px] relative top-[100px] right-[60px] font-semibold text-3xl text-black font-DanaFaNum-600 dark:text-white ">
           {" "}

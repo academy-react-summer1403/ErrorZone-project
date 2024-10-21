@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query"
 import http from "../../interceptor"
 
-export const getQuery = (queryKey, apiAddress) => {
+export const getQuery = (queryKey, apiAddress, variable) => {
     const { data, isError, isLoading } = useQuery({
-        queryKey: [queryKey],
+        queryKey: variable ? [queryKey, variable] : [queryKey],
         queryFn: async () => await http.get(apiAddress)
     })
 
@@ -13,9 +13,9 @@ export const getQuery = (queryKey, apiAddress) => {
     return data;
 }
 
-export const getQueryFiltterByCount =  (queryKey, apiAddress, count) => {
+export const getQueryFiltterByCount =  (queryKey, apiAddress, count, variable) => {
     const { data, isError, isLoading } = useQuery({
-        queryKey: [queryKey],
+        queryKey: variable ? [queryKey, variable] : [queryKey],
         queryFn: async () => {
             const res = await http.get(apiAddress)
             return res.filter((el) => el.id <= count);
@@ -28,9 +28,9 @@ export const getQueryFiltterByCount =  (queryKey, apiAddress, count) => {
     return data;
 }
 
-export const getQueryNoApi = (queryKey, queryFn) => {
+export const getQueryNoApi = (queryKey, queryFn, variable) => {
     const { data, isError, isLoading } = useQuery({
-        queryKey: [queryKey],
+        queryKey: variable ? [queryKey, variable] : [queryKey],
         queryFn: () => queryFn
     })
 
@@ -39,3 +39,15 @@ export const getQueryNoApi = (queryKey, queryFn) => {
 
     return data;
 }
+
+// export const getPaginatedQuery = (queryKey, apiAddress) => {
+//     const { data, isError, isLoading } = useQuery({
+//         queryKey: [queryKey],
+//         queryFn: async () => await http.get(apiAddress)
+//     })
+
+//     if (isError) alert("Fetching is onSuccessfull");
+//     if (isLoading) <div> "Loading" </div>
+
+//     return data;
+// }
