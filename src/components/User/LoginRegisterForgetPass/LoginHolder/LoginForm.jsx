@@ -17,9 +17,9 @@ import { Home03Icon, ViewIcon } from "hugeicons-react";
 
 import { setItem } from "../../../../core/services/common/storage.services";
 
-
 const LoginForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
+
 
   const dispatch = useDispatch();
   const Navigate = useNavigate();
@@ -40,19 +40,13 @@ const LoginForm = () => {
           }, 2000);
           setIsDisabled(false);
         } else if (user.token !== null) {
-
           //  SuccessToastify(error.massage)
           //console.log('error' , error.massage)
           // setItem("Token", {
           //   token: user.token,
           // });
 
-           setItem("Token", 
-             user.token,
-           );
-
-          
-
+          setItem("Token", user.token);
 
           setTimeout(() => {
             Navigate("/");
@@ -68,9 +62,7 @@ const LoginForm = () => {
 
   return (
     <>
-
       <div className="  w-full h-[87%] mt-[105px]" dir="rtl">
-
         <div className="flex gap-[20px] "></div>
         <p className="w-[200px] h-[40px] relative top-[100px] right-[60px] font-semibold text-3xl text-black font-DanaFaNum-600 dark:text-white ">
           {" "}
@@ -124,7 +116,7 @@ const LoginForm = () => {
                   <ButtonSpecial
                     type="submit"
                     innerHtml="ورود به حساب "
-                    className=" text-white w-[98px] h-[23px] font-DanaFaNum-600 text-base "
+                    className=" text-white w-[98px] h-[23px] font-DanaFaNum-600 text-base bg-blue "
                     isDisabled={isDisabled}
                   />
                 </div>
@@ -138,7 +130,10 @@ const LoginForm = () => {
                   </Link>
                 </div>
                 <div className="bg-white w-[141px] h-[40px] rounded-[34px] border-2 border-gray-400  relative top-[85px] left-[90px] flex justify-center items-center">
-                  <Link className="w-[77px] h-[23px] font-DanaFaNum-500 text-blue text-base">
+                  <Link
+                    to="/"
+                    className="w-[77px] h-[23px] font-DanaFaNum-500 text-blue text-base"
+                  >
                     {" "}
                     صفحه اصلی{" "}
                   </Link>
@@ -149,10 +144,10 @@ const LoginForm = () => {
           </Formik>
         </div>
       </div>
-      <Link className="w-32 h-32 bg-red" to="/login/verifycode">
+      {/* <Link className="w-32 h-32 bg-red" to="/login/verifycode">
         {" "}
         next page{" "}
-      </Link>
+      </Link> */}
     </>
   );
 };
