@@ -80,7 +80,7 @@ const LoginForm = () => {
               rememberMe: false,
             }}
             validationSchema={LoginSchema}
-            onSubmit={onSubmit}
+            onSubmit={(value) => onSubmit(value)}
           >
             <Form>
               <div className="flex flex-wrap w-[600px] h-auto relative top-[160px]  text-black ">

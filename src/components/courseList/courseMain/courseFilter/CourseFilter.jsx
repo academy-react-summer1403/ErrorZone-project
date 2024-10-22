@@ -10,15 +10,19 @@ import React, { useState } from "react";
 import AutoCompleteSpecial from "../../../common/AutoCompleteSpecial/AutoCompleteSpecial";
 import PriceRange from "../../../common/priceRange/priceRange";
 import SearchBox from "../../../common/SearchBox/SearchBox";
+import { useDispatch } from "react-redux";
+import { coursSortFilDataSlice, giveCourseLevelId, giveCourseTypeId, giveTeacherId } from "../../../../redux/coursSortFilDataSlice";
 
 const CourseFilter = () => {
+  const dispatch = useDispatch();
   const [lessPrice, setLessPrice] = useState();
   const [morePrice, setMorePrice] = useState();
 
   const getPriceRange = (value) => {
-      setLessPrice(value[0]);
-      setMorePrice(value[1]);
-  }
+    setLessPrice(value[0]);
+    setMorePrice(value[1]);
+  };
+
   return (
     <div className="w-[22%]   rounded-[32px] mt-16 top-2 sticky px-5 py-4 h-fit">
       <div className="space-y-6 ">
@@ -29,9 +33,9 @@ const CourseFilter = () => {
             <Search01Icon />
             <span>جستوجو</span>
           </div>
-          <div className="w-full m-auto" > 
-            <SearchBox/>
-            </div>
+          <div className="w-full m-auto">
+            <SearchBox />
+          </div>
         </div>
 
         <div className=" space-y-4  ">
@@ -39,44 +43,57 @@ const CourseFilter = () => {
             <CellsIcon />
             <span> دسته بندی</span>
           </div>
-          <AutoCompleteSpecial queryKey="CourseCategories" label="دسته" titleApi="techName"/>
+          <AutoCompleteSpecial
+            queryKey="CourseCategories"
+            label="دسته"
+            titleApi="techName"
+            submit={(key) => {
+              dispatch(giveCourseTypeId(key));
+            }}
+          />
         </div>
-        
+
         <div className=" space-y-4 ">
           <div className="  flex gap-2 text-base">
             <Layers01Icon />
             <span>سطح آمورشی</span>
-
           </div>
-          <AutoCompleteSpecial queryKey="courseLevels" label="سطح" titleApi="levelName" />          
+          <AutoCompleteSpecial
+            queryKey="courseLevels"
+            label="سطح"
+            titleApi="levelName"
+            submit={(key) => {
+              dispatch(giveCourseLevelId(key));
+            }}
+          />
         </div>
 
         <div className=" space-y-4 ">
           <div className="  flex gap-2 text-base">
             <TeacherIcon />
             <span> اساتید</span>
-           
           </div>
-          <AutoCompleteSpecial queryKey="teachers" label="اساتید" titleApi="fullName" />           
+          <AutoCompleteSpecial
+            queryKey="teachers"
+            label="اساتید"
+            titleApi="fullName"
+            submit={(key) => {
+              dispatch(giveTeacherId(key));
+            }}            
+          />
         </div>
 
         <div className=" space-y-4 ">
           <div className="  flex gap-2 text-base">
             <Money04Icon />
             <span>قیمت</span>
-            <span>
-              {lessPrice} از 
-            </span>
-            <span>
-              تا {morePrice}
-            </span>
-
+            <span>{lessPrice} از</span>
+            <span>تا {morePrice}</span>
           </div>
-          <div className='w-5/6 m-auto'>
-             <PriceRange onchange={(value) => getPriceRange(value)} />   
-          </div>      
+          <div className="w-5/6 m-auto">
+            <PriceRange onchange={(value) => getPriceRange(value)} />
+          </div>
         </div>
-  
 
         <div className=" space-y-4 h-[80px]">
           <div className="  h-[80px] flex gap-2 text-base">
@@ -84,7 +101,6 @@ const CourseFilter = () => {
             <span>تاریخ برگزاری-اتمام</span>
           </div>
         </div>
-        
       </div>
     </div>
   );
