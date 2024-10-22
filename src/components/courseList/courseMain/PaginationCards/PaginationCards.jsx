@@ -1,21 +1,30 @@
-import React from 'react'
-import {Pagination} from "@nextui-org/react";
-import { getQuery } from '../../../../core/services/api/reactQuery/getQuery';
-import { usequery } from '../../../../core/services/api/reactQuery/useQuery';
-import { paginationNum } from '../../../../core/utils/paginationNum';
+import React, { useEffect, useState } from "react";
+import { Pagination } from "@nextui-org/react";
+import { usequery } from "../../../../core/services/api/reactQuery/useQuery";
+import { paginationNum } from "../../../../core/utils/paginationNum";
+import { useQuery } from "@tanstack/react-query";
 
-const PaginationCards = () => {
-  const data = usequery("corsesByPagination");
+const PaginationCards = ({ pageNum, setPage}) => {
+  const [totalCount, setTotalCount] = useState();
+  const data = usequery("coursesByPagination", pageNum);
+
+  useEffect(() => {
+    if (data) {
+      setTotalCount(Math.ceil(data.totalCount / 12));
+    }
+  }, [data]);
 
   return (
-    <div className='mx-auto mt-10' style={{direction:'ltr'}}>
-      {
-        data?.totalCount ? (<Pagination isCompact showControls total={paginationNum(data.totalCount, 12)} initialPage={1} />) : (false)
-      }
+    <div className="mx-auto mt-10" style={{ direction: "ltr" }}>
+      <Pagination
+        isCompact
+        showControls
+        total={totalCount ? totalCount : totalCount}
+        page={pageNum}
+        onChange={setPage}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default PaginationCards
-
-
+export default PaginationCards;

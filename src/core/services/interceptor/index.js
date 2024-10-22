@@ -16,7 +16,7 @@ const onError = (err) => {
 
     if (err.response.status === 401) {
         // remove the token from the storage
-        window.location.pathname = '/';  // or "/login"
+        window.location.pathname = '/login';  // or "/"
     }
 
     if (err.response.status >= 400 && err.response.status < 500) {

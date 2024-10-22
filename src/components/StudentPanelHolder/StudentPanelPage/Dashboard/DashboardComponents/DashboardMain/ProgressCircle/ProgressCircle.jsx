@@ -1,7 +1,9 @@
 import {CircularProgress, Card, CardBody, CardFooter, Chip} from "@nextui-org/react";
+import { usequery } from "../../../../../../../core/services/api/reactQuery/useQuery";
+
 
 const ProgressCircle = () => {
-
+  const data = usequery('userInfo')
   return (
     <Card className="w-[240px] h-[240px] border-none bg-gradient-to-br from-violet-500 to-fuchsia-500">
       <CardBody className="justify-center items-center pb-0">
@@ -12,7 +14,7 @@ const ProgressCircle = () => {
             track: "stroke-white/10",
             value: "text-3xl font-semibold text-white",
           }}
-          value={70}
+          value={data?.profileCompletionPercentage}
           strokeWidth={4}
           showValueLabel={true}
         />

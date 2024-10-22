@@ -8,6 +8,7 @@ import { store } from "./redux/store";
 import { RouterProvider } from "react-router-dom";
 import { TestingRoutes } from "./config/router/Testing.routes";
 import { NextUIProvider } from "@nextui-org/react";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const queryClient = new QueryClient({});
 
@@ -21,7 +22,7 @@ createRoot(document.getElementById("root")).render(
         <NextUIProvider>
           <RouterProvider router={TestingRoutes} />
         </NextUIProvider>
-        
+        <ReactQueryDevtools initialIsOpen={false} />
       </Provider>
 
     </QueryClientProvider>

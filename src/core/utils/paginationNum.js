@@ -1,8 +1,8 @@
 export const paginationNum = (totalNum, inPgeRows) => {
     if (totalNum % inPgeRows == 0) {
-      return totalNum / inPgeRows
+      return totalNum / inPgeRows ;
     }
     else{
-      return (totalNum / inPgeRows) + 1;
+      return (Math.ceil(totalNum / inPgeRows));
     }
   }
