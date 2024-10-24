@@ -21,7 +21,6 @@ import RegisterFormStep2 from "../../components/User/LoginRegisterForgetPass/Reg
 import RegisterFormStep3 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep3";
 import RegisterStepper from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterForm";
 
-import ArticlesDetail from "../../screens/ArticlesDetail";
 import ProfileUserInformation from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/ProfileUserInformation/ProfileUserInformation";
 import ProfileImages from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/ProfileImages/ProfileImages";
 import ProfileAddress from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/ProfileAddress/ProfileAddress";
@@ -32,6 +31,9 @@ import Profile from "../../components/StudentPanelHolder/StudentPanelPage/Profil
 
 import CourseDetail from "../../screens/CourseDetail/CourseDetail";
 
+import ArticlesDetail from "../../screens/ArticlesDetail";
+import ForgetPassword from "../../screens/ForgetPassword/ForgetPassword";
+import ForgetPassFormStep2 from "../../components/User/LoginRegisterForgetPass/ForgetPassHolder/ForgetPassFormStep2";
 
 export const TestingRoutes = createBrowserRouter([
   {
@@ -56,6 +58,8 @@ export const TestingRoutes = createBrowserRouter([
       { path: "/login/register/step1", element: <RegisterFormStep1 /> },
       { path: "/login/register/step2", element: <RegisterFormStep2 /> },
       { path: "/login/register/step3", element: <RegisterFormStep3 /> },
+      {path:  "/login/forgetpass" , element:  <ForgetPassword />},
+      {path:  "/login/forgetpass/step2/:ConfigValue" , element:  <ForgetPassFormStep2 />},      
     ],
   },
 
@@ -63,7 +67,7 @@ export const TestingRoutes = createBrowserRouter([
     path: "/StudentPanel",
     element: <StudentPanel />,
     children: [
-      { path: "/StudentPanel/dashboard", element: <Dashboard />},
+      { path: "/StudentPanel/", element: <Dashboard />},
       { path: "/StudentPanel/myCourse", element: <MyCourse /> },
       { path: "/StudentPanel/reservesCourse", element: <ReservesCourse /> },
       { path: "/StudentPanel/Coursesfav", element: <CoursesFav /> },

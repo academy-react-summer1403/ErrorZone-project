@@ -1,5 +1,5 @@
-import { useQuery } from "@tanstack/react-query"
-import http from "../../interceptor"
+import { useQuery } from "@tanstack/react-query";
+import http from "../../interceptor";
 
 export const getQuery = (queryKey, apiAddress, variable) => {
     const { data, isError, isLoading } = useQuery({
@@ -7,11 +7,11 @@ export const getQuery = (queryKey, apiAddress, variable) => {
         queryFn: async () => await http.get(apiAddress)
     })
 
-    if (isError) alert("Fetching is onSuccessfull");
-    if (isLoading) <div> "Loading" </div>
+  if (isError) alert("Fetching is onSuccessfull");
+  if (isLoading) <div> "Loading" </div>;
 
-    return data;
-}
+  return data;
+};
 
 export const getQueryFiltterByCount =  (queryKey, apiAddress, count, variable) => {
     const { data, isError, isLoading } = useQuery({
@@ -22,11 +22,11 @@ export const getQueryFiltterByCount =  (queryKey, apiAddress, count, variable) =
         }
     })
 
-    if (isError) alert("Fetching is onSuccessfull");
-    if (isLoading) <div> "Loading" </div>
+  if (isError) alert("Fetching is onSuccessfull");
+  if (isLoading) <div> "Loading" </div>;
 
-    return data;
-}
+  return data;
+};
 
 export const getQueryNoApi = (queryKey, queryFn, variable) => {
     const { data, isError, isLoading } = useQuery({
@@ -34,8 +34,8 @@ export const getQueryNoApi = (queryKey, queryFn, variable) => {
         queryFn: () => queryFn
     })
 
-    if (isError) alert("Fetching is onSuccessfull");
-    if (isLoading) <div> "Loading" </div>
+  if (isError) alert("Fetching is onSuccessfull");
+  if (isLoading) <div> "Loading" </div>;
 
     return data;
 }
