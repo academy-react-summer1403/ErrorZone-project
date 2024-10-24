@@ -1,0 +1,18 @@
+.sort-radio{
+    display: none;
+}
+.sort-label{
+    display: flex;
+    cursor: pointer;
+    /* background: red; */
+    border: 2px solid #2F2F2F; 
+    padding: 8px 16px;
+    border-radius: 34px;
+}
+
+.sort-radio:checked + .sort-label{
+    /* background: blue; */
+    border: 2px solid red;
+    /* padding-right: 44px; */
+    color: red;
+}

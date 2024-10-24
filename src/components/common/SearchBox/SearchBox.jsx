@@ -1,17 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { coursSortFilDataSlice } from "../../../redux/coursSortFilDataSlice";
 
 const SearchBox = () => {
+  const dispatch = useDispatch();
+  const [value, setValue] = useState();
+  console.log(value);
   return (
     <div style={{ direction: "rtl" }}>
-      <form className="w-full max-w-lg mx-auto ">
+      <form
+        className="w-full max-w-lg mx-auto"
+        onSubmit={(e) => {
+          e.preventDefault();
+          dispatch(
+            coursSortFilDataSlice.actions.searchCourse(
+              document.getElementById("search-dropdown").value
+            )
+          );
+        }}
+      >
         <div className="flex">
-          <label
+          {/* <label
             htmlFor="search-dropdown"
             className="mb-2 text-sm font-medium text-gray-500 sr-only dark:text-white"
           >
             {" "}
-          </label>
-          <div
+          </label> */}
+          {/* <div
             id="dropdown"
             className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
           >
@@ -46,14 +61,13 @@ const SearchBox = () => {
                 ></button>
               </li>
             </ul>
-          </div>
+          </div> */}
           <div className="relative w-full">
             <input
               type="search"
               id="search-dropdown"
               className="block p-2.5 w-full z-20 text-sm text-gray-500 bg-gray-200 rounded-lg border border-gray-300 focus:ring-blue focus:border-blue dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue"
               placeholder="دوره مورد نظر را جست‌جو کنید..."
-              required
             />
             <button
               type="submit"

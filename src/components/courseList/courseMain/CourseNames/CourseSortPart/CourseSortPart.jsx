@@ -1,33 +1,47 @@
-import React, { useState } from "react";
-import {RadioGroup, Radio} from "@nextui-org/react";
-import SortBtn from "./SortBtn/SortBtn";
+import React, { useEffect, useState } from "react";
+// import { RadioGroup, Radio } from "@nextui-org/react";
+// import SortBtn from "./SortBtn/SortBtn";
+import { useDispatch } from "react-redux";
+import { coursSortFilDataSlice } from "../../../../../redux/coursSortFilDataSlice";
+import RadiosGroup from "./SortBtn/RadiosGroup";
 
-const CourseSortPart = () => {
+const CourseSortPart = ({ pageNum }) => {
+  const dispatch = useDispatch();
 
-  const [selected, setSelected] = useState("");
+  const [selectedOption, setSelectedOption] = useState({
+    id: 0,
+    label: "فعال ها",
+    value: { key: "Active", order: "DESC" },
+  });
+
+  useEffect(() => {
+    dispatch(
+      coursSortFilDataSlice.actions.giveSortKey(selectedOption.value.key)
+    );
+    dispatch(
+      coursSortFilDataSlice.actions.giveSortType(selectedOption.value.order)
+    );
+  }, [selectedOption]);
+
+  const options = [
+    { id: 1, label: "گران ترین", value: { key: "cost", order: "DESC" } },
+    { id: 2, label: "ارزان ترین", value: { key: "cost", order: "ASC" } },
+    { id: 3, label: "محبوب ترین", value: { key: "likeCount", order: "DESC" } },
+    { id: 4, label: "جدید ترین", value: { key: "lastUpdate", order: "DESC" } },
+  ];
 
   return (
-    <div className=" flex flex-nowrap gap-4 items-center text-lg">  
+    <div className=" flex flex-nowrap gap-4 items-center text-lg ">
       <p> ترتیب</p>
-    <RadioGroup
-    value={selected}
-    onValueChange={setSelected}
-      orientation="horizontal"
-    >
-          <SortBtn value="costUp">
-          گران ترین
-         </SortBtn>
-          <SortBtn value="costDown">
-          محبوب ترین
-          </SortBtn> 
-          <SortBtn value="cost">
-          ارزان ترین
-          </SortBtn>  
-           <SortBtn>
-          جدید ترین
-           </SortBtn> 
-
-    </RadioGroup>
+      <div className="flex flex-nowrap gap-4 items-center">
+        <RadiosGroup
+          options={options}
+          name="myRadioGroup"
+          selectedValue={selectedOption}
+          onChange={setSelectedOption} // set the selected object
+        />
+      </div>
+      <div className="w-px h-1/2 bg-gray-400"></div>
 
     </div>
   );

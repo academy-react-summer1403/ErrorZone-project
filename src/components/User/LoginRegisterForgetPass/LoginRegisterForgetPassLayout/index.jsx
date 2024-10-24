@@ -1,13 +1,23 @@
 import React  , {useState} from 'react'
 import style from './../../../../assets/images/LoginRegisterForgetPass/login.png'
 import './Stepper.css'
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import ThemeToggle from '../../../Header/ThemeAndNotifBtns/ThemeToggle';
 import RegisterStepper from '../RegisterHolder/RegisterForm';
+import ForgetPassStepper from '../ForgetPassHolder/ForgetPassStepper';
+import ForgetPassStepperStep2 from '../ForgetPassHolder/ForgerPassStepperStep2';
 
 
 const LoginRegisterForgetPassLayout = () => {
   const locationPath = useLocation().pathname;
+
+   const params = useParams()
+
+   console.log('party' , params)
+
+    const configvalue = params.ConfigValue
+
+    console.log('shot' ,configvalue )
 
   const handleSteps = (location) => {
     if(location === '/login'){
@@ -72,10 +82,13 @@ const LoginRegisterForgetPassLayout = () => {
                className6='w-[100%] text-right tablet:relative tablet:top-[-37px] text-base font-DanaFaNum-600 text-black opacity-[50%] dark:text-gray-500 dark:opacity-[50%]'
                label1='وارد کردن شماره همراه'
             />     
-    }
-
-  }
-
+      }else if(location === "/login/forgetpass" ){
+        return  <ForgetPassStepper />
+      }else if(location === `/login/forgetpass/step2/${configvalue}`) {
+         return <ForgetPassStepperStep2 />
+      }
+     }
+    
 
   return (
     <>
