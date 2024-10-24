@@ -5,7 +5,7 @@ import CourseCardSec from './CourseCardSec/CourseCardSec'
 const CourseNames = ({pageNum}) => {
   return (
     <div className='space-y-6'> 
-      <CourseSortPart />
+      <CourseSortPart pageNum={pageNum} />
       <CourseCardSec pageNum={pageNum} />
     </div>
   )

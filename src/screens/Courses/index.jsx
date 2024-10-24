@@ -12,7 +12,7 @@ const Courses = () => {
   getQuery('CourseCategories', "/Home/GetTechnologies");
   getQuery('courseLevels', "/CourseLevel/GetAllCourseLevel");
   getQuery('teachers', "/Home/GetTeachers");
-  getQuery('', "/CourseLevel/GetAllCourseLevel");
+  // getQuery('', "/CourseLevel/GetAllCourseLevel");
   
 
   return (
