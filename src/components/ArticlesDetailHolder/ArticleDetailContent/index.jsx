@@ -7,6 +7,7 @@ import ArticleDetailSimilarCard from '../ArticleDetailSimilarCard'
 import { getQuery } from '../../../core/services/api/reactQuery/getQuery'
 import { useQuery } from '@tanstack/react-query'
 import ViewMoreBtn from '../../common/ViewMoreBtn/ViewMoreBtn'
+import { usequery } from '../../../core/services/api/reactQuery/useQuery'
 
 
 const ArticleDetailContent = () => {
@@ -19,16 +20,17 @@ const ArticleDetailContent = () => {
     //     console.log("resault" , res)
     // }
 
-        const response = getQuery('newsComment', `/News/GetNewsComments?NewsId=${articleId}`);
+        getQuery('newsComment', `/News/GetNewsComments?NewsId=${articleId}`);
+        const response = usequery('newsComment');
         console.log("redes" , response?.slice(0 , 3));
      
 //  useEffect(() => {
 //    getArticlesDetail()
  
 //  }, [])
-   const {data, isLoading, error} = useQuery({
-   queryKey: ['newsComment']
-  })
+  //  const {data, isLoading, error} = useQuery({
+  //  queryKey: ['newsComment']
+  // })
 
 //  if(isLoading) return <div>loading ...</div>
 //  if(error) return <div>error</div>
@@ -43,7 +45,7 @@ const ArticleDetailContent = () => {
           <div className='wrapper flex justify-around flex-wrap items-center gap-6'>
         <AddCommentsCard  />
          {response?.slice(0,3).map((item , index) => {
-          return (<CommentsCard key={index} response={item}/>) 
+          return (<CommentsCard key={index} data={item}/>) 
         })}  
 
 
