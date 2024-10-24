@@ -7,6 +7,7 @@ export const usequery = (queryKey, variable) => {
 
     if (isError) alert("Fetching is onSuccessfull");
     if (isLoading) <div> "Loading" </div>;
+    console.log(data,'ytfyfyfyt');
 
     return data;
 }

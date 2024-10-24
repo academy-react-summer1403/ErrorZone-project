@@ -61,4 +61,4 @@ export const coursSortFilDataSlice = createSlice({
     }
 })
 
-export const { giveCourseTypeId, giveCourseLevelId, giveTeacherId } = coursSortFilDataSlice.actions;
+export const { giveCourseTypeId, giveCourseLevelId, giveTeacherId, giveCostUp, giveCostDown } = coursSortFilDataSlice.actions;

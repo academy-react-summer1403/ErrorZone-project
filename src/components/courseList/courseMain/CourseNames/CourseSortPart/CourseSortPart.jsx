@@ -12,6 +12,7 @@ const CourseSortPart = ({ pageNum }) => {
     <div className=" flex flex-nowrap gap-4 items-center text-lg">
       <p> ترتیب</p>
       <RadioGroup
+         
         onValueChange={(e) => {
           dispatch(coursSortFilDataSlice.actions.giveSortKey(e.key));
           dispatch(coursSortFilDataSlice.actions.giveSortType(e.order));

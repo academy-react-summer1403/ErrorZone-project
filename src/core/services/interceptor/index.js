@@ -31,7 +31,7 @@ instance.interceptors.request.use((opt) => {
 
     const token = getItem("Token");
 
-    if (token) opt.headers.Authorization = "Bearer " + token.token ;
+    if (token) opt.headers.Authorization = "Bearer " + token ;
 
     return opt;
 });

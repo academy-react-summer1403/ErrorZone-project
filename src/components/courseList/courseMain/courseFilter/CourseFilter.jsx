@@ -10,17 +10,26 @@ import React, { useState } from "react";
 import AutoCompleteSpecial from "../../../common/AutoCompleteSpecial/AutoCompleteSpecial";
 import PriceRange from "../../../common/priceRange/priceRange";
 import SearchBox from "../../../common/SearchBox/SearchBox";
-import { useDispatch } from "react-redux";
-import { coursSortFilDataSlice, giveCourseLevelId, giveCourseTypeId, giveTeacherId } from "../../../../redux/coursSortFilDataSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  coursSortFilDataSlice,
+  giveCostDown,
+  giveCostUp,
+  giveCourseLevelId,
+  giveCourseTypeId,
+  giveTeacherId,
+} from "../../../../redux/coursSortFilDataSlice";
 
 const CourseFilter = () => {
+  const morePrice = useSelector((state) => state.coursSortFilData.CostUp);
+  const lessPrice = useSelector((state) => state.coursSortFilData.CostDown);
   const dispatch = useDispatch();
-  const [lessPrice, setLessPrice] = useState();
-  const [morePrice, setMorePrice] = useState();
+  // const [lessPrice, setLessPrice] = useState();
+  // const [morePrice, setMorePrice] = useState();
 
   const getPriceRange = (value) => {
-    setLessPrice(value[0]);
-    setMorePrice(value[1]);
+    dispatch(giveCostDown(value[0]));
+    dispatch(giveCostUp(value[1]));
   };
 
   return (
@@ -79,7 +88,7 @@ const CourseFilter = () => {
             titleApi="fullName"
             submit={(key) => {
               dispatch(giveTeacherId(key));
-            }}            
+            }}
           />
         </div>
 
@@ -87,8 +96,8 @@ const CourseFilter = () => {
           <div className="  flex gap-2 text-base">
             <Money04Icon />
             <span>قیمت</span>
-            <span>{lessPrice} از</span>
-            <span>تا {morePrice}</span>
+            <span>{lessPrice ? lessPrice : 0} از</span>
+            <span>تا {morePrice ? morePrice : 1000000000}</span>
           </div>
           <div className="w-5/6 m-auto">
             <PriceRange onchange={(value) => getPriceRange(value)} />

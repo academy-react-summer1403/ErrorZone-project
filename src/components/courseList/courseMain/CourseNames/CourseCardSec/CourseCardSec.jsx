@@ -21,6 +21,8 @@ const CourseCardSec = () => {
     (state) => state.coursSortFilData.courseLevelId
   );
   const teacher = useSelector((state) => state.coursSortFilData.TeacherId);
+  const morePrice = useSelector((state) => state.coursSortFilData.CostUp);
+  const lessPrice = useSelector((state) => state.coursSortFilData.CostDown);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -31,19 +33,34 @@ const CourseCardSec = () => {
   const CourseTypeParam = searchParams.get("CourseTypeId") || "";
   const courseLevelParam = searchParams.get("courseLevelId") || "";
   const TeacherParam = searchParams.get("TeacherId") || "";
+  const CostUpParam = searchParams.get("CostUp") || "";
+  const CostDownParam = searchParams.get("CostDown") || "";
 
   useEffect(() => {
     setSearchParams({
       Query: qeury,
       SortingCol: sortCol,
       SortType: oredr,
-      CourseTypeId: courseType,
-      courseLevelId: courseLevel,
-      TeacherId: teacher,
+      CourseTypeId: courseType ? courseType : "",
+      courseLevelId: courseLevel ? courseLevel : "",
+      TeacherId: teacher ? teacher : "",
+      CostUp: morePrice,
+      CostDown: lessPrice,
+
       PageNumber: pageNum,
     });
     console.log(courseType);
-  }, [oredr, sortCol, pageNum, qeury, courseType, courseLevel, teacher]);
+  }, [
+    oredr,
+    sortCol,
+    pageNum,
+    qeury,
+    courseType,
+    courseLevel,
+    teacher,
+    morePrice,
+    lessPrice,
+  ]);
 
   const { data, isError, isLoading } = useQuery({
     queryKey: [
@@ -55,6 +72,8 @@ const CourseCardSec = () => {
       CourseTypeParam,
       courseLevelParam,
       TeacherParam,
+      CostUpParam,
+      CostDownParam,
     ],
     queryFn: async () =>
       await http.get(
@@ -64,10 +83,10 @@ const CourseCardSec = () => {
           QeuryParam ? `&Query=${QeuryParam}` : ""
         }${CourseTypeParam ? `&CourseTypeId=${CourseTypeParam}` : ""}${
           courseLevelParam ? `&courseLevelId=${courseLevelParam}` : ""
-        }${
-          TeacherParam ? `&TeacherId=${TeacherParam}` : ""
-        }
-        &TechCount=0`
+        }${TeacherParam ? `&TeacherId=${TeacherParam}` : ""}
+        ${CostUpParam ? `&CostUp=${CostUpParam}` : ""}${
+          CostDownParam ? `&CostDown=${CostDownParam}` : ""
+        }&TechCount=0`
       ),
   });
 

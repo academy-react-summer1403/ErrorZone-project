@@ -25,6 +25,7 @@ const PaginationCards = () => {
         isCompact
         showControls
         total={totalCount ? Math.ceil(totalCount / 12) : Math.ceil(totalCount / 12)}
+        initialPage={1}
         page={pageNum}
         onChange={(e) => dispatch(coursSortFilDataSlice.actions.changePage(e))}
       />

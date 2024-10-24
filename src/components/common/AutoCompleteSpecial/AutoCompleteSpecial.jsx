@@ -6,7 +6,7 @@ import { coursSortFilDataSlice } from '../../../redux/coursSortFilDataSlice';
 
 
 const AutoCompleteSpecial = ({queryKey, label, titleApi, submit}) => {
-  const dispatch = useDispatch();
+
     const data = usequery(queryKey);
 
   return (
