@@ -29,8 +29,8 @@ const UserDropDown = () => {
     {
       key: "پنل",
       label: "ورود به پنل",
-      path: "/StudentPanel",
-      fn: "",
+      path: "/StudentPanel/dashboard",
+      // fn: "",
     },
     {
       key: "delete",
