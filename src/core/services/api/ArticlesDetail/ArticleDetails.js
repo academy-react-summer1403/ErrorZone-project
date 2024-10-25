@@ -6,7 +6,7 @@ const ArticleDetails = async (articleId) => {
     return res;
   } catch (err) {
     console.log(err);
-    return 0;
+  
   }
 };
 
