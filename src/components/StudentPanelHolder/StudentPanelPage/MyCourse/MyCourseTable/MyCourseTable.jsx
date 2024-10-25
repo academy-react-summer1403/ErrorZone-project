@@ -10,28 +10,36 @@ import {
   Chip,
   Tooltip,
   getKeyValue,
+  Skeleton,
 } from "@nextui-org/react";
 import { EditIcon } from "./EditIcon";
 import { DeleteIcon } from "./DeleteIcon";
 import { EyeIcon } from "./EyeIcon";
 // import {columns, users} from "./data";
+
 // import { usequery } from "../../../../../core/services/api/reactQuery/usequery";
+
+
 import { BookDownloadIcon, Cancel01Icon, ViewIcon } from "hugeicons-react";
 import { Link } from "react-router-dom";
 import { getQuery } from "../../../../../core/services/api/reactQuery/getQuery";
 import { usequery } from "../../../../../core/services/api/reactQuery/useQuery";
 
-const  MyCourseTable = () => {
+const MyCourseTable = () => {
   const columns = [
     { name: "نام", uid: "courseTitle" },
     { name: "مدرس", uid: "fullName" },
     { name: "سطح", uid: "levelName" },
     { name: "", uid: "actions" },
   ];
+  getQuery(
+    "MyCourses",
+    "/SharePanel/GetMyCourses?PageNumber=1&RowsOfPage=10&SortingCol=DESC&SortType=LastUpdate"
+  );
 
-  const {listOfMyCourses} = usequery('MyCourses');
+  const data = usequery("MyCourses");
 
-  console.log(listOfMyCourses);
+  const { listOfMyCourses } = data ? data : [];
 
   const renderCell = React.useCallback((user, columnKey) => {
     const cellValue = user[columnKey];
@@ -85,27 +93,36 @@ const  MyCourseTable = () => {
   }, []);
 
   return (
-    <Table className="bg-gray-100" aria-label="Example table with custom cells">
-      <TableHeader className="bg-gray-200" columns={columns}>
-        {(column) => (
-          <TableColumn
-            key={column.uid}
-            align={column.uid === "actions" ? "center" : "start"}
-          >
-            {column.name}
-          </TableColumn>
-        )}
-      </TableHeader>
-      <TableBody items={listOfMyCourses}>
-        {(item) => (
-          <TableRow key={item.courseId}>
-            {(columnKey) => (
-              <TableCell>{renderCell(item, columnKey)}</TableCell>
+    <>
+      {listOfMyCourses ? (
+        <Table
+          className="bg-gray-100"
+          aria-label="Example table with custom cells"
+        >
+          <TableHeader className="bg-gray-200" columns={columns}>
+            {(column) => (
+              <TableColumn
+                key={column.uid}
+                align={column.uid === "actions" ? "center" : "start"}
+              >
+                {column.name}
+              </TableColumn>
             )}
-          </TableRow>
-        )}
-      </TableBody>
-    </Table>
+          </TableHeader>
+          <TableBody items={listOfMyCourses ? listOfMyCourses : []}>
+            {(item) => (
+              <TableRow key={item.courseId}>
+                {(columnKey) => (
+                  <TableCell>{renderCell(item, columnKey)}</TableCell>
+                )}
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      ) : (
+        <Skeleton className="rounded-2xl w-full min-h-52 h-full" />
+      )}
+    </>
   );
 };
 

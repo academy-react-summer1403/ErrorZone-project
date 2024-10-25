@@ -15,6 +15,7 @@ import { SuccessToastify } from '../../../core/utils/Toastifies/SuccessToastify.
 import { ErrorToastify } from '../../../core/utils/Toastifies/ErrorToastify.Utils'
 import ArticleDetailsCommentsLike from '../../../core/services/api/ArticlesDetail/ArticleDetailsCommentsLike'
 
+
 const CommentsCard = ({response}) => {
     const currentUserIsLike = response.currentUserIsLike;
     const currentLikeCount = response.likeCount;
@@ -22,12 +23,31 @@ const CommentsCard = ({response}) => {
     const dissLikeCount = response.dissLikeCount;
     const date = response.inserDate;
 
+const CommentsCard = ({data}) => {
+    const currentUserIsLike = data.currentUserIsLike;
+    const currentLikeCount = data.likeCount;
+    const currentUserIsdissLike = data.currentUserIsDissLike; 
+    const dissLikeCount = data.dissLikeCount;
+    const date = data.inserDate;
+    // console.log('isUserLike' , currentUserIsLike)
+    // console.log('isUserdisslike' , currentUserIsdissLike)
+
+
     const [currentLike, setCurrentsLike] = useState(currentLikeCount)
     const [isUserLike, setIsUserLike] = useState(currentUserIsLike) 
     const [currentDislike, setCurrentDislike] = useState(dissLikeCount)      
     const [isUserDislike, setIsUserDislike] = useState(currentUserIsdissLike)  
     const [newsList, setNewsList] = useState([])
+
     const id = response.id 
+
+     
+ 
+
+    // const resualts = data 
+
+    const id = data.newsId
+
 
     const handleLike = async () => {
     const res = await ArticleDetailsCommentsLike(id)
@@ -52,14 +72,14 @@ const CommentsCard = ({response}) => {
      <>  
      <ToastContainer  rtl/>
     <div className=' bg-gray-100 dark:bg-gray-800  phone:w-full  tablet:w-[324px] h-[282px] rounded-[24px] grid grid-cols-1 items-center pt-4 pr-4 pl-4 pb-4 '>
-       <p className='w-[292px] h-[26px] font-DanaFaNum-700 text-lg text-black  mx-auto dark:text-white '>    {response.title}  </p>
-       <p className='w-[292px] h-[157px] mx-auto mt-4 font-DanaFaNum-500 text-base text-gray-800 dark:text-white'>  {response.describe} </p>
+       <p className='w-[292px] h-[26px] font-DanaFaNum-700 text-lg text-black  mx-auto dark:text-white '>    {data.title}  </p>
+       <p className='w-[292px] h-[157px] mx-auto mt-4 font-DanaFaNum-500 text-base text-gray-800 dark:text-white'>  {data.describe} </p>
        
        <div className=' w-[292px] h-[42px] mx-auto grid grid-cols-2 items-center gap-[50px] '>   
          <div className='w-[100px] h-[41px]  grid grid-cols-2 ' > 
-           <div className='bg-green-400 w-[40px] h-[40px] rounded-[134px]'> {response.pictureAddress ? '' : <img className='w-[40px] h-[40px] rounded-[134px]' src={NoPhoto} />}    </div>         
+           <div className='bg-green-400 w-[40px] h-[40px] rounded-[134px]'> {data.pictureAddress ? '' : <img className='w-[40px] h-[40px] rounded-[134px]' src={NoPhoto} />}    </div>         
            <div className=' w-[93px] h-[41px] grid grid-cols-1 '> 
-             <span className=' w-[93px] h-[20px] font-DanaFaNum-600 text-sm text-black text-nowrap relative top-[5px] dark:text-white' > {response.autor ? '' : 'اسمی وجود ندارد'} </span>
+             <span className=' w-[93px] h-[20px] font-DanaFaNum-600 text-sm text-black text-nowrap relative top-[5px] dark:text-white' > {data.autor ? '' : 'اسمی وجود ندارد'} </span>
              <span className=' w-[93px] h-[17px] font-DanaFaNum-500 text-xs text-gray-800 text-nowrap pt-1 dark:text-white' >  {MakeDatePersian(date)}     </span>
            </div>         
         </div>
