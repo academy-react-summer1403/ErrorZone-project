@@ -12,7 +12,8 @@ import { convertDate } from "../../../../core/utils/DateToShamsi";
 import { MakeDatePersian } from "../../../../core/utils/MakeDatePersian.js/MakeDatePersian";
 
 
-const CourseInfoTableMobView = ({data}) => {
+const NewsInfoTableMobView = ({data}) => {
+
     return (
         <div className="block tablet:hidden ">
           <Table hideHeader aria-label="Example static collection table">
@@ -24,34 +25,33 @@ const CourseInfoTableMobView = ({data}) => {
     
               <TableRow key="1" className="border-b-2 border-gray-400 pb-3 mt-2 h-20">
                 <TableCell className="space-y-3">
-                  <div className="text-sm text-gray-800">وضعیت</div>
-                  <Chip color="danger">{data?.courseStatusName}</Chip>
+                  <div className="text-sm text-gray-800">بیننده</div>
+                  <Chip color="danger">{data?.currentView}</Chip>
                 </TableCell>
     
                 <TableCell className="space-y-3">
-                  <div className="text-sm text-gray-800">دسته‌بندی</div>
-                  {data?.techs?.map((item,index)=>(
-              <Chip color="primary" key={index}>{item}</Chip>
-              ))}
+                  <div className="text-sm text-gray-800">عنوان</div>              
+               <Chip color="primary" >{data?.title}</Chip>
+              
                 </TableCell>
               </TableRow>
 
               <TableRow key="2" className="border-y-2 border-gray-400 pb-3 mt-2 h-20">
                 <TableCell className="space-y-3">
                   <div className="text-sm text-gray-800">سطح آموزشی</div>
-                  <Chip color="secondary">{data?.courseLevelName}</Chip>
+                  <Chip color="secondary">{data?.newsCatregoryName}</Chip>
                 </TableCell>
     
                 <TableCell className="space-y-3">
                   <div className="text-sm text-gray-800">استاد دوره</div>
-                  <div>{data?.teacherName}</div>
+                  <div>{data?.addUserFullName}</div>
                 </TableCell>    
               </TableRow>
     
               <TableRow key="3" className="border-y-2 border-gray-400 pb-3 mt-2 h-20">
                 <TableCell className="space-y-3">
                     <span className="text-sm text-gray-800">تاریخ برگزاری</span>
-                    <div>{MakeDatePersian(data?.startTime)}</div>
+                    <div>{MakeDatePersian(data?.insertDate)}</div>
                 </TableCell>
     
                 <TableCell className="space-y-3">
@@ -63,12 +63,12 @@ const CourseInfoTableMobView = ({data}) => {
               <TableRow key="4" className="border-t-2 border-gray-400 pb-3 mt-2 h-20">
                 <TableCell className="space-y-3">
                     <span className="text-sm text-gray-800">تعداد لایک</span>
-                    <div>{data?.likeCount}</div>
+                    <div>{data?.currentLikeCount}</div>
                 </TableCell>
     
                 <TableCell className="space-y-3">
                     <span className="text-sm text-gray-800">تعداد دیس‌لایک</span>
-                    <div>{data?.dissLikeCount}</div>
+                    <div>{data?.currentDissLikeCount}</div>
                 </TableCell>     
               </TableRow>
     
@@ -78,4 +78,4 @@ const CourseInfoTableMobView = ({data}) => {
       );
 }
 
-export default CourseInfoTableMobView
+export default NewsInfoTableMobView

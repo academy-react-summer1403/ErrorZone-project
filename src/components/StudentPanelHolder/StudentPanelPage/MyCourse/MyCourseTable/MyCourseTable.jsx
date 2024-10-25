@@ -15,10 +15,11 @@ import { EditIcon } from "./EditIcon";
 import { DeleteIcon } from "./DeleteIcon";
 import { EyeIcon } from "./EyeIcon";
 // import {columns, users} from "./data";
-import { usequery } from "../../../../../core/services/api/reactQuery/usequery";
+// import { usequery } from "../../../../../core/services/api/reactQuery/usequery";
 import { BookDownloadIcon, Cancel01Icon, ViewIcon } from "hugeicons-react";
 import { Link } from "react-router-dom";
 import { getQuery } from "../../../../../core/services/api/reactQuery/getQuery";
+import { usequery } from "../../../../../core/services/api/reactQuery/useQuery";
 
 const  MyCourseTable = () => {
   const columns = [
