@@ -1,4 +1,6 @@
-import jMoment from 'moment-jalaali'
+// import jMoment from 'moment-jalaali'
+import jMoment from "moment-jalaali"
+
 
 const MakeDateEnglish = (time) => {
   
