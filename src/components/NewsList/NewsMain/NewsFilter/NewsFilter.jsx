@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SearchBox from "../../../common/SearchBox/SearchBox";
-import { CellsIcon, Search01Icon } from "hugeicons-react";
+import { CellsIcon, FilterRemoveIcon, Search01Icon } from "hugeicons-react";
 import AutoCompleteSpecial from "../../../common/AutoCompleteSpecial/AutoCompleteSpecial";
 import {
   Autocomplete,
@@ -20,6 +20,7 @@ import persian_fa from "react-date-object/locales/persian_fa";
 import { parseAbsoluteToLocal } from "@internationalized/date";
 import PersianDateRange from "./PersianDateRange";
 import { makeDatePersian } from "../../../../core/utils/date-helper.utils";
+import ButtonSpecial from "../../../common/ButtonSpecial";
 
 const NewsFilter = () => {
   const [value, setValue] = React.useState();
@@ -42,9 +43,25 @@ const NewsFilter = () => {
   }, [value]);
 
   return (
-    <div className="flex ">
-      <div className="space-y-6 mx-auto">
+    <div className="flex  ">
+      <div className="space-y-6 mx-auto ">
+        <div className="flex justify-between"> 
         <span className="font-DanaFaNum-700 text-2xl  "> فیلتر </span>
+
+        <ButtonSpecial
+          className="bg-red rounded-3xl py-2 text-white"
+          onClick={() => {
+            dispatch(giveNewsCategoryId(""));
+ 
+          }}
+          innerHtml={
+            <>
+              <FilterRemoveIcon />
+              <span>حذف </span>
+            </>
+          }
+        />
+       </div>
 
         <div className=" space-y-2    ">
           <div className="   flex ">
@@ -70,6 +87,7 @@ const NewsFilter = () => {
                 className="max-w-xs"
                 selectedKey={value}
                 onSelectionChange={setValue}
+                radius="lg"
               >
                 {(item) => (
                   <AutocompleteItem key={item.value}>

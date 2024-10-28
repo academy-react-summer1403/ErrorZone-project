@@ -13,8 +13,9 @@ const PersianDateRange = ({ value, onChange }) => {
       calendar={persian}
       locale={persian_fa}
       render={<Input value={value} onValueChange={onChange} />}
-      className="w-full border border-gray-400 rounded-3xl"
+      className="w-full border border-gray-400 rounded-3xl dark:bg-slate-800 dark:border-slate-900 dark:shadow-sm"
       placeholder="jjopasdvoavn"
+      
     />
   );
 };
