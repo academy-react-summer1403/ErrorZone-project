@@ -9,9 +9,7 @@ const Courses = () => {
   //   "corsesByPagination",
   //   "/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=12&SortingCol=Active&SortType=DESC"
   // );
-  getQuery('CourseCategories', "/Home/GetTechnologies");
-  getQuery('courseLevels', "/CourseLevel/GetAllCourseLevel");
-  getQuery('teachers', "/Home/GetTeachers");
+
   // getQuery('', "/CourseLevel/GetAllCourseLevel");
   
 
