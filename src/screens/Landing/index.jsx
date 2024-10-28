@@ -12,8 +12,6 @@ const Landing = () => {
   getQuery("topCourses", "/Home/GetCoursesTop?Count=4");
   getQuery("landingInfo", "/Home/LandingReport");
   getQueryFiltterByCount("TopBlogs", "/News/GetListNewsCategory", 3);
-  getQueryNoApi('isLogin', getItem('Token'));
-  getQuery('userInfo', "/SharePanel/GetProfileInfo");
 
 
   return (

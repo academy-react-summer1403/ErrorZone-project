@@ -33,6 +33,20 @@ const UserPanelEditProfileFormSchema = yup.object().shape({
     .matches(/^[0-9]{10}$/, "لطفا کد ملی خود را درست وارد کنید")
     .required(" لطفا کد ملی را وارد کنید"),
   Gender: yup.boolean().required("لطفا نوع جنسیت را انتخاب کنید"),
+  Email: yup
+    .string()
+    .matches(
+      /^(0?9[0-9]{9})|([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$/,
+      "لطفا شماره تلفن خود یا ایمیل خود را درست وارد کنید"
+    )
+    .required("لطفا ایمیل یا شماره تلفن را وارد کنید"),
+    phoneNumber: yup
+    .string()
+    .matches(
+      /^(0?9[0-9]{9})|([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$/,
+      "لطفا شماره تلفن خود یا ایمیل خود را درست وارد کنید"
+    )
+    .required("لطفا شماره تلفن را وارد کنید"),
 });
 
 export { UserPanelEditProfileFormSchema };

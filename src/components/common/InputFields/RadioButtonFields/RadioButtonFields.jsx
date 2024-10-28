@@ -12,7 +12,7 @@ const RadioButtonField = ({
     return (
       <div className=" w-[100px] h-full py-3 px-2 flex">
         <label htmlFor={labelId}>
-          <p className="text-[18px] mr-1 text-black mb-10">{labelName}</p>
+          <p className="text-[18px] mr-1 text-black mb-10 dark:text-white">{labelName}</p>
         </label>        
         <Field
           type="radio"
