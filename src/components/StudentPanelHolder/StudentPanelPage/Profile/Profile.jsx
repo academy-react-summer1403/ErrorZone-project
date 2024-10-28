@@ -3,7 +3,7 @@ import ProfileComponents from '../ProfileComponents/ProfileComponents'
 
 const Profile = () => {
   return (
-    <div className='w-[100%] h-[100%]'> <ProfileComponents /> </div>
+    <div className='w-[100%] h-[100%] dark:bg-blackPanel'> <ProfileComponents /> </div>
   )
 }
 

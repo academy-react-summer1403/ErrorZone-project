@@ -1,10 +1,10 @@
-import moment from "jalali-moment";
+import jMoment from 'moment-jalaali'
 
 const MakeDateEnglish = (time) => {
-  const date = moment
-    .from(time, "fa", "YYYY-MM-DD")
-    .local("en")
-    .format("YYYY-MM-DD");
+  
+  const date = jMoment(time , "jYYYY/jMM/jDD").format("YYYY/MM/DD");
+ 
+    
 
   return date;
 };

@@ -29,12 +29,12 @@ const changeFlager = () => {
 
 
 
-   const response = getQuery('newsComment', `/News/GetNewsComments?NewsId=${articleId}`);
-  //  console.log("redes" , response?.slice(0 , 3));
+  //  const response = getQuery('newsComment', `/News/GetNewsComments?NewsId=${articleId}`);
+  // //  console.log("redes" , response?.slice(0 , 3));
      
-   const {data, isLoading, error} = useQuery({
-   queryKey: ['newsComment']
-  })
+  //  const {data, isLoading, error} = useQuery({
+  //  queryKey: ['newsComment']
+  // })
 
         getQuery('newsComment', `/News/GetNewsComments?NewsId=${articleId}`);
         const response = usequery('newsComment');
