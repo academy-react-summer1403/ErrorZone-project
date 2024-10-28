@@ -32,7 +32,7 @@ const DashboardMain = () => {
           <ProgressCircle />
         </div>
       </div>
-      <div className="flex flex-nowrap justify-between gap-6 ">
+      <div className="flex flex-nowrap justify-between gap-6 h-[400px] overflow-y-scroll">
         <div className="flex flex-col w-full  bg-gray-100 rounded-3xl ">
           <div className="flex items-center justify-between">
             <h2 className="  font-DanaFaNum-600 text-sm mr-4">رزرو من </h2>
@@ -42,7 +42,7 @@ const DashboardMain = () => {
           </div>
 
           {usequery("myReservesCourses") ? (
-            <MyResCourseTable />
+            <MyResCourseTable slice={true} />
           ) : (
             <Skeleton className="rounded-2xl w-full min-h-52 h-full" />
           )}
@@ -50,17 +50,14 @@ const DashboardMain = () => {
 
         <div className="flex flex-col w-full  bg-gray-100 rounded-3xl ">
           <div className="flex items-center justify-between">
-            <h2 className="  font-DanaFaNum-600 text-sm mr-4">رزرو من </h2>
+            <h2 className="  font-DanaFaNum-600 text-sm mr-4"> نظرات شما </h2>
             <div className=" ">
               <CommentModal />
             </div>
           </div>
 
-          {/* {usequery("myReservesCourses") ? (
-            <CommentsCard />
-          ) : (
             <Skeleton className="rounded-2xl w-full min-h-52 h-full" />
-          )} */}
+          
         </div>
       </div>
     </div>

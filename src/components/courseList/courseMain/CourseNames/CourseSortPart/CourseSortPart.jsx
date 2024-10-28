@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { coursSortFilDataSlice } from "../../../../../redux/coursSortFilDataSlice";
 import RadiosGroup from "./SortBtn/RadiosGroup";
+import { Cancel01Icon, FilterRemoveIcon, FilterResetIcon } from "hugeicons-react";
 
 const CourseSortPart = ({ pageNum }) => {
   const dispatch = useDispatch();
@@ -40,9 +41,37 @@ const CourseSortPart = ({ pageNum }) => {
           selectedValue={selectedOption}
           onChange={setSelectedOption} // set the selected object
         />
+        <>
+          <input
+            type="radio"
+            name="myRadioGroup"
+            id="deletSort"
+            value={{
+              id: 0,
+              label: "فعال ها",
+              value: { key: "Active", order: "DESC" },
+            }}
+            onChange={() =>
+              setSelectedOption({
+                id: 0,
+                label: "فعال ها",
+                value: { key: "Active", order: "DESC" },
+              })
+            }
+            className="hidden"
+          />
+          <label
+            className="cursor-pointer px-4 py-2 rounded-3xl bg-blue border-0 text-white ring-1 ring-cyan-700 text-lg flex items-center justify-between gap-1"
+            key={0}
+            htmlFor="deletSort"
+          >
+            {/* <Cancel01Icon /> */}
+            <FilterRemoveIcon />
+            حذف فیلتر
+          </label>
+        </>
       </div>
       <div className="w-px h-1/2 bg-gray-400"></div>
-
     </div>
   );
 };

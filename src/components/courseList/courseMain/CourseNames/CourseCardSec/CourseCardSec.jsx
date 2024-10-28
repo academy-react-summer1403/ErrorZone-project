@@ -35,7 +35,7 @@ const CourseCardSec = () => {
   const TeacherParam = searchParams.get("TeacherId") || "";
   const CostUpParam = searchParams.get("CostUp") || "";
   const CostDownParam = searchParams.get("CostDown") || "";
-
+  // [0, 1000000000]
   useEffect(() => {
     setSearchParams({
       Query: qeury,
@@ -44,8 +44,8 @@ const CourseCardSec = () => {
       CourseTypeId: courseType ? courseType : "",
       courseLevelId: courseLevel ? courseLevel : "",
       TeacherId: teacher ? teacher : "",
-      CostUp: morePrice,
-      CostDown: lessPrice,
+      CostUp: morePrice ? morePrice : "",
+      CostDown: lessPrice ? lessPrice : "",
 
       PageNumber: pageNum,
     });
@@ -84,7 +84,7 @@ const CourseCardSec = () => {
         }${CourseTypeParam ? `&CourseTypeId=${CourseTypeParam}` : ""}${
           courseLevelParam ? `&courseLevelId=${courseLevelParam}` : ""
         }${TeacherParam ? `&TeacherId=${TeacherParam}` : ""}
-        ${CostUpParam ? `&CostUp=${CostUpParam}` : ""}${
+        ${CostUpParam  ? `&CostUp=${CostUpParam}` : ""}${
           CostDownParam ? `&CostDown=${CostDownParam}` : ""
         }&TechCount=0`
       ),

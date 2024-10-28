@@ -26,14 +26,22 @@ const BlueDatePickerInputField = ({
       <div
         className={`border-[3px] border-solid border-bluePrimary w-full h-[45px]   rounded-full text-blac flex flex-row-reverse gap-2`}
       >
-        <i className=" flex justify-center items-center pl-3">  <Calendar03Icon /> </i>
+        <i className=" flex justify-center items-center pl-3">
+          {" "}
+          <Calendar03Icon />{" "}
+        </i>
 
         <DatePicker
           mapDays={({ date }) => {
             let props = {};
             let isWeekend = date.weekDay.index === 6;
 
+
             if (isWeekend) props.className = "highlight highlight-red text-blue ";
+
+            if (isWeekend)
+              props.className = "highlight highlight-red text-blue";
+
 
             return props;
           }}

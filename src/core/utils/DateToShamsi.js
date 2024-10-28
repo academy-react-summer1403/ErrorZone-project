@@ -9,7 +9,7 @@ export const convertDate = (inputDate) => {
     const dateObject = new Date(gregorianDate);
 
     const gYear = dateObject.getFullYear();
-    const gMonth = dateObject.getMonth() + 1; // Months are 0-based in JS
+    const gMonth = dateObject.getMonth(); // Months are 0-based in JS
     const gDay = dateObject.getDate();
 
     const shamsiDate = jalaali.toJalaali(gYear, gMonth, gDay);

@@ -17,7 +17,7 @@ function StudentPaneiSide() {
     {
       title: "داشبرد",
       icon: <Activity01Icon />,
-      path: "/StudentPanel/dashboard",
+      path: "/StudentPanel",
     },
     { title: "دوره من", icon: <CourseIcon />, path: "/StudentPanel/myCourse" },
     {

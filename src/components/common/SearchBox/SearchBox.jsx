@@ -10,12 +10,17 @@ const SearchBox = () => {
     <div style={{ direction: "rtl" }}>
       <form
         className="w-full max-w-lg mx-auto"
-        onSubmit={(e) => {
+        // onSubmit={}
+        onChange={(e) => {
           e.preventDefault();
-          dispatch(
-            coursSortFilDataSlice.actions.searchCourse(
-              document.getElementById("search-dropdown").value
-            )
+          setTimeout(
+            () =>
+              dispatch(
+                coursSortFilDataSlice.actions.searchCourse(
+                  document.getElementById("search-dropdown").value
+                )
+              ),
+            500
           );
         }}
       >

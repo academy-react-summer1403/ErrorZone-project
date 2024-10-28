@@ -1,10 +1,13 @@
 import {
   Calendar02Icon,
   CellsIcon,
+  FilterRemoveIcon,
   Layers01Icon,
   Money04Icon,
   Search01Icon,
   TeacherIcon,
+
+  
 } from "hugeicons-react";
 import React, { useState } from "react";
 import AutoCompleteSpecial from "../../../common/AutoCompleteSpecial/AutoCompleteSpecial";
@@ -19,8 +22,14 @@ import {
   giveCourseTypeId,
   giveTeacherId,
 } from "../../../../redux/coursSortFilDataSlice";
+import { getQuery } from "../../../../core/services/api/reactQuery/getQuery";
+import ButtonSpecial from "../../../common/ButtonSpecial";
 
 const CourseFilter = () => {
+  getQuery("CourseCategories", "/Home/GetTechnologies");
+  getQuery("courseLevels", "/CourseLevel/GetAllCourseLevel");
+  getQuery("teachers", "/Home/GetTeachers");
+
   const morePrice = useSelector((state) => state.coursSortFilData.CostUp);
   const lessPrice = useSelector((state) => state.coursSortFilData.CostDown);
   const dispatch = useDispatch();
@@ -35,7 +44,26 @@ const CourseFilter = () => {
   return (
     <div className="w-[22%]   rounded-[32px] mt-16 top-2 sticky px-5 py-4 h-fit">
       <div className="space-y-6 ">
-        <span className="font-DanaFaNum-700 text-2xl "> فیلتر </span>
+        <div className="font-DanaFaNum-700 flex justify-between text-2xl ">
+          <span>فیلتر</span>
+          <ButtonSpecial
+            className="bg-blue rounded-3xl px-4 py-2 text-white"
+            onClick={() => {
+              dispatch(giveCourseTypeId(""));
+              dispatch(giveCourseLevelId(""));
+              dispatch(giveTeacherId(""));
+              dispatch(getPriceRange(""));
+              dispatch(giveCostDown(""));
+              dispatch(giveCostUp(""));
+            }}
+            innerHtml={
+              <>
+                <FilterRemoveIcon />
+                <span>حذف فیلتر ها</span>
+              </>
+            }
+          />
+        </div>
 
         <div className=" space-y-4     ">
           <div className="   flex gap-2 text-base">
