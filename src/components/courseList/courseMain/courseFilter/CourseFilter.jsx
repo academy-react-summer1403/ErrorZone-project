@@ -47,7 +47,7 @@ const CourseFilter = () => {
         <div className="font-DanaFaNum-700 flex justify-between text-2xl ">
           <span>فیلتر</span>
           <ButtonSpecial
-            className="bg-blue rounded-3xl px-4 py-2 text-white"
+            className="bg-red rounded-3xl px-4 py-2 text-white"
             onClick={() => {
               dispatch(giveCourseTypeId(""));
               dispatch(giveCourseLevelId(""));
@@ -59,7 +59,7 @@ const CourseFilter = () => {
             innerHtml={
               <>
                 <FilterRemoveIcon />
-                <span>حذف فیلتر ها</span>
+                <span>حذف </span>
               </>
             }
           />
