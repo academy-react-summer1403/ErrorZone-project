@@ -8,7 +8,7 @@ const BlogsCard = ({ item }) => {
   const { insertDate, googleTitle, image, categoryName } = item;
 
   return (
-    <div className="flex flex-col gap-3 w-80 tablet:w-[431px] overflow-hidden">
+    <div className="col-span-4 flex flex-col gap-3 overflow-hidden shadow-sm">
       <Link to={`/articles/detail/${item.id}`}>
         <BlogCardTop item={item} />
 

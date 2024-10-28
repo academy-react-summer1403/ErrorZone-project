@@ -3,22 +3,22 @@ import React from "react";
 
 const BlogCardTop = ({item}) => {
 
-    const {image, googleTitle} = item;
+    const {currentImageAddressTumb, title} = item;
 
   return (
     <div className="cardTop ">
-      {image ? (
+      {currentImageAddressTumb ? (
         <img
-          src={image}
-          alt={googleTitle}
-          className="rounded-[32px] block w-full h-[293px] scale-105"
+          src={currentImageAddressTumb}
+          alt={title}
+          className="rounded-[32px] block w-full h-[293px]"
         />
       ) : (
         // <ImageNotFound />
         <img
           src="https://classapi.sepehracademy.ir/\Pictures\Course\blank-thumbnail_009f5021-ce99-4a2d-9077-9d4417b6111f.jpg"
-          alt={googleTitle}
-          className="rounded-[32px] block w-full h-[293px] scale object-contain"
+          alt={title}
+          className="rounded-[32px] block w-full h-[293px] object-contain"
         />        
       )}
     </div>

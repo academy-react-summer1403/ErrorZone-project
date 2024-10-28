@@ -17,7 +17,7 @@ import { convertDate } from "../../../../../core/utils/DateToShamsi";
 import { usequery } from "../../../../../core/services/api/reactQuery/useQuery";
 import { getQuery } from "../../../../../core/services/api/reactQuery/getQuery";
 
-const MyResCourseTable = () => {
+const MyResCourseTable = ({slice}) => {
   const columns = [
     { name: "نام", uid: "courseName" },
     { name: "تاریخ رزرو", uid: "reserverDate" },
@@ -26,7 +26,9 @@ const MyResCourseTable = () => {
   ];
   getQuery("myReservesCourses", "/SharePanel/GetMyCoursesReserve");
 
-  const data = usequery("myReservesCourses");
+  const res = usequery("myReservesCourses");
+
+  const data = slice ? res?.slice(0, 5) : res;
 
   const renderCell = React.useCallback((user, columnKey) => {
     const cellValue = user[columnKey];

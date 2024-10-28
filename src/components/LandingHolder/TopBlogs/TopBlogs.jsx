@@ -13,7 +13,7 @@ const TopBlogs = () => {
       <span className="tablet:text-4xl text-2xl mx-auto block text-center">
       بلاگ های برتر هفته
       </span>
-      <div className="wrapper flex justify-around flex-wrap items-center gap-6">
+      <div className="wrapper grid grid-cols-12 gap-8">
         {data?.map((item, index) => {
           return <BlogsCard item={item} key={index} />;
         })}

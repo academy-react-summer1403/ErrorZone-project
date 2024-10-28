@@ -1,5 +1,6 @@
 import React from 'react'
 import NewsMain from '../../components/NewsList/NewsMain/NewsMain'
+import { getQuery } from '../../core/services/api/reactQuery/getQuery'
 
 const Articles = () => {
   return (
