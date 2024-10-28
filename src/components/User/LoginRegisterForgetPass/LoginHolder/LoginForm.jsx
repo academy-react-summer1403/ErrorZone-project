@@ -9,13 +9,13 @@ import { LoginSchema } from "../../../../core/validations/Schemas/Auth/Login/Log
 import { LoginApi } from "../../../../core/services/api/Auth/Login/LoginApi";
 import { useDispatch } from "react-redux";
 import { onSetLoginInfo } from "../../../../redux/auth/login";
-import { SuccessToastify } from "../../../../core/utils/Toastifies/SuccessToastify.Utils";
-import { ErrorToastify } from "../../../../core/utils/Toastifies/ErrorToastify.Utils";
 import { ImHome } from "react-icons/im";
 import AuthFields from "../../../common/AuthFields/AuthFields";
 import { Home03Icon, ViewIcon } from "hugeicons-react";
-
 import { setItem } from "../../../../core/services/common/storage.services";
+import { SuccessToastify } from "../../../../core/utils/Toastifies/SuccessToastify.Utils";
+import { ErrorToastify } from "../../../../core/utils/Toastifies/ErrorToastify.Utils";
+import { ToastContainer } from "react-toastify";
 
 const LoginForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
@@ -32,22 +32,20 @@ const LoginForm = () => {
       if (user.success === true) {
         if (user.token === null) {
           dispatch(onSetLoginInfo(value));
-
-          // SuccessToastify(user.massage)
+           (user.massage)
 
           setTimeout(() => {
             Navigate("/login/verifycode");
           }, 2000);
           setIsDisabled(false);
         } else if (user.token !== null) {
-          //  SuccessToastify(error.massage)
+          // SuccessToastify(error.massage)
           //console.log('error' , error.massage)
           // setItem("Token", {
           //   token: user.token,
           // });
-
+          // SuccessToastify(res.massage)
           setItem("Token", user.token);
-
           setTimeout(() => {
             Navigate("/");
           }, 2000);
@@ -63,6 +61,7 @@ const LoginForm = () => {
   return (
     <>
       <div className="  w-full h-[87%] mt-[105px]" dir="rtl">
+        
         <div className="flex gap-[20px] "></div>
         <p className="w-[200px] h-[40px] relative top-[100px] right-[60px] font-semibold text-3xl text-black font-DanaFaNum-600 dark:text-white ">
           {" "}
@@ -74,6 +73,7 @@ const LoginForm = () => {
           کاربری وارد نمایید{" "}
         </p>
         <div>
+          <ToastContainer />
           <Formik
             initialValues={{
               phoneOrGmail: "",
@@ -106,7 +106,7 @@ const LoginForm = () => {
                     labelName="مرا به خاطر بسپار"
                   />
                   <div className="w-[175px] h-[36px] relative left-[34px]  bg-gray-100 flex justify-center items-center rounded-[40px] text-sm font-DanaFaNum-600 mt-[10px]">
-                    <Link className="text-sky-400  ">
+                    <Link to="/login/forgetpass" className="text-sky-400  ">
                       {" "}
                       رمز عبور را فراموش کرده اید؟{" "}
                     </Link>
@@ -144,10 +144,6 @@ const LoginForm = () => {
           </Formik>
         </div>
       </div>
-      {/* <Link className="w-32 h-32 bg-red" to="/login/verifycode">
-        {" "}
-        next page{" "}
-      </Link> */}
     </>
   );
 };
