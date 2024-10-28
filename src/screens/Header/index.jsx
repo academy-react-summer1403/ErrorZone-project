@@ -12,12 +12,12 @@ const Header = () => {
   getQueryNoApi('isLogin', getItem('Token'));
 
   return (
-    <div className="w-full max-w-[1520px] mx-auto flex justify-between h-14 tablet:h-auto px-4 tablet:px-10 pt-6">
+    <div className="box2 w-full max-w-[1520px] mx-auto flex justify-between h-14 tablet:h-auto px-4 tablet:px-10 pt-6">
       <LogoWithTypo /> {/*in tablet mode will disapear*/}
       <LogoNoTypo /> {/* in tablet mode will appear*/}
       <HeaderHolder /> {/*in tablet mode will disapear*/}
       <ThemeAndNotifBtns /> {/*in tablet mode will disapear*/}
-      <div className="flex items-center gap-2 flex-nowrap tablet:hidden">
+      <div className="box2 flex items-center gap-2 flex-nowrap tablet:hidden">
         <HeaderHolderMobile />
         <HamburgerMenu />
       </div>

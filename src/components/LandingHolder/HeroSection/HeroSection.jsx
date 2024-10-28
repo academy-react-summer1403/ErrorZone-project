@@ -3,10 +3,14 @@ import RightHeroSecPart from "./RightHeroSecPart";
 import MidHeroSecPart from "./MidHeroSecPart";
 import LeftHeroSecPart from "./LeftHeroSecPart";
 
+
+
 const HeroSection = () => {
+ // <-- scope is for selector text (optional)
+
   return (
     <Fragment>
-      <div className="hidden mx-auto tablet:flex justify-evenly items-center mt-10 tablet:mt-20">
+      <div className="hidden mx-auto tablet:flex justify-evenly items-center mt-10 tablet:mt-20 opacity-100">
         <RightHeroSecPart />
         <MidHeroSecPart />
         <LeftHeroSecPart />
@@ -14,7 +18,7 @@ const HeroSection = () => {
       <div className="flex flex-col mx-auto tablet:hidden space-y-12 mt-20 tablet:mt-10 w-fit items-center">
         <MidHeroSecPart />
         <RightHeroSecPart />
-        <LeftHeroSecPart />
+        <LeftHeroSecPart  />
       </div>
     </Fragment>
   );

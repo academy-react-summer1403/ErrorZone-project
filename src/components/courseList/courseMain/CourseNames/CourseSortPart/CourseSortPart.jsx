@@ -61,7 +61,7 @@ const CourseSortPart = ({ pageNum }) => {
             className="hidden"
           />
           <label
-            className="cursor-pointer px-4 py-2 rounded-3xl bg-red border-0 text-white ring-1 text-lg flex items-center justify-between gap-1"
+            className=" box2 cursor-pointer px-4 py-2 rounded-3xl bg-red border-0 text-white ring-1 text-lg flex items-center justify-between gap-1"
             key={0}
             htmlFor="deletSort"
           >

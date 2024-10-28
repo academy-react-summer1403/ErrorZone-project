@@ -13,8 +13,6 @@ const NewsMain = () => {
       </div>
       <div className="flex justify-between  pt-16 ">
         <div className="flex border-2 border-gray-400 rounded-[32px] w-[22%]  pt-4 pb-6 px-5 h-fit">
-          {" "}
-          ّ
           <NewsFilter />
         </div>
 

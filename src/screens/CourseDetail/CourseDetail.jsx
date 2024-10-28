@@ -12,6 +12,7 @@ const CourseDetail = () => {
   getQuery("courseComment", `Course/GetCourseCommnets/${params.id}`);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     return () => {
       queryclient.clear(["courseComment", "CourseDetailById"]);
     };
