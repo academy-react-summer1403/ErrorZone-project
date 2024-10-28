@@ -25,8 +25,8 @@ const NewsDetailButtonsPart = ({data , changeFlager}) => {
   const dislike = data?.currentUserIsDissLike;
  
 
-const isuserFavorite = data?.isCurrentUserFavorite
-const favId = data?.currentUserFavoriteId
+const isuserFavorite = data?.isCurrentUserFavorite;
+const favId = data?.currentUserFavoriteId;
  
 const id = data?.id
 

@@ -8,11 +8,11 @@ const RateAndPriceSec = ({data}) => {
       <div className="rate flex gap-1" style={{ direction: "ltr" }}>
         <Rating
           name="half-rating"
-          defaultValue={data?.currentUserRateNumber}
+          defaultValue={data?.currentRate}
           precision={0.5}
           readOnly
         />
-        <span>( {data?.currentUserRateNumber} )</span>
+        <span>( {data?.currentRate} )</span>
       </div>
       <span>( {data?.commentCount} ) نظرات </span>
     </div>

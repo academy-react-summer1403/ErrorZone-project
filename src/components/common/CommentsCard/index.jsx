@@ -16,13 +16,6 @@ import { ErrorToastify } from '../../../core/utils/Toastifies/ErrorToastify.Util
 import ArticleDetailsCommentsLike from '../../../core/services/api/ArticlesDetail/ArticleDetailsCommentsLike'
 
 
-const CommentsCard = ({response}) => {
-    const currentUserIsLike = response.currentUserIsLike;
-    const currentLikeCount = response.likeCount;
-    const currentUserIsdissLike = response.currentUserIsDissLike;
-    const dissLikeCount = response.dissLikeCount;
-    const date = response.inserDate;
-
 const CommentsCard = ({data}) => {
     const currentUserIsLike = data.currentUserIsLike;
     const currentLikeCount = data.likeCount;
@@ -39,7 +32,7 @@ const CommentsCard = ({data}) => {
     const [isUserDislike, setIsUserDislike] = useState(currentUserIsdissLike)  
     const [newsList, setNewsList] = useState([])
 
-    const id = response.id 
+    // const id = response.id 
 
      
  
