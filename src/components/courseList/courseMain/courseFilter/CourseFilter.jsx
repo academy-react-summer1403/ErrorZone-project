@@ -42,7 +42,7 @@ const CourseFilter = () => {
   };
 
   return (
-    <div className="w-[22%]   rounded-[32px] mt-16 top-2 sticky px-5 py-4 h-fit">
+    <div className="w-[22%]  rounded-[32px] flex  sticky px-5 py-4 h-fit">
       <div className="space-y-6 ">
         <div className="font-DanaFaNum-700 flex justify-between text-2xl ">
           <span>فیلتر</span>
@@ -56,7 +56,7 @@ const CourseFilter = () => {
               dispatch(giveCostDown(""));
               dispatch(giveCostUp(""));
             }}
-            innerHtml={
+            innerHtml={         
               <>
                 <FilterRemoveIcon />
                 <span>حذف </span>
@@ -65,18 +65,18 @@ const CourseFilter = () => {
           />
         </div>
 
-        <div className=" space-y-4     ">
+        <div className=" space-y-4  ">
           <div className="   flex gap-2 text-base">
             <Search01Icon />
             <span>جستوجو</span>
           </div>
-          <div className="w-full m-auto">
+          <div className="w-full m-auto border-none">
             <SearchBox />
           </div>
         </div>
 
         <div className=" space-y-4  ">
-          <div className="  flex gap-2 text-base">
+          <div className="  flex gap-2 text-base ">
             <CellsIcon />
             <span> دسته بندی</span>
           </div>

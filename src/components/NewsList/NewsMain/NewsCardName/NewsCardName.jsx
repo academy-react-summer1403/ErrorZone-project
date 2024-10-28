@@ -13,29 +13,40 @@ const NewsCardName = () => {
   const dispatch = useDispatch();
 
   const pageNum = useSelector((state) => state.newsSortFilData.PageNumber);
+  const SortingCol = useSelector((state) => state.newsSortFilData.SortingCol);
+  const SortType = useSelector((state) => state.newsSortFilData.SortType);
   const newsCategory = useSelector(
     (state) => state.newsSortFilData.NewsCategoryId
   );
+
   // const totalCount = useSelector((state) => state.newsSortFilData.totalCount);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
   const pageNumberParam = searchParams.get("PageNumber") || 1;
   const NewsCategoryParam = searchParams.get("NewsCategoryId") || "";
+  const SortingColParam = searchParams.get("SortingCol") || "";
+  const SortTypeParam = searchParams.get("SortType") || "";
 
   useEffect(() => {
     setSearchParams({
       NewsCategoryId: newsCategory ? newsCategory : '',
+      SortType: SortType,
+      SortingCol: SortingCol,
       PageNumber: pageNum,
     });
-  }, [pageNum, newsCategory]);
+  }, [pageNum, newsCategory, SortType, SortingCol]);
 
   const { data, isError, isLoading } = useQuery({
-    queryKey: ["newsByPagination", pageNumberParam, NewsCategoryParam],
+    queryKey: ["newsByPagination", pageNumberParam, NewsCategoryParam, SortingColParam, SortTypeParam],
     queryFn: async () =>
       await http.get(
         `/News?PageNumber=${pageNumberParam}${
           NewsCategoryParam ? `&NewsCategoryId=${NewsCategoryParam}` : ""
+        }${
+          SortingColParam ? `&SortingCol=${SortingColParam}` : ""
+        }${
+          SortTypeParam ? `&SortType=${SortTypeParam}` : ""
         }&RowsOfPage=8`
       ),
   });

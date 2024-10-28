@@ -15,10 +15,11 @@ const AutoCompleteSpecial = ({queryKey, label, titleApi, submit}) => {
       // allowsCustomValue
       size='sm'
       label={label + " " + "مورد نظر رو انتخاب کنید"} 
-      variant="bordered"
-      className="max-w-xs text-black bg-gray-200" 
+      variant="faded"
+      className="max-w-xs text-black rounded-2xl  " 
       defaultItems={data ? data : [] }
       onSelectionChange={submit}
+      radius='lg'
     >
       {(items) => <AutocompleteItem key={items.id ? items.id : items.teacherId} textValue={items ? items[titleApi] : false}>{items ? items[titleApi] : false} </AutocompleteItem>}
     </Autocomplete>
