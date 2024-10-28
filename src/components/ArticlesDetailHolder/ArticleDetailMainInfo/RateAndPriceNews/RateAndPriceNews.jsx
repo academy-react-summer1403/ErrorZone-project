@@ -1,7 +1,10 @@
 import { Rating } from '@mui/material'
-import React from 'react'
+import React , {useState} from 'react'
 
-const RateAndPriceSec = ({data}) => {
+const RateAndPriceNews = ({data}) => {
+
+   console.log('data' , data)
+
   return (
     <div className="flex justify-between items-center">
     <div className="flex items-center gap-2">
@@ -14,15 +17,11 @@ const RateAndPriceSec = ({data}) => {
         />
         <span>( {data?.currentUserRateNumber} )</span>
       </div>
-      <span>( {data?.commentCount} ) نظرات </span>
+      <span>( {data?.commentsCount} ) نظرات </span>
     </div>
 
-    <div className="price flex items-center gap-1">
-      <span className="font-DanaFaNum-700 text-2xl">{data?.cost}</span>
-      <span className="text-sm">تومان</span>
-    </div>
   </div>
   )
 }
 
-export default RateAndPriceSec
+export default RateAndPriceNews
