@@ -14,9 +14,9 @@ const CourseMain = () => {
   );
 
   return (
-    <div className="flex justify-between mt-[72px]">
+    <div className="grid grid-cols-12 gap-8 mt-[72px]">
       <CourseFilter />
-      <div className=" flex flex-col justify-between w-[76%] mx-auto text-center">
+      <div className=" col-span-9 text-center">
         <CourseNames pageNum={currentPage} />
         <PaginationCards pageNum={currentPage} setPage={setcurrentPage} />
       </div>

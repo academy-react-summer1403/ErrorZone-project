@@ -108,7 +108,7 @@ const CourseCardSec = () => {
   if (isLoading) <div> "Loading" </div>;
   return (
     <>
-      <div className=" flex flex-wrap justify-between ">
+      <div className=" grid grid-cols-12 gap-8">
         {courseFilterDtos ? (
           courseFilterDtos.map((item, index) => {
             return <CourseCard item={item} key={index} />;

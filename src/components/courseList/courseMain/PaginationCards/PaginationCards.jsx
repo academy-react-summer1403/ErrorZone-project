@@ -12,7 +12,7 @@ const PaginationCards = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="mx-auto mt-10" style={{ direction: "ltr" }}>
+    <div className="mx-auto w-fit mt-10" style={{ direction: "ltr" }}>
       <Pagination
         isCompact
         showControls

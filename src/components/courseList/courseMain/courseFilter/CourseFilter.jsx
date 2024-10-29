@@ -38,7 +38,7 @@ const CourseFilter = () => {
   };
 
   return (
-    <div className="w-[22%]  rounded-[32px] flex  sticky px-5 py-4 h-fit">
+    <div className="col-span-3  rounded-[32px] flex  sticky px-5 py-4 h-fit">
       <div className="space-y-6 ">
         <div className="font-DanaFaNum-700 flex justify-between text-2xl ">
           <span>فیلتر</span>
