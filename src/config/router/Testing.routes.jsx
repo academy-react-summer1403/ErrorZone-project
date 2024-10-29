@@ -35,6 +35,7 @@ import ArticlesDetail from "../../screens/ArticlesDetail";
 import ForgetPassword from "../../screens/ForgetPassword/ForgetPassword";
 import ForgetPassFormStep2 from "../../components/User/LoginRegisterForgetPass/ForgetPassHolder/ForgetPassFormStep2";
 import ProfileInformation from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/ProfileUserInformation/ProfileInformation";
+import UserComponents from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/UserLinks/UserComponents";
 
 
 export const TestingRoutes = createBrowserRouter([
@@ -75,10 +76,10 @@ export const TestingRoutes = createBrowserRouter([
       { path: "/StudentPanel/Coursesfav", element: <CoursesFav /> },
       { path: "/StudentPanel/Blogfav", element: <BlogFav /> },
       { path: "/StudentPanel/profile", element: <Profile /> , children:[
-        {path:"/StudentPanel/profile/Userinformation" ,element: <ProfileInformation />  },
+        {path:"/StudentPanel/profile" ,element: <ProfileInformation />  },
         {path:"/StudentPanel/profile/UserImages" ,element: <ProfileImages />  },      
         {path:"/StudentPanel/profile/UserAddress" ,element: <ProfileAddress />  },      
-        {path:"/StudentPanel/profile/UserLinks" ,element: <UserLinks />  },               
+        {path:"/StudentPanel/profile/UserLinks" ,element: <UserComponents />  },               
       ]},
     ],
   },

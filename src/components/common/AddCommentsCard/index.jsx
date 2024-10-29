@@ -15,7 +15,7 @@ const AddCommentsCard = () => {
   //  console.log('dattta' , data)
 
    return (
-    <div className='bg-blue  cursor-pointer  w-[324px] h-[282px] rounded-3xl opacity-[90%] flex items-center justify-center' onClick={onOpen} >
+    <div className='col-span-12 sm:col-span-6 xl:col-span-3 h-72 p-4 rounded-3xl border bg-blue dark:bg-white flex flex-col justify-center items-center gap-4 shadow-md cursor-pointer ' onClick={onOpen} >
       <div className=''>
        < CommentAdd01Icon className='text-white mr-[49px]'/>
        <h1 className='mt-[8px] font-DanaFaNum-600 text-lg text-white mr-[30px]'>   نظر شما  </h1>

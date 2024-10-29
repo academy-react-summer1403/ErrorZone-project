@@ -4,6 +4,7 @@ import { convertDate } from "../../../core/utils/DateToShamsi";
 import { postQuery } from "../../../core/services/api/reactQuery/postQuery";
 import http from "../../../core/services/interceptor"
 import { useQueryClient } from "@tanstack/react-query";
+import { MakeDatePersian } from "../../../core/utils/MakeDatePersian.js/MakeDatePersian";
 
 const CourseCommentCard = ({ data }) => {
   const [isLike, setIsLike] = useState();
@@ -60,7 +61,7 @@ const CourseCommentCard = ({ data }) => {
               {data.author}
             </span>
             <span className="text-xs text-gray-800 dark:text-gray-100 text-nowrap text-ellipsis max-w-[100px] overflow-hidden w-full">
-              {convertDate(data.insertDate)}
+              {MakeDatePersian(data.insertDate)}
             </span>
           </div>
         </div>

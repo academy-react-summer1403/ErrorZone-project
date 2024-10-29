@@ -29,6 +29,8 @@ import {
 import DeleteImageProfile from "../../../../../core/services/api/UserPanel/DeleteImageProfile";
 import { ToastContainer } from "react-toastify";
 
+
+
 const ProfileImages = () => {
   const navigate = useNavigate();
   const userInfo = useSelector((reducer) => reducer.user.userInformations);
@@ -99,48 +101,42 @@ const ProfileImages = () => {
 
   console.log("profile", profile);
   return (
-    <div className=" w-[100%] h-[100%] pt-[90px] pl-[24px] pr-[24px] ">
+    <div className=" w-[100%] h-[100%] pt-[90px] pl-[24px] pr-[24px]">
       <ToastContainer rtl />
       <div className=" flex ">
-        <div className="border max-auto my-auto">
-          <h1> عکس خود را انتخاب کنید </h1>
+        <div className=" max-auto my-auto">
+          <label
+            className="w-[179px] bg-blue h-[48px] rounded-[40px]  text-white dark:bg-blackPanel flex items-center justify-center cursor-pointer relative top-3"
+            for="file"
+            onClick={onUpload}
+          >
+           <ImageAdd02Icon className="pl-1 pb-1 text-white " />
+             <label className="font-DanaFaNum-600 text-base pr-2">   اضافه کردن عکس </label>   
+          </label>
           <input
-            className="w-24 h-auto  mt-2  pr-2 dark:bg-blackPanel flex items-center justify-center"
+            className="hidden"
             type="file"
+            id="file"
             name="file"
             onChange={(e) => setImage(e.target.files[0])}
           />
-          <button
-            className=" w-20 h-auto mt-3 bg-blue mr-1 flex items-center justify-center"
-            onClick={onUpload}
-          >
-            {" "}
-            upload{" "}
-          </button>
-        </div>
-        <div className="border  mr-5">
-          <img
-            className="w-[189px] h-[189px] rounded-[16px] "
-            src={image ? URL.createObjectURL(image) : ""}
-          />
         </div>
       </div>
-      <div className="w-[100%] pt-6">
+      <div className="w-[100%] ">
         <div className="w-[100%]  rounded-[16px] flex flex-wrap gap-[25px]">
           {profile?.map((item, index) => {
             console.log("item", item);
             return (
               <div className="w-[189px] h-[189px] rounded-[16px] ">
-                {/* <div className={`w-28 h-8 bg-red   ${isOpen ? 'hidden ' : 'show' }`}>  </div>  */}
                 <Dropdown>
                   <DropdownTrigger>
-                    <Button className=" desktop:block relative top-10 left-4 z-50  text-red bg-transparent ">
-                      <MoreVerticalCircle02Icon />
+                    <Button className="bg-transparent desktop:block relative top-10  left-2 z-50  ">
+                      <MoreVerticalCircle01Icon className="w-8 h-8 pt-1 pb-1 mt-1  bg-white rounded-full"  />
                     </Button>
                   </DropdownTrigger>
                   <DropdownMenu
                     aria-label="Action event example"
-                    onAction={(key) => alert(key)}
+                    onAction={(key) => alert(key)} 
                   >
                     <DropdownItem
                       key="delete"
@@ -150,7 +146,6 @@ const ProfileImages = () => {
                       <div className="flex gap-2">
                         <button className="text-black">
                           انتخاب بعنوان پروفایل
-                          {/* <h1 className=""> انتخاب بعنوان پروفایل  </h1> */}
                         </button>
                       </div>
                       <button

@@ -6,7 +6,7 @@ import ArticleDetailSimilarCard from '../ArticleDetailSimilarCard'
 const ArticlesDetailComments = () => {
   return (
     <>
-    <div className=' w-full max-w-[1520px] h-[324px] grid grid-cols-4 items-center gap-[22px] mx-auto '>
+    <div className=' w-full max-w-[1520px] h-[324px] grid grid-cols-4 items-center gap-[22px] mx-auto'>
         <AddCommentsCard />
         <CommentsCard /> 
     </div>

@@ -20,16 +20,16 @@ const ProfileFields = () => {
        <div className={`bg-black text-white  rounded-xl desktop:hidden mx-auto   ${isOpen ? 'show' : 'hidden'}`}> 
     <div className='  flex gap-1'>
       <div className='w-full text-white'> 
-         <NavLink  to={"/StudentPanel/profile/Userinformation"} className={({isActive}) => isActive? ' text-blue flex items-center   font-DanaFaNum-500 text-sm  pr-2 pt-2 rounded-xl' : ' text-gray-800 flex items-center font-DanaFaNum-300 text-sm  pt-2' }>  اطلاعات حساب کاربری   </NavLink>
+         <NavLink  to={"/StudentPanel/profile"} className='text-gray-800 flex items-center   font-DanaFaNum-500 text-sm  pr-2 pt-2 rounded-xl '>  اطلاعات حساب کاربری   </NavLink>
       </div>
       <div className='w-full'>
-         <NavLink className={({isActive}) => isActive? ' text-blue flex items-center   font-DanaFaNum-500 text-sm pr-2 pt-2 rounded-xl' : ' text-gray-800 flex  items-center font-DanaFaNum-500 text-sm  pr-1 pt-2' } to={"/StudentPanel/profile/UserImages"}>   عکس ها  </NavLink>
+         <NavLink className={({isActive}) => isActive ? ' text-blue flex items-center   font-DanaFaNum-500 text-sm pr-2 pt-2 rounded-xl' : ' text-gray-800 flex  items-center font-DanaFaNum-500 text-sm  pr-1 pt-2' } to={"/StudentPanel/profile/UserImages"}>   عکس ها  </NavLink>
       </div> 
       <div className='w-full'>
-        <NavLink className={({isActive}) => isActive? ' text-blue flex  items-center  font-DanaFaNum-500 text-sm  pr-2 pt-2 rounded-xl' : ' text-gray-800 flex  items-center font-DanaFaNum-500 text-sm  pr-2 pt-2' } to={"/StudentPanel/profile/UserAddress"}>  محل سکونت  </NavLink>
+        <NavLink className={({isActive}) => isActive ? ' text-blue flex  items-center  font-DanaFaNum-500 text-sm  pr-2 pt-2 rounded-xl' : ' text-gray-800 flex  items-center font-DanaFaNum-500 text-sm  pr-2 pt-2' } to={"/StudentPanel/profile/UserAddress"}>  محل سکونت  </NavLink>
       </div>  
       <div className='w-full'>
-        <NavLink className={({isActive}) => isActive? ' text-blue flex  items-center   font-DanaFaNum-500 text-sm  pr-2 pt-2 rounded-xl' : ' text-gray-800 flex  items-center font-DanaFaNum-500 text-sm pr-2 pt-2' } to={"/StudentPanel/profile/UserLinks"}>  لینک ها  </NavLink>     
+        <NavLink className={({isActive}) => isActive ? ' text-blue flex  items-center   font-DanaFaNum-500 text-sm  pr-2 pt-2 rounded-xl' : ' text-gray-800 flex  items-center font-DanaFaNum-500 text-sm pr-2 pt-2' } to={"/StudentPanel/profile/UserLinks"}>  لینک ها  </NavLink>     
      </div>
       <div className='w-8 h-8 flex justify-center items-center  text-gray-black hover:text-red pr-3 pl-3 mt-1 bg-gray-800 rounded-full cursor-pointer ml-1' onClick={onClose}  >
           x

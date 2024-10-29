@@ -7,7 +7,7 @@ import RateAndPriceNews from './RateAndPriceNews/RateAndPriceNews'
 
 const ArticleDetailMainInfo = ({data , changeFlager}) => {
 
-const response = data?.detailsNewsDto
+const response = data?.detailsNewsDto;
 console.log('response123', response)
   return (
     

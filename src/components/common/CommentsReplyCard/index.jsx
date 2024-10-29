@@ -34,17 +34,16 @@ const CommentsReplyCard = ({ data }) => {
   const handleLike = () => {
     const res = NewsLike(newsId);
     if ((res.success = true)) {
-      // SuccessToastify(res.ErrorMessage)
-      setIsUserLike(!isUserLike);
-      // setCurrentsLike((prev) => prev + 1)
+       SuccessToastify(res.ErrorMessage)
+    
+       setCurrentsLike((prev) => prev + 1)
       console.log("like", isUserLike);
     }
   };
 
   const handleDislike = () => {
     const res = ArticleDetailDissLike(newsId);
-    //  setCurrentDislike((prev) => prev + 1)
-    setIsUserDislike(!isUserDislike);
+    
   };
   console.log("id1", id);
   // const replyComments = getQuery('commentsreply' , `/News/CreateNewsReplyComment?id=${commentsreply}`)

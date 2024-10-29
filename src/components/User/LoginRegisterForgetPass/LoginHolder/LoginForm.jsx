@@ -124,7 +124,7 @@ const LoginForm = () => {
                   <p className="w-[138p] h-[23px] text-black font-DanaFaNum-600 text-base">
                     حساب کاربری ندارید؟
                   </p>
-                  <Link className="border-b-sky-500 w-[125px] h-[23px] text-blue font-DanaFaNum-600 text-base border-b border-sky-400">
+                  <Link to='/login/register/step1' className="border-b-sky-500 w-[125px] h-[23px] text-blue font-DanaFaNum-600 text-base border-b border-sky-400">
                     {" "}
                     ایجاد حساب کاربری{" "}
                   </Link>

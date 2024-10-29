@@ -13,6 +13,8 @@ import ArticleDetails from '../../../core/services/api/ArticlesDetail/ArticleDet
 import ArticleDetailDescribe from '../ArticleDetailDescribe/ArticleDetailDescribe'
 
 import { usequery } from '../../../core/services/api/reactQuery/useQuery'
+import AddCourseCommentCard from '../../common/CourseCommentCard/AddCourseCommentCard'
+import CourseCommentCard from '../../common/CourseCommentCard/CourseCommentCard'
 
 
 
@@ -63,28 +65,40 @@ useEffect(() => {
 }, [changeFlag])
 
   return (
-    <div className='pr-20 mt-3'>
+    <div className='pr-20 mt-3 '>
        <div className='w-full max-w-[1520px] desktop:h-[324px] h-auto mx-auto mb-[111px] pl-14'>   
       <ArticleDetailMainInfo data={deatil} changeFlager={changeFlager}/>
        </div>
       <div className='w-full max-w-[1520px] desktop:h-[324px] h-auto mx-auto pt-[56px] pl-14'> 
         <ArticleDetailDescribe data={deatil}/>
       </div>
-    <div className='w-full max-w-[1520px] desktop:h-[324px] h-auto mx-auto mb-[111px] '>
+    <div className='w-full max-w-[1520px]  h-auto mx-auto mb-[111px]'>
        <h1 className='w-[219px] h-[29px] font-DanaFaNum-700 text-xl  text-gray-800 mb-6'>   نظرات دانشجو ها و اساتید   </h1>
-
-          <div className='wrapper flex  justify-around flex-wrap items-center gap-6'>
+        
+          {/* <div className=' flex gap-7 pr-10 flex-wrap'>
         <AddCommentsCard  />
          {response?.slice(0,3).map((item , index) => {
           return (<CommentsCard key={index} data={item}/>) 
         })}  
+      </div> */}
+     
+     <div className="grid grid-cols-12 gap-5">
+       {/* <AddCourseCommentCard /> */}
+      <AddCommentsCard  />
+      {
+        
+        response?.slice(0,3).map((item, index) => {
+          return <CommentsCard key={index} data={item}/>
+        }) 
+      }
+    </div>
 
-       </div> 
-       <div className='flex justify-center pt-6 '>  <ViewMoreBtn />   </div>
+
+       <div className='flex justify-center pt-6  '>  <ViewMoreBtn />   </div>
     </div>
       <div  className='w-full max-w-[1520px]  h-auto mx-auto'> 
         <h1 className='w-[219px]  font-DanaFaNum-700 text-xl  text-gray-800 mb-6'>   دوره های مرتبط </h1>
-       <div >  
+       <div className='' >  
        <ArticleDetailSimilarCard />
       </div>
     </div>
