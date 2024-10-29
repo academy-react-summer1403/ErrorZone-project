@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import RadiosGroup from "../../../courseList/courseMain/CourseNames/CourseSortPart/SortBtn/RadiosGroup";
 import { FilterRemoveIcon } from "hugeicons-react";
 import { useDispatch } from "react-redux";
@@ -6,6 +6,7 @@ import {
   giveSortKey,
   giveSortType,
 } from "../../../../redux/newsSortFilDataSlice";
+import NewsSortMobile from "./NewsSortMobile";
 
 const NewsSort = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,8 @@ const NewsSort = () => {
   ];
 
   return (
-    <div className=" flex flex-nowrap gap-4 items-center text-lg ">
+    <Fragment>
+          <div className="hidden desktop:flex flex-nowrap gap-4 items-center text-lg ">
       <p> ترتیب</p>
       <div className="flex flex-nowrap gap-4 items-center">
         <RadiosGroup
@@ -72,6 +74,9 @@ const NewsSort = () => {
         </label>
       </>
     </div>
+
+    </Fragment>
+
   );
 };
 

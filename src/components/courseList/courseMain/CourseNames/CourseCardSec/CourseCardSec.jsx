@@ -114,9 +114,9 @@ const CourseCardSec = () => {
             return <CourseCard item={item} key={index} />;
           })
         ) : (
-          <div className="flex justify-between flex-wrap gap-6">
+          <div className="col-span-12 flex justify-between flex-wrap gap-6">
             {skeletArray.map((item, index) => (
-              <Skeleton className="rounded-lg">
+              <Skeleton className="rounded-[32px]">
                 <Card
                   className="w-80 h-72 space-y-5"
                   radius="lg"

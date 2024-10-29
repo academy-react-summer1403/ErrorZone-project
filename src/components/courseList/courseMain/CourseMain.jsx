@@ -16,7 +16,7 @@ const CourseMain = () => {
   return (
     <div className="grid grid-cols-12 gap-8 mt-[72px]">
       <CourseFilter />
-      <div className=" col-span-9 text-center">
+      <div className="col-span-12 desktop:col-span-9 text-center">
         <CourseNames pageNum={currentPage} />
         <PaginationCards pageNum={currentPage} setPage={setcurrentPage} />
       </div>

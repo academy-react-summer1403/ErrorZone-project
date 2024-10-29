@@ -10,63 +10,28 @@ const SearchBox = () => {
     <div style={{ direction: "rtl" }}>
       <form
         className="w-full max-w-lg mx-auto"
-        // onSubmit={}
+        onSubmit={(e) => {
+          e.preventDefault();
+          setTimeout(() => {
+            dispatch(
+              coursSortFilDataSlice.actions.searchCourse(
+                document.getElementById("search-dropdown").value
+              )
+            );
+          }, 500);
+        }}
         onChange={(e) => {
           e.preventDefault();
-          setTimeout(
-            () =>
-              dispatch(
-                coursSortFilDataSlice.actions.searchCourse(
-                  document.getElementById("search-dropdown").value
-                )
-              ),
-            500
-          );
+          setTimeout(() => {
+            dispatch(
+              coursSortFilDataSlice.actions.searchCourse(
+                document.getElementById("search-dropdown").value
+              )
+            );
+          }, 500);
         }}
       >
-        <div className="flex">
-          {/* <label
-            htmlFor="search-dropdown"
-            className="mb-2 text-sm font-medium text-gray-500 sr-only dark:text-white"
-          >
-            {" "}
-          </label> */}
-          {/* <div
-            id="dropdown"
-            className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
-          >
-            <ul
-              className="py-2 text-sm text-gray-500 dark:text-gray-200"
-              ariaLabelledby="dropdown-button"
-            >
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2  hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  {" "}
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2  hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                ></button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2  hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                ></button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2  hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                ></button>
-              </li>
-            </ul>
-          </div> */}
+        <div className="flex w-full">
           <div className="relative w-full">
             <input
               type="search"

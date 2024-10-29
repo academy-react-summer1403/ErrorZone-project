@@ -14,7 +14,7 @@ const CourseCard = ({ item, onARow }) => {
           </Link>
         </div>
       ) : (
-        <div className="flex flex-col gap-3 tv:col-span-4 tablet:col-span-6 col-span-12 overflow-hidden">
+        <div className="flex flex-col gap-3 tv:col-span-4 mobile:col-span-6 col-span-12 overflow-hidden">
           <Link to={`/courses/${item.courseId}`}>
             <CardTop item={item} />
             <CardBottom item={item} />
