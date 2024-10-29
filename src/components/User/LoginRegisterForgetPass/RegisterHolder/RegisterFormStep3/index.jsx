@@ -9,6 +9,7 @@ import RegisterLastStep from '../../../../../core/services/api/Auth/Register/Reg
 import { useSelector } from 'react-redux'
 import { SuccessToastify } from '../../../../../core/utils/Toastifies/SuccessToastify.Utils'
 import { ErrorToastify } from '../../../../../core/utils/Toastifies/ErrorToastify.Utils'
+import { ToastContainer } from 'react-toastify'
 
 const RegisterFormStep3 = () => {
 
@@ -35,8 +36,8 @@ const RegisterFormStep3 = () => {
  }
 
     return (
-        <div className='  w-[100%] h-[87%] mt-[105px] ' dir='rtl'>
-
+      <div className='  w-[100%] h-[87%] mt-[105px] ' dir='rtl'>
+        <ToastContainer rtl/>
         <div className='flex gap-[20px]'>
       </div  >  
           <p className='w-auto h-[40px] relative top-[106px] right-[70px] font-semibold text-3xl text-black font-DanaFaNum-600 dark:text-white '>  وارد کردن اطلاعات شخصی </p> 
@@ -53,7 +54,7 @@ const RegisterFormStep3 = () => {
                <AuthFields  type='text' name='password' placeholder='رمز عبور جدید خود را وارد کنید' label='رمز عبور جدید' icon={ <ViewIcon size={24} />}/>  
                <ViewIcon className='relative right-[420px] bottom-[60px]' />         
                <div className='bg-blue w-[389px] h-[48px] rounded-[40px] relative top-[-1px] right-[40px] flex justify-center items-center'>  
-             <ButtonSpecial type='submit' innerHtml='ورود به حساب ' className=' text-white w-[98px] h-[23px] font-DanaFaNum-600 text-base ' />
+             <ButtonSpecial type='submit' innerHtml=' تایید' className=' text-white w-full h-full font-DanaFaNum-600 text-base ' />
                </div> 
             </div>
           </Form> 
