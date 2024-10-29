@@ -32,6 +32,7 @@ const HamburgerMenu = () => {
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         size="full"
+        hideCloseButton
         motionProps={{
           variants: {
             enter: {
@@ -57,9 +58,17 @@ const HamburgerMenu = () => {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
-                <div className="flex flex-nowrap items-center justify-start">
-                  <img src="../../../../public/Logo.svg" alt="logo" />
-                  <img src="../../../../public/LogoTypegraphy.svg" alt="logo" />
+                <div className="flex justify-between items-center">
+                  <div className="w-fit flex flex-nowrap items-center justify-start">
+                    <img src="../../../../public/Logo.svg" alt="logo" />
+                    <img
+                      src="../../../../public/LogoTypegraphy.svg"
+                      alt="logo"
+                    />
+                  </div>
+                  <div className="cursor-pointer" >
+                    <Cancel01Icon size={40} onClick={onClose}/>
+                  </div>
                 </div>
               </ModalHeader>
               <ModalBody>
