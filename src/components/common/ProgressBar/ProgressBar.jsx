@@ -1,50 +1,34 @@
-// ProgressBar.js
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useScroll, useMotionValueEvent, useMotionValue } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const ProgressBar = () => {
-  const progressBarRef = useRef(null);
+  const { scrollYProgress } = useScroll();
+  const [progress, setProgress] = useState(0);
 
-  useEffect(() => {
-    // Initialize the ScrollTrigger animation
-    gsap.to(progressBarRef.current, {
-      scaleX: 1,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: document.body, // Trigger based on the entire document
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: true, // Smoothly animate based on scroll
-        onUpdate: (self) => {
-          progressBarRef.current.style.transform = `scaleX(${self.progress})`;
-        },
-      },
-    });
-  }, []);
+  // Listen to scroll events and update progress
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    setProgress(latest);
+  });
 
   return (
     <div
       style={{
-        position: 'fixed',
+        position: "fixed",
         top: 0,
         left: 0,
-        width: '100%',
-        height: '5px',
-        backgroundColor: '#eee',
-        zIndex: '9999',
-        transformOrigin: '0 0', // Makes scale animation from the left side
+        height: "5px",
+        width: "100%",
+        backgroundColor: "#e0e0e0",
+        zIndex: 1000,
+        direction: "ltr"
       }}
     >
       <div
-        ref={progressBarRef}
         style={{
-          height: '100%',
-          width: '100%',
-          backgroundColor: '#006992',
-          transform: 'scaleX(0)',
+          height: "100%",
+          backgroundColor: "#0070f3",
+          transformOrigin: "0%",
+          width: `${progress * 100}%`,
         }}
       />
     </div>

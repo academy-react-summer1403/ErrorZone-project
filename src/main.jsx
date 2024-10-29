@@ -9,6 +9,7 @@ import { RouterProvider } from "react-router-dom";
 import { TestingRoutes } from "./config/router/Testing.routes";
 import { NextUIProvider } from "@nextui-org/react";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import ProgressBar from "./components/common/ProgressBar/ProgressBar";
 
 
 const queryClient = new QueryClient({});
@@ -21,6 +22,7 @@ createRoot(document.getElementById("root")).render(
       <Provider store={store}>
 
         <NextUIProvider>
+          <ProgressBar />
           <RouterProvider router={TestingRoutes} />
         </NextUIProvider>
         <ReactQueryDevtools initialIsOpen={false} />
