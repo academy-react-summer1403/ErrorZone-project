@@ -12,12 +12,12 @@ import { Link } from "react-router-dom";
 const ProgressCircle = () => {
   const data = usequery("userInfo");
   return (
-    <Card className="w-[240px] h-full border bg-gray-100  ">
-      <div className="flex mt-2">
+    <Card className="w-[240px] h-full border bg-gray-100 dark:bg-zinc-600 dark:text-white  ">
+      <div className="flex mt-2 ">
         <Chip
-          classNames={{
+          classNames={{ 
             base: "",
-            content: "text-black/90 font-DanaFaNum-600 text-sm  ",
+            content: "text-black/90 font-DanaFaNum-600 text-sm " ,
           }}
           variant="bordered "
         >
@@ -25,7 +25,7 @@ const ProgressCircle = () => {
           وضعیت اطلاعات حساب کاربری
         </Chip>
         <Link to="/StudentPanel/profile">
-          <PencilEdit01Icon size={20} className="text-blue cursor-pointer" />
+          <PencilEdit01Icon size={20} className="text-blue cursor-pointer dark:text-white" />
         </Link >
       </div>
       <CardBody className="justify-center items-center pb-0 ">
@@ -41,11 +41,12 @@ const ProgressCircle = () => {
           showValueLabel={true}
         />
       </CardBody>
-      <CardFooter className="justify-center items-center pt-0">
+      <CardFooter className="justify-center items-center pt-0 ">
         <Chip
           classNames={{
             base: "",
             content: "text-black/90 font-DanaFaNum-600 text-sm",
+            
           }}
           variant="bordered "
         >

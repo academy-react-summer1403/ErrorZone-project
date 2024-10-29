@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ShowMore = ({link}) => {
   return (
-    <Link to={link} className="flex flex-nowrap gap-1 w-fit text-blue font-DanaFaNum-600 text-sm">
+    <Link to={link} className="flex flex-nowrap gap-1 w-fit text-blue font-DanaFaNum-600 text-sm dark:text-gray-900">
       <span className="underline">مشاهده بیشتر</span>
       <ArrowLeft01Icon />
     </Link>

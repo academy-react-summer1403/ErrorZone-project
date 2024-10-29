@@ -24,7 +24,7 @@ function CommentModal() {
   return (
     <>
       <span
-        className="flex flex-nowrap gap-1 w-fit underline text-blue font-DanaFaNum-600 text-sm cursor-pointer"
+        className="flex flex-nowrap gap-1 w-fit underline text-blue font-DanaFaNum-600 text-sm cursor-pointer dark:text-gray-900"
         onClick={onOpen}
       >
         مشاهده بیشتر
