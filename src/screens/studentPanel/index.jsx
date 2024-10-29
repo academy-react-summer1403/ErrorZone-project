@@ -4,7 +4,6 @@ import { Outlet } from 'react-router-dom';
 import { getQuery } from '../../core/services/api/reactQuery/getQuery';
 
 const studentPanel = () => {
-  getQuery('userInfo', "/SharePanel/GetProfileInfo");
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [])

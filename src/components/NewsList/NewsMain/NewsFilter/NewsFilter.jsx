@@ -43,7 +43,7 @@ const NewsFilter = () => {
   }, [value]);
 
   return (
-    <div className="flex  ">
+    <div className="flex mx-auto w-full ">
       <div className="space-y-6 mx-auto ">
         <div className="flex justify-between"> 
         <span className="font-DanaFaNum-700 text-2xl  "> فیلتر </span>
@@ -68,7 +68,7 @@ const NewsFilter = () => {
             <Search01Icon />
             <span>جستوجو</span>
           </div>
-          <div className="w-full pt-0 ">
+          <div className="m-auto w-full pt-0 ">
             <SearchBox />
           </div>
         </div>
@@ -78,8 +78,8 @@ const NewsFilter = () => {
             <CellsIcon />
             <span>دسته بندی</span>
           </div>
-          <div className="w-full pt-0 ">
-            <div className="flex w-full max-w-xs flex-col gap-2">
+          <div className=" pt-0 ">
+            <div className="flex max-w-xs flex-col gap-2">
               <Autocomplete
                 label="دسته مورد نظر را انتخاب کنید"
                 variant="faded"
@@ -100,12 +100,12 @@ const NewsFilter = () => {
         </div>
 
         <div className=" space-y-2    ">
-          <div className="   flex w-[258px]  ">
+          <div className="   flex   ">
             <CellsIcon />
             <span>تاریخ انشار</span>
           </div>
-          <div className="w-full pt-0 ">
-            <div className="flex w-full max-w-xs flex-col gap-2">
+          <div className=" pt-0 ">
+            <div className="flex max-w-xs flex-col gap-2">
               <div className="flex flex-col gap-4">
                 <PersianDateRange value={dateRange} onChange={setDateRange} />
                 {/* <I18nProvider locale="fa">
