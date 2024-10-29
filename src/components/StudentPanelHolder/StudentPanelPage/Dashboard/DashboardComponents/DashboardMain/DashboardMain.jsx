@@ -22,11 +22,7 @@ const DashboardMain = () => {
             </div>
           </div>
 
-          {usequery("MyCourses") ? (
             <MyCourseTable />
-          ) : (
-            <Skeleton className="rounded-2xl w-full min-h-52 h-full" />
-          )}
         </div>
         <div>
           <ProgressCircle />
@@ -41,11 +37,7 @@ const DashboardMain = () => {
             </div>
           </div>
 
-          {usequery("myReservesCourses") ? (
             <MyResCourseTable slice={true} />
-          ) : (
-            <Skeleton className="rounded-2xl w-full min-h-52 h-full" />
-          )}
         </div>
 
         <div className="flex flex-col w-full  bg-gray-100 rounded-3xl ">
