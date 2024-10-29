@@ -4,7 +4,6 @@ import CourseNames from "./CourseNames/CourseNames";
 import PaginationCards from "./PaginationCards/PaginationCards";
 import { getQuery } from "../../../core/services/api/reactQuery/getQuery";
 
-
 const CourseMain = () => {
   const [currentPage, setcurrentPage] = useState(1);
 
@@ -19,10 +18,7 @@ const CourseMain = () => {
       <CourseFilter />
       <div className=" flex flex-col justify-between w-[76%] mx-auto text-center">
         <CourseNames pageNum={currentPage} />
-        <PaginationCards
-          pageNum={currentPage}
-          setPage={setcurrentPage}
-        />
+        <PaginationCards pageNum={currentPage} setPage={setcurrentPage} />
       </div>
     </div>
   );

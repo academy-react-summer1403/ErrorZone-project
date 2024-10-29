@@ -12,7 +12,7 @@ import GsapAnim from "../../components/common/animations/GsapAnim";
 const Landing = () => {
   getQuery("topCourses", "/Home/GetCoursesTop?Count=4");
   getQuery("landingInfo", "/Home/LandingReport");
-  getQueryFiltterByCount("TopBlogs", "/News/GetListNewsCategory", 3);
+  getQuery("TopBlogs", "/News?PageNumber=1&RowsOfPage=10&SortingCol=InsertDate&SortType=DESC");
 
   useEffect(() => {
     window.scrollTo(0, 0);

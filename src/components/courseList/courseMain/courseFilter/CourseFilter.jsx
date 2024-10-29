@@ -6,8 +6,6 @@ import {
   Money04Icon,
   Search01Icon,
   TeacherIcon,
-
-  
 } from "hugeicons-react";
 import React, { useState } from "react";
 import AutoCompleteSpecial from "../../../common/AutoCompleteSpecial/AutoCompleteSpecial";
@@ -33,8 +31,6 @@ const CourseFilter = () => {
   const morePrice = useSelector((state) => state.coursSortFilData.CostUp);
   const lessPrice = useSelector((state) => state.coursSortFilData.CostDown);
   const dispatch = useDispatch();
-  // const [lessPrice, setLessPrice] = useState();
-  // const [morePrice, setMorePrice] = useState();
 
   const getPriceRange = (value) => {
     dispatch(giveCostDown(value[0]));
@@ -56,7 +52,7 @@ const CourseFilter = () => {
               dispatch(giveCostDown(""));
               dispatch(giveCostUp(""));
             }}
-            innerHtml={         
+            innerHtml={
               <>
                 <FilterRemoveIcon />
                 <span>حذف </span>

@@ -6,22 +6,15 @@ import CourseFilter from "../../components/courseList/courseMain/courseFilter/Co
 import GsapAnim from "../../components/common/animations/GsapAnim";
 
 const Courses = () => {
-  // getQuery(
-  //   "corsesByPagination",
-  //   "/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=12&SortingCol=Active&SortType=DESC"
-  // );
-
-  // getQuery('', "/CourseLevel/GetAllCourseLevel");
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
   GsapAnim();
 
   return (
     <div className="w-full px-10 max-w-[1520px] mx-auto">
       <CourseNote />
-        <CourseMain />
-
+      <CourseMain />
     </div>
   );
 };
