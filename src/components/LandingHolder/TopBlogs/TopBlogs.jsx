@@ -12,7 +12,7 @@ const TopBlogs = () => {
 
   return (
     <div className="space-y-12">
-      <span className="tablet:text-4xl text-2xl mx-auto block text-center">
+      <span className="tablet:text-4xl text-2xl mx-auto block text-center font-DanaFaNum-700">
       بلاگ های برتر هفته
       </span>
       <div className="wrapper grid tablet:grid-cols-12 grid-cols-4 gap-8">

@@ -24,7 +24,7 @@ const StudentPanelHeader = () => {
       </div>
       <div className="flex justify-between items-center gap-2">
         <NotificationBtn />
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
     </div>
   );
