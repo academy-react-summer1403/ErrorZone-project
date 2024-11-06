@@ -8,7 +8,7 @@ const HamMenuBody = ({onClick}) => {
   return (
     <div className="space-y-6 mt-52 mb-32">
       {menuItems?.map((value, index) => (
-        <div key={index} className="ham-menu-item w-full border-b border-white text-4xl" onClick={onClick}>
+        <div key={index} className="ham-menu-item w-full border-b border-white text-4xl " onClick={onClick}>
           <Link to={value.path} className="block">
             <span>{value.title}</span>
           </Link>

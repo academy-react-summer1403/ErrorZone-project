@@ -10,7 +10,7 @@ const HeroSection = () => {
 
   return (
     <Fragment>
-      <div className="hidden mx-auto tablet:flex justify-evenly items-center mt-10 tablet:mt-20 opacity-100">
+      <div className="hidden mx-auto tablet:flex justify-evenly items-center mt-10 tablet:mt-20 opacity-100 ">
         <RightHeroSecPart />
         <MidHeroSecPart />
         <LeftHeroSecPart />

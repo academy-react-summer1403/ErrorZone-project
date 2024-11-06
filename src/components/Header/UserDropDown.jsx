@@ -41,7 +41,7 @@ const UserDropDown = () => {
   return (
     <Dropdown className="bg-black text-white dark:bg-white dark:text-black">
       <DropdownTrigger>
-        <div className="dropDownHeader rounded-full h-full flex gap-2 items-center justify-end border border-gray-400 p-1 relative">
+        <div className="dropDownHeader rounded-full h-full flex gap-2 items-center justify-end  p-1 relative">
           <ArrowDown01Icon size={20} className="transition-all" />
           <Avatar src={data?.currentPictureAddress} size="sm" />
         </div>

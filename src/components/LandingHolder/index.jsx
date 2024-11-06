@@ -9,7 +9,7 @@ import TopBlogs from "./TopBlogs/TopBlogs";
 
 const LandingHolder = () => {
   return (
-    <div className="landingHolder px-4 tablet:px-10 space-y-28">
+    <div className="landingHolder px-4 tablet:px-10 space-y-28 ">
       <HeroSection />
       <LearnedProcessSec />
       <OurGoalsSec />
