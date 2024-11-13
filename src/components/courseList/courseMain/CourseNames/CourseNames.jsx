@@ -24,13 +24,13 @@ const CourseNames = ({ pageNum }) => {
         <div className="w-fit hidden desktop:block">
           <CourseSortPart pageNum={pageNum} />
         </div>
-        <SortMobile pageNum={pageNum}/>
+        <SortMobile  pageNum={pageNum}/>
         <Fragment>
-          <ButtonSpecial
+          <ButtonSpecial 
             innerHtml={
               <>
                 <FilterIcon />
-                <span>فیلتر</span>
+                <span >فیلتر</span>
               </>
             }
             onPress={onOpen}

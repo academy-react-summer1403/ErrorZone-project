@@ -17,6 +17,7 @@ export const coursSortFilDataSlice = createSlice({
         EndDate: '',
         TeacherId: '',
         totalCount: '',
+        
     },
     reducers: {
         searchCourse: (state, action) => {

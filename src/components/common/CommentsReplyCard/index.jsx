@@ -61,7 +61,7 @@ const CommentsReplyCard = ({ data }) => {
 
   return (
     <>
-      <div className="mt-[-5px] ">
+      <div className="mt-[-5px]  ">
         <div className="w-[149px] h-auto flex gap-2 items-center mt-4  pr-2">
           <div className="w-[48px]  h-[48px] rounded-[134px] flex items-center justify-center">
             {" "}

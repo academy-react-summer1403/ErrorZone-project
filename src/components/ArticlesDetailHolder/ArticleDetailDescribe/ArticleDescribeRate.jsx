@@ -4,6 +4,8 @@ import RateArticle from '../../../core/services/api/ArticlesDetail/RateArticle'
 import { useParams } from 'react-router'
 import { SuccessToastify } from '../../../core/utils/Toastifies/SuccessToastify.Utils'
 import { ErrorToastify } from '../../../core/utils/Toastifies/ErrorToastify.Utils'
+import { useMutation } from '@tanstack/react-query'
+import http from "../../../core/services/interceptor"
 
 const ArticleDescribeRate = ({data}) => {
   const [rate, setRate] = useState(0)
@@ -12,15 +14,22 @@ const ArticleDescribeRate = ({data}) => {
  
   const articleId = params.articleId
  
-   const Ratehandler = async () => {
-    const res = await RateArticle(articleId , rate)
-    if(res.success === true) {
-      SuccessToastify('امتیاز شما با موفقیت ثبت شد')
-    }else if (res.message === false ) {
-      ErrorToastify(res.message)
-    }
-    
-  }
+  //  const Ratehandler = async () => {
+  //   const res = await RateArticle(articleId , rate)
+  //   if(res.success === true) {
+  //     SuccessToastify('امتیاز شما با موفقیت ثبت شد')
+  //   }else if (res.message === false ) {
+  //     ErrorToastify(res.message)
+  //   }
+  // }
+
+  const { mutate : Ratehandler  } = useMutation({
+    mutationFn: async() => await http.post(`/News/NewsRate?NewsId=${articleId}&RateNumber=${rate}`),
+    onSuccess: () => SuccessToastify('امتیاز شما با موفقیت ثبت شد'),
+    onError: (err) => ErrorToastify(err.response.data.ErrorMessage[0]),
+  })
+
+
   return (
     <div className="flex justify-between items-center pt-10">
     <div className="flex items-center gap-2">

@@ -46,6 +46,7 @@ const CourseCardSec = () => {
       TeacherId: teacher ? teacher : "",
       CostUp: morePrice ? morePrice : "",
       CostDown: lessPrice ? lessPrice : "",
+      
 
       PageNumber: pageNum,
     });

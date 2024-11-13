@@ -18,7 +18,7 @@ const HeaderHolder = () => {
             <div>
               <NavLink
                 className={({ isActive }) =>
-                  `${isActive && " decoration-sky-200 underline underline-offset-8 "}`
+                  `${isActive && " decoration-sky-200  dark:decoration-sky-500 underline underline-offset-8 "}`
                 }
                 to={value.path}
               >
