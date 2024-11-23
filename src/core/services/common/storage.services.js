@@ -17,6 +17,7 @@ const setItemGeneric = (key, value) => {
 };
 
 const removeItem = (key) => {
+  
   if (getItem(key) === false) return false;
   localStorage.removeItem(key);
 };

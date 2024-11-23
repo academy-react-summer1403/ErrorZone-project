@@ -29,15 +29,13 @@ const CommentsReplyCard = ({ data }) => {
   const newsId = data.newsId;
   const date = data.inserDate;
   const id = data.id;
-  console.log("dataaaa", data);
 
   const handleLike = () => {
     const res = NewsLike(newsId);
     if ((res.success = true)) {
-       SuccessToastify(res.ErrorMessage)
+       SuccessToastify("نظر شما با موفقیت ثبت شد!")
     
        setCurrentsLike((prev) => prev + 1)
-      console.log("like", isUserLike);
     }
   };
 
@@ -49,11 +47,12 @@ const CommentsReplyCard = ({ data }) => {
   // const replyComments = getQuery('commentsreply' , `/News/CreateNewsReplyComment?id=${commentsreply}`)
 
   const replyComments = async () => {
-    console.log("id2", id);
+ 
     const res = await GetCommentsRepliesNews(id);
     setCommentReplies(res);
   };
-  console.log("repcomments", commentReplies);
+console.log("123" ,  commentReplies)
+
 
   useEffect(() => {
     replyComments();
@@ -61,7 +60,8 @@ const CommentsReplyCard = ({ data }) => {
 
   return (
     <>
-      <div className="mt-[-5px]  ">
+    {
+      data ?       <div className="mt-[-5px]  ">
         <div className="w-[149px] h-auto flex gap-2 items-center mt-4  pr-2">
           <div className="w-[48px]  h-[48px] rounded-[134px] flex items-center justify-center">
             {" "}
@@ -125,6 +125,7 @@ const CommentsReplyCard = ({ data }) => {
                 <i
                   className="w-[24px] h-[24px] text-red cursor-pointer"
                   onClick={handleDislike}
+                  
                 >
                   {" "}
                   <ThumbsDownIcon />{" "}
@@ -265,6 +266,10 @@ const CommentsReplyCard = ({ data }) => {
           }) : false}
         </div>
       </div>
+      :
+      false
+    }
+
     </>
   );
 };

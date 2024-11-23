@@ -1,9 +1,9 @@
 import { Field, Form, Formik } from "formik";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { SentIcon, SmileIcon } from "hugeicons-react";
 import ArticleDetailReplyComments from "../../../core/services/api/ArticlesDetail/ArticleDetailReplyComments";
 
-const CommentsReplyForm = ({ data }) => {
+const CommentForm = ({ data,setCommentIsOpen }) => {
   const [comment, setComment] = useState("");
   //  console.log('daaaa' ,data)
   const replyCommentsHandler = async (val) => {
@@ -16,14 +16,21 @@ const CommentsReplyForm = ({ data }) => {
 
     const res = await ArticleDetailReplyComments(objName);
   };
+  const ref = useRef(null);
 
+  const closeForm = (e) => {
+    if (ref.current = e.target) {
+        setCommentIsOpen(false)
+      }
+  }
+  onclick = (e) => closeForm(e);
   return (
     <Formik
       initialValues={{ title: "", inputComment: comment }}
       onSubmit={(value) => replyCommentsHandler(value)}
     >
       <Form>
-        <div className="w-[490px] h-[72px] bg-white border-2 border-blue rounded-3xl mr-[60px] flex">
+        <div className="w-5/6 h-[72px] bg-white border-2 border-blue rounded-3xl mr-[60px] flex" ref={ref}>
           <div className="w-[96px] h-[72px] flex gap-2 items-center mr-[16px]">
             <button
               type="submit"
@@ -37,18 +44,16 @@ const CommentsReplyForm = ({ data }) => {
               <SmileIcon />{" "}
             </div>
           </div>
-          <div className="w-[362px] h-[72px] grid grid-cols-1 pr-[16px]">
-            <div className="w-[340px] h-[36px]  border-b border-b-gray-400">
+          <div className="w-[80%] h-[72px] grid grid-cols-1 pr-[16px]">
+            <div className=" h-[36px]  border-b border-b-gray-400">
               <Field
                 name="title"
-                maxLength={300}
                 className="w-full h-[20px] font-DanaFaNum-500 text-sm border outline-none border-white text-black pr-2"
                 placeholder="عنوان نظر خود را بنویسید"
               />
             </div>
             <Field
               name="inputComment"
-              maxLength={300}
               className="w-full h-[20px]  border-collapse outline-none "
               placeholder="متن نظر خود را بنویسید"
               value={comment}
@@ -61,4 +66,4 @@ const CommentsReplyForm = ({ data }) => {
   );
 };
 
-export default CommentsReplyForm;
+export default CommentForm;

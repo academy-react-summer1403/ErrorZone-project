@@ -10,11 +10,15 @@ import {
   MoneySend02Icon,
   UserSquareIcon,
 } from "hugeicons-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getQuery } from "../../../core/services/api/reactQuery/getQuery";
+import logoutFn from "../../../core/utils/logoutFn";
+import { removeItem } from "../../../core/services/common/storage.services";
+import LogoutModal from "../../common/Modal/LogoutModal";
+import { useDisclosure } from "@nextui-org/react";
 
 function StudentPaneiSide() {
-  getQuery('userInfo', "/SharePanel/GetProfileInfo");
+  getQuery("userInfo", "/SharePanel/GetProfileInfo");
 
   const sideBarItem = [
     {
@@ -50,6 +54,9 @@ function StudentPaneiSide() {
     },
   ];
 
+  const navigate = useNavigate();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
   return (
     <div className="side w-[20%] text-white flex flex-col justify-between h-full">
       <div className="w-fit space-y-8">
@@ -66,7 +73,11 @@ function StudentPaneiSide() {
           </div>
         ))}
       </div>
-      <div className=" border border-red rounded-full py-4 pr-4 pl-18 flex justify-start items-center gap-2 text-red ">
+      <LogoutModal isOpen={isOpen} onOpenChange={onOpenChange} path={"/"} />
+      <div
+        className=" border border-red rounded-full py-4 pr-4 pl-18 flex justify-start items-center gap-2 text-red cursor-pointer "
+        onClick={onOpen}
+      >
         <Logout03Icon />
         <span>خروج از حساب کاربری</span>
       </div>

@@ -45,13 +45,13 @@ const CourseCommentCard = ({ data }) => {
     queryclient.invalidateQueries(["courseComment"])
   }, [isLike, isDissLike])
 
-  console.log(isLike,"like     ", isDissLike,"dislike ");
+
 
   return (
     <div className="col-span-12 sm:col-span-6 xl:col-span-3 h-72 p-4 rounded-3xl border bg-gray-100 dark:bg-blackPanel flex flex-col justify-between shadow-md">
       <div className="space-y-4">
         <div className="font-DanaFaNum-700 text-lg">{data.title}</div>
-        <div className="text-gray-800 dark:text-gray-100">{data.describe}</div>
+        <div className="text-gray-800 dark:text-gray-500">{data.describe}</div>
       </div>
       <div className="h-10 flex justify-between items-center">
         <div className="w-fit h-full flex gap-2">

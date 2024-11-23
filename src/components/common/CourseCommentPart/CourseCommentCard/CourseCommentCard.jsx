@@ -8,7 +8,7 @@ const CourseCommentCard = ({ data }) => {
     <div className="overflow-auto h-[500px]">
       <Button
         radius="full"
-        className="bg-blue text-white text-lg"
+        className="bg-blue text-white text-lg "
         startContent={<CommentAdd01Icon className="text-white" />}
       >
         نظر شما
