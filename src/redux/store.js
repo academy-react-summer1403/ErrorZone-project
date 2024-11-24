@@ -6,7 +6,7 @@ import user from './User/user.js'
 import { coursSortFilDataSlice } from './coursSortFilDataSlice.js'
 import forgetpass from './auth/forgetPass'
 import { newsSortFilDataSlice } from './newsSortFilDataSlice.js'
-
+import profile from './userProfile/profile'
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +16,7 @@ export const store = configureStore({
     login,
     register,
     user,
-    forgetpass
+    forgetpass,
+    profile,
   },
 })
