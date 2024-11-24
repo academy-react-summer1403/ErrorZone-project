@@ -6,7 +6,7 @@ const CardBottom = ({ item }) => {
 
   const formattedCost = priceSeparator(cost);
   return (
-    <div className="cardBottom text-black dark:text-white px-1">
+    <div className="cardBottom text-black dark:text-white px-1 mt-3">
 
       <h2 className="block font-DanaFaNum-700 text-2xl text-right">{title}</h2>
 

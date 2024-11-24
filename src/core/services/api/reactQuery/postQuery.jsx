@@ -7,7 +7,7 @@ export const postQuery = (queryKey, apiAddress, data) => {
         mutationFn: async() => await http.post(apiAddress, data)
     })
 
-    if (isError) alert("mutating is onSuccessfull");
+    if (isError) <div>"Fetching is onSuccessfull"</div>;
     if (isLoading) <div> "Loading" </div>
 
     return mutate;

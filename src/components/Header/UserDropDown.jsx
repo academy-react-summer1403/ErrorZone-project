@@ -63,45 +63,7 @@ const UserDropDown = () => {
     </Dropdown>
   );
 
-  //   const dropDownOpenAndClose = (e) => {
-  //     setDropDownIsOpen(!dropDownIsOpen);
-  //     if (dropDownIsOpen) {
-  //       document.addEventListener("click", handleClickOutside(e));
-  //     } else {
-  //       document.removeEventListener("click", handleClickOutside(e));
-  //     }
-  //   };
-  //   const handleClickOutside = (e) => {
-  //     if (!e.target.closest(".dropDownHeader")) {
-  //       setDropDownIsOpen(false);
-  //     }
-  //   };
 
-  //   return (
-  //     <div
-  //       className="dropDownHeader rounded-full h-full flex gap-2 items-center justify-end border border-gray-400 p-1 relative"
-  //       onClick={(e) => {
-  //         dropDownOpenAndClose(e);
-  //       }}
-  //     >
-  //       {!dropDownIsOpen ? (
-  //         <ArrowDown01Icon size={20} className="transition-all" />
-  //       ) : (
-  //         <ArrowDown01Icon size={20} className="rotate-180 transition-all" />
-  //       )}
-
-  //       <Avatar src={data?.currentPictureAddress} size="sm" />
-
-  //       {dropDownIsOpen ? (
-  //         <div className="dropDownContent absolute top-16 -left-1/2 border border-gray-400 rounded-3xl w-[200%] p-2 text-black">
-  //           <div>وارد شدن به سامانه</div>
-  //           <ReactIcon size={32} name="user" />
-  //         </div>
-  //       ) : (
-  //         false
-  //       )}
-  //     </div>
-  //   );
 };
 
 export default UserDropDown;

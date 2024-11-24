@@ -108,15 +108,15 @@ const CourseCardSec = () => {
   if (isLoading) <div> "Loading" </div>;
   return (
     <>
-      <div className=" flex flex-wrap justify-between ">
+      <div className=" grid grid-cols-12 gap-8">
         {courseFilterDtos ? (
           courseFilterDtos.map((item, index) => {
             return <CourseCard item={item} key={index} />;
           })
         ) : (
-          <div className="flex justify-between flex-wrap gap-6">
+          <div className="col-span-12 flex justify-between flex-wrap gap-6">
             {skeletArray.map((item, index) => (
-              <Skeleton className="rounded-lg">
+              <Skeleton className="rounded-[32px]">
                 <Card
                   className="w-80 h-72 space-y-5"
                   radius="lg"

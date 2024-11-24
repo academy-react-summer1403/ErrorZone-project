@@ -47,7 +47,7 @@ const LoginForm = () => {
           // SuccessToastify(res.massage)
           setItem("Token", user.token);
           setTimeout(() => {
-            Navigate("/");
+            Navigate("/StudentPanel");
           }, 2000);
           setIsDisabled(false);
         }

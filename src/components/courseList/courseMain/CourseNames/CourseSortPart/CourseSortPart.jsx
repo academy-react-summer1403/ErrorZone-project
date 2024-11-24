@@ -36,9 +36,9 @@ const CourseSortPart = ({ pageNum }) => {
   ];
 
   return (
-    <div className=" flex flex-nowrap gap-4 items-center text-lg ">
+    <div className="flex gap-4 flex-wrap items-center text-lg ">
       <p> ترتیب</p>
-      <div className="flex flex-nowrap gap-4 items-center">
+      <div className="flex gap-4 items-center">
         <RadiosGroup
           options={options}
           name="myRadioGroup"

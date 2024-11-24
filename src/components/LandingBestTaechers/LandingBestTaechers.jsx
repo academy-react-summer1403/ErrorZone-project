@@ -14,7 +14,7 @@ const LandingBestTaechers = () => {
       <div className="flex items-center h-[720px] tablet:h-auto bg-[#353535] overflow-hidden rounded-3xl relative">
         <img src={BestTeacherLine} className="hidden tablet:block" />
         <img src={BestTeacherLineVertical} className="block tablet:hidden h-full mx-auto" />
-        <div className="absolute w-2/3 left-1/2 -translate-x-1/2 top-14 bottom-14 z-10 border border-red flex justify-between">
+        <div className="absolute w-2/3 left-1/2 -translate-x-1/2 top-14 bottom-14 z-10 flex justify-between">
           {/* teachers place */}
         </div>
       </div>

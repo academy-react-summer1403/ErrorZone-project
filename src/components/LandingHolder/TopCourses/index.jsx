@@ -11,12 +11,12 @@ const TopCourses = () => {
 
   return (
     <div className="space-y-12">
-      <span className="tablet:text-4xl text-2xl mx-auto block text-center">
+      <span className="tablet:text-4xl text-2xl mx-auto block text-center font-DanaFaNum-700">
         دوره های برتر هفته
       </span>
-      <div className="wrapper flex justify-around flex-wrap items-center gap-6">
+      <div className="wrapper grid grid-cols-12 gap-6">
         {data?.map((item, index) => {
-          return <CourseCard item={item} key={index} />;
+          return <CourseCard onARow={4} item={item} key={index} />;
         })}
       </div>
       <div className="mx-auto w-fit">

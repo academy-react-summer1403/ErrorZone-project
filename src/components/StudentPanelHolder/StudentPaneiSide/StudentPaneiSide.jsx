@@ -11,8 +11,11 @@ import {
   UserSquareIcon,
 } from "hugeicons-react";
 import { Link } from "react-router-dom";
+import { getQuery } from "../../../core/services/api/reactQuery/getQuery";
 
 function StudentPaneiSide() {
+  getQuery('userInfo', "/SharePanel/GetProfileInfo");
+
   const sideBarItem = [
     {
       title: "داشبرد",

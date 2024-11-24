@@ -2,8 +2,10 @@ import React from "react";
 import StudentPanelHeader from "./StudentPanelHeader/StudentPanelHeader";
 import StudentPaneiSide from "./StudentPaneiSide/StudentPaneiSide";
 import StudentPanelPage from "./StudentPanelPage/StudentPanelPage";
+import { getQuery } from "../../core/services/api/reactQuery/getQuery";
 
 const studentPanelHolder = ({ Outlet }) => {
+
   return (
 
     <div className="bg-blackPanel h-screen overflow-y-auto flex justify-between flex-nowrap p-6">

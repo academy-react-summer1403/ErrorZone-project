@@ -17,7 +17,7 @@ const RadiosGroup = ({ options, name, selectedValue, onChange }) => {
             className="hidden sort-radio"
           />
           <label
-            className="box2 sort-label text-lg flex items-center justify-between gap-1"
+            className="box2 sort-label text-lg flex items-center justify-between gap-1 dark:border-white"
             key={option.id}
             htmlFor={index}
           >
