@@ -3,6 +3,7 @@ import StudentPanelHeader from "./StudentPanelHeader/StudentPanelHeader";
 import StudentPaneiSide from "./StudentPaneiSide/StudentPaneiSide";
 import StudentPanelPage from "./StudentPanelPage/StudentPanelPage";
 import { getQuery } from "../../core/services/api/reactQuery/getQuery";
+import HamDashboardMenu from "./StudentPanelPage/Dashboard/HamDashboardMenu";
 
 const studentPanelHolder = ({ Outlet }) => {
 
@@ -12,7 +13,7 @@ const studentPanelHolder = ({ Outlet }) => {
       <StudentPaneiSide />
 
 
-      <div className=" w-[78%] space-y-3">
+      <div className=" tablet:w-[78%]  w-full space-y-3">
         <StudentPanelHeader />
         <StudentPanelPage Outlet={Outlet} />
       </div>
