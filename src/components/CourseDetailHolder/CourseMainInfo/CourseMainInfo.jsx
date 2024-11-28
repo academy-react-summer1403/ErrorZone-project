@@ -5,7 +5,7 @@ import RateAndPriceSec from "./RateAndPriceSec/RateAndPriceSec";
 import CourseDetailButtonsPart from "./CourseDetailButtonsPart/CourseDetailButtonsPart";
 import { getQuery } from "../../../core/services/api/reactQuery/getQuery";
 
-const CourseMainInfo = ({data}) => {
+const CourseMainInfo = ({data , FlagHandler}) => {
 
   return (
     <div className="flex flex-col-reverse gap-8 tablet:gap-0 tablet:flex-row justify-between items-center flex-nowrap w-full mb-14">
@@ -21,7 +21,7 @@ const CourseMainInfo = ({data}) => {
 
         <RateAndPriceSec data={data} />
 
-        <CourseDetailButtonsPart data={data} />
+        <CourseDetailButtonsPart data={data} FlagHandler={FlagHandler} />
       </div>
     </div>
   );

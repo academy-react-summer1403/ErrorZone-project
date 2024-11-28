@@ -1,5 +1,5 @@
 import { Cancel01Icon, CommentAdd01Icon } from "hugeicons-react";
-import React, { Fragment } from "react";
+import React, { Fragment , useState } from "react";
 import {
   Modal,
   ModalContent,
@@ -9,8 +9,12 @@ import {
   Button,
   useDisclosure,
 } from "@nextui-org/react";
+import CommentCom from "../CommentsForCourse/GetCourseComments";
 
-const AddCourseCommentCard = () => {
+const AddCourseCommentCard = ({course , Oid , title , changeHandler}) => {
+
+  console.log('oid' , Oid)
+
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
@@ -31,6 +35,7 @@ const AddCourseCommentCard = () => {
       </div>
 
       <Modal
+        className="w-full h-[600px] overflow-y-auto "
         backdrop="blur"
         size="5xl"
         radius="lg"
@@ -75,31 +80,35 @@ const AddCourseCommentCard = () => {
                 نظرات دانشجو ها و اساتید
               </ModalHeader>
               <ModalBody>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Magna exercitation reprehenderit magna aute tempor cupidatat
-                  consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-                  incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-                  aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                  nisi consectetur esse laborum eiusmod pariatur proident Lorem
-                  eiusmod et. Culpa deserunt nostrud ad veniam.
-                </p>
+               
+               {course?.map((item) => {
+                  return(
+                       <CommentCom 
+                       pictureAddress={item?.pictureAddress}
+                       author={(item?.author) ? (item.author === null ? 'ناشناس' : item.author) : (item.autor === null ? 'ناشناس' : item.autor)}
+                       insertDate={item?.insertDate}
+                       likeCount={item?.likeCount}
+                       disslikeCount={item?.disslikeCount && item?.disslikeCount }
+                       dissLikeCount={item?.dissLikeCount && item?.dissLikeCount }
+                       acceptReplysCount={(item?.acceptReplysCount) ? item?.acceptReplysCount : item?.replyCount}
+                       id={item?.id}
+                       Oid={Oid}
+                       title={item?.title}
+                       describe={item?.describe}
+                       currentUserIsLike={(item?.currentUserIsLike) ? item?.currentUserIsLike : null}
+                       currentUserIsDissLike={(item?.currentUserIsDissLike) ? item?.currentUserIsDissLike : null}
+                       currentUserEmotion={item?.currentUserEmotion}
+                       changeHandler={changeHandler}
+                       />
+                  )
+                }) }
+              
+              {course[0] == undefined && <span className='mx-auto h-[300px] text-[30px] text-gray-400 font-semibold flex items-center'> نظری ثبت نشده است </span>}
+
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
+                  بستن
                 </Button>
               </ModalFooter>
             </>
