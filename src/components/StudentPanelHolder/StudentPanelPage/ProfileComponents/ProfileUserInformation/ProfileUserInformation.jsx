@@ -40,13 +40,6 @@ getProfile()
 const dispatch = useDispatch();
 const Navigate = useNavigate();
 
-/* Inputs Field State */
-// const [isToggle, setIstoggle] = useState(userInfo.receiveMessageEvent);
-
-// const jalali = () => {
-//   moment().locale('fa').format('jYYYY/jMM/jDD') 
-// } 
-
 
 const [datePickerDateTime, setDatePickerDateTime] = useState(
   makeDatePersian(userInfo.birthDay)
