@@ -4,7 +4,7 @@ import { usequery } from "../../../../../../../core/services/api/reactQuery/useQ
 const DashHeaderLeft = () => {
   const data = usequery('userInfo');
   return (
-      <span className="  flex  w-[40%] leading-5 ">
+      <span className="  flex  tablet:w-[40%] w-[20%] leading-5 ">
         {data?.userAbout}
       </span>
   );

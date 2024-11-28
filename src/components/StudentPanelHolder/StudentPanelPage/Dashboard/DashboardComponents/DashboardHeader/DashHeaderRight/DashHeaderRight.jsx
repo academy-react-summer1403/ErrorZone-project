@@ -21,8 +21,8 @@ const DashHeaderRight = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex items-baseline gap-4">
-        <div className="font-DanaFaNum-700 text-2xl w-58 ">
+      <div className="flex items-baseline tablet:gap-4 gap-2">
+        <div className="font-DanaFaNum-700 text-2xl tablet:w-58 ">
           {" "}
           سلام {data?.fName} ، روزت بخیر 👋
         </div>

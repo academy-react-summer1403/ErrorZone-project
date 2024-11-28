@@ -12,12 +12,12 @@ import { Link } from "react-router-dom";
 const ProgressCircle = () => {
   const data = usequery("userInfo");
   return (
-    <Card className="w-[240px] h-full border bg-gray-100 dark:bg-zinc-600 dark:text-white  ">
+    <Card className="tablet:w-[250px] w-min mx-auto h-full border bg-gray-100 dark:bg-zinc-600 dark:text-white ">
       <div className="flex mt-2 ">
         <Chip
           classNames={{ 
             base: "",
-            content: "text-black/90 font-DanaFaNum-600 text-sm " ,
+            content: "text-black/90 font-DanaFaNum-600 tablet:text-sm text-xs " ,
           }}
           variant="bordered "
         >
@@ -45,7 +45,7 @@ const ProgressCircle = () => {
         <Chip
           classNames={{
             base: "",
-            content: "text-black/90 font-DanaFaNum-600 text-sm",
+            content: "text-black/90 font-DanaFaNum-600 tablet:text-sm text-xs ",
             
           }}
           variant="bordered "
