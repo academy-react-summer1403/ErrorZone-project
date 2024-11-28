@@ -3,8 +3,10 @@ import http from "../core/services/interceptor";
 import Header from "../screens/Header/index";
 import Footer from "../screens/Footer/index";
 import { Outlet } from "react-router-dom";
+import GsapAnim from "../components/common/animations/GsapAnim";
 
 function App() {
+  
 
   return (
     <>

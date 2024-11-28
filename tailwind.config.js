@@ -1,10 +1,13 @@
+// tailwind.config.js
+const {nextui} = require("@nextui-org/react");
+
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -59,6 +62,8 @@ export default {
       }
     },
   },
-  plugins: [],
-}
-// npx tailwindcss -i ./src/index.css -o ./src/app/App.css --watch
+  darkMode: "class",
+  plugins: [nextui()],
+};
+// npx tailwindcss -i ./src/index.css -o ./src/app/appcss/App.css --watch
+

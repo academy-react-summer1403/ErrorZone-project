@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../../app/index";
 import Landing from "../../screens/Landing";
-import StudentPanel from "../../screens/StudentPanel";
+import StudentPanel from "../../screens/studentPanel";
 import NotFound from "../../screens/NotFound";
 import { LoginRegisterForgetPassLayout } from "../../components/User/LoginRegisterForgetPass/LoginRegisterForgetPassLayout";
 import { LoginForm } from "../../components/User/LoginRegisterForgetPass/LoginHolder/LoginForm";
@@ -15,12 +15,28 @@ import MyCourse from "../../components/StudentPanelHolder/StudentPanelPage/MyCou
 import ReservesCourse from "../../components/StudentPanelHolder/StudentPanelPage/reservesCourse/reservesCourse";
 import CoursesFav from "../../components/StudentPanelHolder/StudentPanelPage/Coursesfav/Coursesfav";
 import BlogFav from "../../components/StudentPanelHolder/StudentPanelPage/Blogfav/Blogfav";
-import Profile from "../../components/StudentPanelHolder/StudentPanelPage/profile/profile";
+
 import RegisterFormStep1 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep1";
 import RegisterFormStep2 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep2";
 import RegisterFormStep3 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep3";
 import RegisterStepper from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterForm";
+
+import ProfileUserInformation from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/ProfileUserInformation/ProfileUserInformation";
+import ProfileImages from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/ProfileImages/ProfileImages";
+import ProfileAddress from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/ProfileAddress/ProfileAddress";
+import UserLinks from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/UserLinks/UserLinks";
+import Profile from "../../components/StudentPanelHolder/StudentPanelPage/Profile/Profile";
+
+
+
+import CourseDetail from "../../screens/CourseDetail/CourseDetail";
+
 import ArticlesDetail from "../../screens/ArticlesDetail";
+import ForgetPassword from "../../screens/ForgetPassword/ForgetPassword";
+import ForgetPassFormStep2 from "../../components/User/LoginRegisterForgetPass/ForgetPassHolder/ForgetPassFormStep2";
+import ProfileInformation from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/ProfileUserInformation/ProfileInformation";
+import UserComponents from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/UserLinks/UserComponents";
+
 
 export const TestingRoutes = createBrowserRouter([
   {
@@ -31,31 +47,40 @@ export const TestingRoutes = createBrowserRouter([
       { path: "/courses", element: <Courses /> },
       { path: "/articles", element: <Articles /> },
       { path: "/teachers", element: <Landing /> },
+      { path: "/courses/:id", element: <CourseDetail /> },
       { path: "/articles/detail/:articleId", element: <ArticlesDetail /> },
-      
     ],
   },
 
-
-  
-  { path: "/login", element: <LoginRegisterForgetPassLayout /> , children:[
-    {path: "/login" , element:<LoginForm />},
-    {path: "/login/verifycode" , element:<LoginVerifyCode />},
-    {path: "/login/register/step1" , element:<RegisterFormStep1 />}, 
-    {path: "/login/register/step2" , element:<RegisterFormStep2 />},           
-    {path: "/login/register/step3" , element:<RegisterFormStep3 />},
-  ]},
+  {
+    path: "/login",
+    element: <LoginRegisterForgetPassLayout />,
+    children: [
+      { path: "/login", element: <LoginForm /> },
+      { path: "/login/verifycode", element: <LoginVerifyCode /> },
+      { path: "/login/register/step1", element: <RegisterFormStep1 /> },
+      { path: "/login/register/step2", element: <RegisterFormStep2 /> },
+      { path: "/login/register/step3", element: <RegisterFormStep3 /> },
+      {path:  "/login/forgetpass" , element:  <ForgetPassword />},
+      {path:  "/login/forgetpass/step2/:ConfigValue" , element:  <ForgetPassFormStep2 />},      
+    ],
+  },
 
   {
     path: "/StudentPanel",
     element: <StudentPanel />,
     children: [
-      { path: "/StudentPanel/dashboard", element: <Dashboard /> },
+      { path: "/StudentPanel/", element: <Dashboard />},
       { path: "/StudentPanel/myCourse", element: <MyCourse /> },
       { path: "/StudentPanel/reservesCourse", element: <ReservesCourse /> },
       { path: "/StudentPanel/Coursesfav", element: <CoursesFav /> },
       { path: "/StudentPanel/Blogfav", element: <BlogFav /> },
-      { path: "/StudentPanel/profile", element: <Profile /> },
+      { path: "/StudentPanel/profile", element: <Profile /> , children:[
+        {path:"/StudentPanel/profile" ,element: <ProfileInformation />  },
+        {path:"/StudentPanel/profile/UserImages" ,element: <ProfileImages />  },      
+        {path:"/StudentPanel/profile/UserAddress" ,element: <ProfileAddress />  },      
+        {path:"/StudentPanel/profile/UserLinks" ,element: <UserComponents />  },               
+      ]},
     ],
   },
 
