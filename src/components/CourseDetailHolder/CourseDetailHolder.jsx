@@ -5,17 +5,17 @@ import { getQuery } from '../../core/services/api/reactQuery/getQuery'
 import { useQuery } from '@tanstack/react-query'
 import CourseCommentsPart from './CourseCommentsPart/CourseCommentsPart'
 
-const CourseDetailHolder = () => {
-  const {data, isError, isLoading} = useQuery({
-    queryKey: ['CourseDetailById']
-  })
+const CourseDetailHolder = ({data , FlagHandler , setData}) => {
+  // const {data, isError, isLoading} = useQuery({
+  //   queryKey: ['CourseDetailById']
+  // })
 
-  if(isError) return <div>Error</div>
-  if(isLoading) return <div>Loading ...</div>
+  // if(isError) return <div>Error</div>
+  // if(isLoading) return <div>Loading ...</div>
 
   return (
     <>
-        <CourseMainInfo data={data} />
+        <CourseMainInfo data={data} FlagHandler={FlagHandler} />
         <CourseDetailDescribe data={data} />
         <CourseCommentsPart />
     </>

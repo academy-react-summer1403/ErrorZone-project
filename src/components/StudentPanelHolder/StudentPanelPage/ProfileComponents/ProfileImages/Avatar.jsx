@@ -42,7 +42,7 @@ const Avatar = ({ profileImage, currentPic, id }) => {
     result.success
       ? toast.success(result.message)
       : toast.error(result.message);
-    const resetProfile = await getProfileInfoApi();
+    const resetProfile = await GetCurrentUserProfile();
     dispatch(setState(resetProfile));
   };
   return (

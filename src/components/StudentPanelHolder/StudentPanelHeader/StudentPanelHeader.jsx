@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 const StudentPanelHeader = () => {
   const data = usequery('userInfo');
-  console.log(data);
 	const { profile } = useSelector(
 		(s) => s.profile
 	);

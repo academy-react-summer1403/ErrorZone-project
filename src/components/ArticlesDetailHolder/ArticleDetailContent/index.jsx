@@ -27,38 +27,23 @@ const changeFlager = () => {
   setChangeFlag(!changeFlag)
 }
 
-   const {articleId} = useParams()
-
-
-
-  //  const response = getQuery('newsComment', `/News/GetNewsComments?NewsId=${articleId}`);
-  //  console.log("redes" , response?.slice(0 , 3));
-     
-  //  const {data, isLoading, error} = useQuery({
-  //  queryKey: ['newsComment']
-  // })
+        const {articleId} = useParams()
 
         getQuery('newsComment', `/News/GetNewsComments?NewsId=${articleId}`);
         const response = usequery('newsComment');
         console.log("redes" , response?.slice(0 , 3));
      
-//  useEffect(() => {
-//    getArticlesDetail()
- 
-//  }, [])
-  //  const {data, isLoading, error} = useQuery({
-  //  queryKey: ['newsComment']
-  // })
-
-
-//  if(isLoading) return <div>loading ...</div>
-//  if(error) return <div>error</div>
 
 const GetArticleNews = async () => {
   const res = await ArticleDetails(articleId)
   setDeatil(res)
   
 }
+
+console.log("deatil12233444" , deatil)
+
+const news = deatil?.commentDtos
+
 
 useEffect(() => {
  GetArticleNews()
@@ -75,16 +60,9 @@ useEffect(() => {
     <div className='w-full max-w-[1520px]  h-auto mx-auto mb-[111px]'>
        <h1 className='w-[219px] h-[29px] font-DanaFaNum-700 text-xl  text-gray-800 mb-6'>   نظرات دانشجو ها و اساتید   </h1>
         
-          {/* <div className=' flex gap-7 pr-10 flex-wrap'>
-        <AddCommentsCard  />
-         {response?.slice(0,3).map((item , index) => {
-          return (<CommentsCard key={index} data={item}/>) 
-        })}  
-      </div> */}
-     
      <div className="grid grid-cols-12 gap-5">
-       {/* <AddCourseCommentCard /> */}
-      <AddCommentsCard  />
+
+      <AddCourseCommentCard course={news} oid={articleId} />
       {
         
         response?.slice(0,3).map((item, index) => {
@@ -92,7 +70,6 @@ useEffect(() => {
         }) 
       }
     </div>
-
 
        <div className='flex justify-center pt-6  '>  <ViewMoreBtn />   </div>
     </div>

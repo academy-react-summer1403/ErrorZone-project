@@ -8,6 +8,7 @@ import {
   LibraryIcon,
   Logout03Icon,
   MoneySend02Icon,
+  SecurityLockIcon,
   UserSquareIcon,
 } from "hugeicons-react";
 import { Link } from "react-router-dom";
@@ -48,6 +49,11 @@ function StudentPaneiSide() {
       icon: <MoneySend02Icon />,
       path: "/StudentPanel/payment",
     },
+    {
+      title: "امنیت",
+      icon: <SecurityLockIcon />,
+      path: "/StudentPanel/security",
+    },    
   ];
 
   return (
