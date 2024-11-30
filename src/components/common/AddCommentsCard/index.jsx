@@ -12,7 +12,6 @@ const AddCommentsCard = () => {
 
    const GetNewsAllComments = getQuery('newsComment' , `/News/GetNewsComments?NewsId=${articleId}`)
    const data = GetNewsAllComments
-  //  console.log('dattta' , data)
 
    return (
     <div className='col-span-12 sm:col-span-6 xl:col-span-3 h-72 p-4 rounded-3xl border bg-blue dark:bg-white flex flex-col justify-center items-center gap-4 shadow-md cursor-pointer ' onClick={onOpen} >
@@ -34,9 +33,7 @@ const AddCommentsCard = () => {
                 {data.map((items , index) => {
                   return <CommentsReplyCard key={index} data={items} />
                 })} 
-                {/* {commentReplies.map((items , index) => {
-                   return <CommentsReplyCard  key={index} GetNewsAllComments={items}/>
-                })} */}
+
               </ModalBody>
               <ModalFooter>
               </ModalFooter>

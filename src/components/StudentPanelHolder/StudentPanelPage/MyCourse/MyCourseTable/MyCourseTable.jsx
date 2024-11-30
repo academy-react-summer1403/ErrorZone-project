@@ -20,7 +20,7 @@ import { EyeIcon } from "./EyeIcon";
 // import { usequery } from "../../../../../core/services/api/reactQuery/usequery";
 
 
-import { BookDownloadIcon, Cancel01Icon, ViewIcon } from "hugeicons-react";
+import { BookDownloadIcon, Cancel01Icon, MoneyAdd01Icon, ViewIcon } from "hugeicons-react";
 import { Link } from "react-router-dom";
 import { getQuery } from "../../../../../core/services/api/reactQuery/getQuery";
 import { usequery } from "../../../../../core/services/api/reactQuery/useQuery";
@@ -30,7 +30,7 @@ const MyCourseTable = () => {
     { name: "نام", uid: "courseTitle" },
     { name: "مدرس", uid: "fullName" },
     { name: "سطح", uid: "levelName" },
-    { name: "", uid: "actions" },
+    { name: "وضعیت پرداختی", uid: "coursePayments" },
   ];
   getQuery(
     "MyCourses",
@@ -87,8 +87,20 @@ const MyCourseTable = () => {
             </div>
           </div>
         );
+        case "coursePayments":
+          return(
+            <Chip
+            className="capitalize  text-black"
+            size="sm"
+            variant="flat"
+          >
+            <MoneyAdd01Icon />
+          </Chip>
+          )
       default:
         return cellValue;
+  
+
     }
   }, []);
 
@@ -118,6 +130,7 @@ const MyCourseTable = () => {
               </TableRow>
             )}
           </TableBody>
+
         </Table>
       ) : (
         <Skeleton className="rounded-2xl w-full min-h-52 h-full" />

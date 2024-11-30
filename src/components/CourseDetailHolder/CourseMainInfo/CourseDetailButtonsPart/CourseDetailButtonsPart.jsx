@@ -6,82 +6,185 @@ import {
 } from "hugeicons-react";
 import React from "react";
 import ButtonSpecial from "../../../common/ButtonSpecial";
-import CourseDislike from "../../../../core/services/api/CourseDetail/CourseDislike";
-import CourseLike from "../../../../core/services/api/CourseDetail/CourseLike";
+import CourseDislike, { DeleteLikeCourseAPI } from "../../../../core/services/api/CourseDetail/CourseDislike";
+import CourseLike, { LikeCourseAPI } from "../../../../core/services/api/CourseDetail/CourseLike";
 import { SuccessToastify } from "../../../../core/utils/Toastifies/SuccessToastify.Utils";
 import { ErrorToastify } from "../../../../core/utils/Toastifies/ErrorToastify.Utils";
 import DeleteCourseFavorite from "../../../../core/services/api/CourseDetail/DeleteCourseFavorite";
-import CourseAddToFavorite from "../../../../core/services/api/CourseDetail/CourseAddToFavorite";
+
 import { ToastContainer } from "react-toastify";
 import PostCourseToReserv from "../../../../core/services/api/CourseDetail/PostCourseToReserv";
+import { postQuery } from "../../../../core/services/api/reactQuery/postQuery";
+import { useParams } from "react-router-dom";
+import CourseAddToFavorite, { DeleteArchiveCourseAPI } from "../../../../core/services/api/CourseDetail/CourseAddToFavorite";
+import DissLikeCourseAPI from "../../../../core/services/api/CourseDetail/CourseDislike";
 
-const CourseDetailButtonsPart = ({ data }) => {
+const CourseDetailButtonsPart = ({ data , FlagHandler }) => {
   console.log("data1234", data);
 
   const like = data?.currentUserLike;
   const dislike = data?.currentUserDissLike;
 
-  // const isuserFavorite = data?.isUserFavorite;
+  console.log("like" , like)
+  console.log("dislike" , dislike)
+
   const favId = data?.userFavoriteId;
-  console.log("1234", favId);
+
   const id = data?.courseId;
 
-  console.log("id12e3", id);
+const params = useParams()
 
-  // const params = useParams();
-  // const articleid = params.articleId;
 
-  const handleLike = async () => {
-    const res = await CourseLike(id);
-    // changeFlager()
-    if (res.success === true) {
-      SuccessToastify("ثبت نظر با موفقیت انجام شد");
-    } else if (res.success === false) {
-      ErrorToastify("ثبت نظر با مشکل مواجه شده است");
-    }
-  };
+  // const handleLike = async () => {
+  //   const res = await CourseLike(id);
+  //   // changeFlager()
+  //   if (res.success === true) {
+  //     SuccessToastify("ثبت نظر با موفقیت انجام شد");
+  //   } else if (res.success === false) {
+  //     ErrorToastify("ثبت نظر با مشکل مواجه شده است");
+  //   }
+  // };
 
-  const handleDissLike = async () => {
-    const res = await CourseDislike(id);
-    // changeFlager()
-    if (res.success === true) {
-      SuccessToastify("ثبت نظر با موفقیت انجام شد");
-    } else if (res.success === false) {
-      ErrorToastify("ثبت نظر با مشکل مواجه شده است");
-    }
-  };
+  const handleArchive = () => {
+		!data.isUserFavorite ? AddFav() : delArchive();
+	};
+
+  const handleLike = () => {
+		like === "0" ? likeCourse() : deleteLikeCourse();
+	};
+
+	const handleDissLike = () => {
+		dislike === "0" && dissLikeCourse();
+	};
+
+  // const { mutate:LikeHandler } = postQuery(['CourseDetailById'] , (`/Course/AddCourseLike?CourseId=${id}`) )
+
+  // const {mutate:DeleteLikeHandler } = postQuery(["CourseDetailById"] , (`/Course/AddCourseDissLike?CourseId=${id}`))
+
+
+	const likeCourse = async () => {
+		const res = await LikeCourseAPI(params);
+		if (res.success) {
+			SuccessToastify("دوره با موفقیت لایک شد");
+			FlagHandler();
+		} else {
+			ErrorToastify("مشکلی پیش امده است");
+		}
+	};
+
+  const deleteLikeCourse = async () => {
+		const obj = new FormData();
+		obj.append("CourseLikeId", data.userLikeId);
+		const result = await DeleteLikeCourseAPI(obj);
+		if (result.success) {
+			SuccessToastify("دوره با موفقیت لایک شد");
+			FlagHandler();
+		} else {
+      ErrorToastify("مشکلی پیش امده است");
+		}
+	};
+
+  const dissLikeCourse = async () => {
+		const res = await DissLikeCourseAPI(params);
+		if (res.success) {
+			SuccessToastify("دوره با موفقیت لایک شد");
+			FlagHandler();
+		} else {
+			ErrorToastify("مشکلی پیش امده است");
+		}
+	};
+
+  // const handleDissLike = async () => {
+  //   const res = await CourseDislike(id);
+  //   // changeFlager()
+  //   if (res.success === true) {
+  //     SuccessToastify("ثبت نظر با موفقیت انجام شد");
+  //   } else if (res.success === false) {
+  //     ErrorToastify("ثبت نظر با مشکل مواجه شده است");
+  //   }
+  // };
+
+
   console.log("datafavorite", data?.isUserFavorite);
 
-  const favoriteHandler = async () => {
-    if (data?.isUserFavorite === true) {
-      const res = await DeleteCourseFavorite(favId);
-      console.log("5666", res);
-      if (res.success === true) {
-        SuccessToastify("مقاله مورد نظر ار لیست علاقه مندی ها حذف شده است");
-      }
-    } else if (data?.isUserFavorite === false) {
-      const res = await CourseAddToFavorite(id);
-      if (res.success === true) {
-        SuccessToastify(" مقاله مورد نظر به لیست علاقه مندی ها اضافه شده است");
-      } else if (res.success === true) {
-        SuccessToastify(res.message);
-      }
-    }
-  };
+  // const favoriteHandler = async () => {
+  //   if (data?.isUserFavorite === true) {
+  //     const res = await DeleteCourseFavorite(favId);
+  //     console.log("5666", res);
+  //     if (res.success === true) {
+  //       SuccessToastify("مقاله مورد نظر ار لیست علاقه مندی ها حذف شده است");
+  //     }
+  //   } else if (data?.isUserFavorite === false) {
+  //     const res = await CourseAddToFavorite(id);
+  //     if (res.success === true) {
+  //       SuccessToastify(" مقاله مورد نظر به لیست علاقه مندی ها اضافه شده است");
+  //     } else if (res.success === true) {
+  //       SuccessToastify(res.message);
+  //     }
+  //   }
+  // };
   console.log("id111");
 
-  const handleReserv = async () => {
-    if (data?.isCourseReseve === "0") {
-      const res = await PostCourseToReserv(id);
-      console.log("44444", res);
+  const AddFav = async () => {
+    const obj = { courseId: params.id };
+		const result = await CourseAddToFavorite(obj);
+		if (result.success) {
+      SuccessToastify(" مقاله مورد نظر به لیست علاقه مندی ها اضافه شده است");
+      FlagHandler()
+		} else {
+		  ErrorToastify("مشکلی پیش امده")
+		}
+  }
+
+
+	const delArchive = async () => {
+		const obj = new FormData();
+		obj.append("CourseFavoriteId", data.userFavoriteId);
+		const result = await DeleteArchiveCourseAPI(obj);
+		if (result.success) {
+			SuccessToastify("دوره از لیست علاقه مندی ها حذف شد");
+      FlagHandler()
+		} else {
+			ErrorToastify(" مشکلی پیش امده ");
+		}
+	};
+
+  console.log("data3333333333333" , data)
+
+
+  const reserveCourse = async () => {
+    const obj = { courseId: params.id };
+    const result = await PostCourseToReserv(obj);
+    if (result.success) {
+        SuccessToastify(result.message);
+        FlagHandler()
+    } else {
+      ErrorToastify("این دوره را قبلا رزرو کرده اید")
     }
   };
+
 
   return (
     <div className="flex items-center justify-between spay flex-wrap-reverse desktop:gap-2">
       <ToastContainer rtl />
-      <ButtonSpecial
-        onClick={handleReserv}
+      {data?.isCourseReseve === "1" ? (
+        <ButtonSpecial
+        onClick={reserveCourse}
+        innerHtml={
+          <>
+            <Book02Icon
+              strokeWidth={2}
+              size={24}
+              className="hidden tv:block"
+            ></Book02Icon>
+            <p>حذف دوره</p>
+          </>
+        }
+        className="bg-[#E71D36] text-white py-3 px-6 font-DanaFaNum-700 desktop:text-lg"
+      />
+ ) : (
+          <ButtonSpecial
+        onClick={reserveCourse}
         innerHtml={
           <>
             <Book02Icon
@@ -94,10 +197,16 @@ const CourseDetailButtonsPart = ({ data }) => {
         }
         className="bg-blue text-white py-3 px-6 font-DanaFaNum-700 desktop:text-lg"
       />
+ )}
 
-      {data?.userFavoriteId === true ? (
+
+
+
+
+
+      {data?.isUserFavorite === true ? (
         <ButtonSpecial
-          onClick={favoriteHandler}
+          onClick={handleArchive}
           innerHtml={
             <>
               <Archive02Icon
@@ -112,7 +221,7 @@ const CourseDetailButtonsPart = ({ data }) => {
         />
       ) : (
         <ButtonSpecial
-          onClick={favoriteHandler}
+          onClick={handleArchive}
           innerHtml={
             <>
               <Archive02Icon
@@ -129,7 +238,7 @@ const CourseDetailButtonsPart = ({ data }) => {
 
       <div className="flex gap-0 desktop:gap-4 items-center">
         <div onClick={handleLike} className="cursor-pointer">
-          {like ? (
+          {like === "1" ? (
             <div className="border bg-blue text-white border-gray-400 w-14 h-14 rounded-full flex justify-center items-center">
               <i className="">
                 {" "}
@@ -149,7 +258,7 @@ const CourseDetailButtonsPart = ({ data }) => {
           )}
         </div>
         <div onClick={handleDissLike} className="cursor-pointer">
-          {dislike ? (
+          {dislike === "1" ? (
             <div className="border bg-[#E71D36] text-white border-gray-400 w-14 h-14 rounded-full flex justify-center items-center">
               <i className="">
                 {" "}
