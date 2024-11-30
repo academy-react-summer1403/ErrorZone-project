@@ -54,36 +54,37 @@ function StudentPaneiSide() {
   ];
 
   const navigate = useNavigate();
-  const {isOpen, onOpen, onOpenChange} = useDisclosure();
-
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
-    <div className="side hidden w-[20%] text-white tablet:flex flex-col justify-between h-full">
-      <div className="w-fit space-y-8">
-        <LogoWithTypo />
-        {sideBarItem?.map((item, index) => (
-          <div key={index} className="font-DanaFaNum-500 text-lg">
-            <Link
-              to={item.path}
-              className="flex items-center flex-row gap-2 flex-nowrap"
-            >
-              {item.icon}
-              {item.title}
-            </Link>
-          </div>
-        ))}
+    <>
+      {" "}
+      <div className="side hidden w-[20%] text-white tablet:flex flex-col justify-between h-full">
+        <div className="w-fit space-y-8">
+          <LogoWithTypo />
+          {sideBarItem?.map((item, index) => (
+            <div key={index} className="font-DanaFaNum-500 text-lg">
+              <Link
+                to={item.path}
+                className="flex items-center flex-row gap-2 flex-nowrap"
+              >
+                {item.icon}
+                {item.title}
+              </Link>
+            </div>
+          ))}
+        </div>
+        <div
+          className=" border border-red rounded-full py-4 pr-4 pl-18 flex justify-start items-center gap-2 text-red cursor-pointer "
+          onClick={onOpen}
+        >
+          {" "}
+          <LogoutModal isOpen={isOpen} onOpenChange={onOpenChange} to="/" />
+          <Logout03Icon />
+          <span>خروج از حساب کاربری</span>
+        </div>
       </div>
-      <div
-        className=" border border-red rounded-full py-4 pr-4 pl-18 flex justify-start items-center gap-2 text-red cursor-pointer "
-   
-        onClick={onOpen}
-      >
-        {" "}
-        <LogoutModal isOpen={isOpen} onOpenChange={onOpenChange} to="/" />
-        <Logout03Icon />
-        <span>خروج از حساب کاربری</span>
-      </div>
-    </div>
+    </>
   );
 }
 

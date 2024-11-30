@@ -9,13 +9,19 @@ import TopBlogs from "./TopBlogs/TopBlogs";
 
 const LandingHolder = () => {
   return (
-    <div className="landingHolder px-4 tablet:px-10 space-y-28">
+    <div className="landingHolder  space-y-28">
+      <div className="px-4 tablet:px-10 space-y-28">
       <HeroSection />
+      </div>
       <LearnedProcessSec />
+      <div className="px-4 tablet:px-10 space-y-28">
+
       <OurGoalsSec />
       <OurServises />
       <TopCourses />
       <TopBlogs />
+      </div>
+
     </div>
   );
 };

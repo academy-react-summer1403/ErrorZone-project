@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { getQuery } from "../../../../core/services/api/reactQuery/getQuery";
 import {
   Activity01Icon,
@@ -12,10 +12,12 @@ import {
   UserSquareIcon,
 } from "hugeicons-react";
 import LogoWithTypo from "../../../common/LogoWithTypo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LogoNoTypo from "../../../common/LogoNoTypo";
 import HamMenuBtn from "../../../Header/HamburgerMenu/HamMenuBtn";
-import { motion } from "motion/react"
+import { motion } from "motion/react";
+import { useDisclosure } from "@nextui-org/react";
+import LogoutModal from "../../../common/LogoutModal/LogoutModal";
 
 const HamDashboardMenu = () => {
   getQuery("userInfo", "/SharePanel/GetProfileInfo");
@@ -56,9 +58,12 @@ const HamDashboardMenu = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const navigate = useNavigate();
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
+
   return (
     <>
-      <div className="">
+      <div className="tablet:hidden">
         <HamMenuBtn
           isMenuOpen={isMenuOpen}
           setIsMenuOpen={setIsMenuOpen}
@@ -68,7 +73,11 @@ const HamDashboardMenu = () => {
       </div>
 
       {isMenuOpen ? (
-        <motion.div initial={{x: 250}} animate={{ x: 0, transition: {duration: 0.2} }} className="side z-50 p-5 rounded-3xl tablet:hidden absolute top-0 bottom-0 right-0 w-[35%] text-white flex flex-col justify-between h-full bg-black">
+        <motion.div
+          initial={{ x: 250 }}
+          animate={{ x: 0, transition: { duration: 0.2 } }}
+          className="side z-50 p-5 rounded-3xl tablet:hidden absolute top-0 bottom-0 right-0 w-[35%] text-white flex flex-col justify-between h-full bg-black"
+        >
           <div className="w-fit space-y-8">
             <div className="flex justify-between items-center">
               <LogoNoTypo />
@@ -87,7 +96,11 @@ const HamDashboardMenu = () => {
               </div>
             ))}
           </div>
-          <div className=" border border-red rounded-full py-4 pr-4 pl-18 flex justify-start items-center gap-2 text-red ">
+          <div
+            className=" border border-red rounded-full py-4 pr-4 pl-18 flex justify-start items-center gap-2 text-red "
+            onClick={onOpen}
+          >
+            <LogoutModal isOpen={isOpen} onOpenChange={onOpenChange} to="/" />
             <Logout03Icon />
             <span>خروج از حساب کاربری</span>
           </div>

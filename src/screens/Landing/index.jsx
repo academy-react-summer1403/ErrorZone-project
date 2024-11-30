@@ -20,7 +20,7 @@ const Landing = () => {
   GsapAnim();
 
   return (
-    <div className=" w-full max-w-[1520px] space-y-[72px] mx-auto overflow-x-hidden">
+    <div className=" w-full max-w-[1960px] space-y-[72px] mx-auto overflow-x-hidden">
       {/* landing holder */}
       <LandingHolder />
       {/* Teacers of the week */}
