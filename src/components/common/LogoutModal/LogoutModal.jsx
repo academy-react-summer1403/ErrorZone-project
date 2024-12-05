@@ -10,13 +10,14 @@ import {
 import { removeItem } from "../../../core/services/common/storage.services";
 import { useNavigate } from "react-router-dom";
 import { InformationCircleIcon } from "hugeicons-react";
+import { logout } from "../../../core/utils/MultiAccount/logout";
 
-const LogoutModal = ({ isOpen, onOpenChange ,to }) => {
+const LogoutModal = ({ isOpen, onOpenChange, to }) => {
   const navigate = useNavigate();
 
-  const logout = () => {
-    removeItem("Token");
-    navigate(to);
+  const onLogout = () => {
+    const result = logout();
+    result === "EMPTY" && navigate("/");
   };
 
   return (
@@ -55,7 +56,7 @@ const LogoutModal = ({ isOpen, onOpenChange ,to }) => {
                 <Button
                   color="primary"
                   size="lg"
-                  onPress={logout}
+                  onPress={onLogout}
                   className="font-DanaFaNum-700"
                 >
                   اره داداش ؛ راه نداره واقعا 🫡
