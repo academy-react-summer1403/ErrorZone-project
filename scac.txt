@@ -1,0 +1,48 @@
+  const ImgGenerator = useMutation({
+    mutationKey:['generateImg'],
+    mutationFn: (imgData) => CreateImg(imgData),
+  })
+  const sendAiImgUpload = useMutation({
+    mutationKey:['createUpload'],
+    mutationFn: (id) => setProfilePic(id),
+  })
+
+    const sendImgToApi = () => {
+    const imgData = {
+      "prompt": inputText,
+      "seed": 17123564234,
+      "scheduler": "DDIM",
+      "num_inference_steps": 20,
+      "negative_prompt": "NONE",
+      "samples": 1,
+      "guidance_scale": 7.5,
+      "strength": 1,
+      "shape": 512
+    }
+    
+    ImgGenerator.mutate(imgData)
+  }
+
+            {ImgGenerator?.data ? (
+            <Button
+              onClick={() => sendAiImgUpload.mutate(ImgGenerator?.data)}
+              auto
+              className="max-w-40 bg-[#E7E7E7] hover:bg-gray-300 max-md:w-full"
+              size="sm"
+            >
+              آپلود عکس
+            </Button>
+          ) : (
+            <>
+              <Button className="max-md:hidden" onClick={handleSurpriseMe} size="sm"> عکس تصادفی</Button>
+              <Button
+                onClick={sendImgToApi}
+                auto
+
+                className="max-w-40 bg-[#E7E7E7] hover:bg-gray-300 max-md:w-full"
+                size="md"
+              >
+                {ImgGenerator?.status === "loading"
+                  ? "در حال ساخت"
+                  : "ساخت عکس"}
+              </Button>}
