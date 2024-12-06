@@ -19,8 +19,9 @@ const ProfileRightSection = () => {
         <NavLink className={({isActive}) => isActive? 'w-[110px] h-[48px] rounded-[48px] text-blue flex  items-center  bg-gray-200 font-DanaFaNum-600 text-lg pr-2 mt-4' : 'w-[110px] h-[48px] rounded-[48px] text-gray-800 flex  items-center font-DanaFaNum-600 text-lg pr-2 mt-4' } to={"/StudentPanel/profile/UserAddress"}>  محل سکونت  </NavLink>
       </div>  
       <div className='w-full'>
-        <NavLink className={({isActive}) => isActive? 'w-[70px] h-[48px] rounded-[48px] text-blue flex  items-center  bg-gray-200 font-DanaFaNum-600 text-lg pr-2 mt-4' : 'w-[70px] h-[48px] rounded-[48px] text-gray-800 flex  items-center font-DanaFaNum-600 text-lg pr-2 mt-4' } to={"/StudentPanel/profile/UserLinks"}>  لینک ها  </NavLink>     
+        <NavLink className={({isActive}) => isActive? 'w-[70px] h-[48px] rounded-[48px] text-blue flex  items-center  bg-gray-200 font-DanaFaNum-600 text-lg pr-2 mt-4' : 'w-[70px] h-[48px] rounded-[48px] text-gray-800 flex  items-center font-DanaFaNum-600 text-lg pr-2 mt-4' } to={"/StudentPanel/profile/myjobs"}>  شغل ها  </NavLink>     
      </div>
+
     </div>
     </div>
   )

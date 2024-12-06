@@ -31,15 +31,7 @@ const ArticleDetailSimilarCard = () => {
       cost:30000000000,
       levelName:'مقدماتی'
     } ,   
-
-       {
-       id: 4,
-       title: "دوره ری اکت",
-       teacherName:'علی',
-       typeName:'برنامه نویسی',
-       cost:200,
-       levelName:'مقدماتی'
-     } ,    
+  
   ]
 
 

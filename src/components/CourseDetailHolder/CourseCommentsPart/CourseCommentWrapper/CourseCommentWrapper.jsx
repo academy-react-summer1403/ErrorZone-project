@@ -34,7 +34,7 @@ const Details = async () => {
 
 useEffect(() => {
   Details()
-}, [])
+}, [flage])
 
 
   return (

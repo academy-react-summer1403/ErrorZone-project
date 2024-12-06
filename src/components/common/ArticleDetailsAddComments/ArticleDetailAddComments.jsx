@@ -19,35 +19,31 @@ import { SuccessToastify } from "../../../core/utils/Toastifies/SuccessToastify.
 import AddCourseCommentAPI from "../../../core/services/api/CourseDetail/AddCourseCommentApi";
 import { ErrorToastify } from "../../../core/utils/Toastifies/ErrorToastify.Utils";
 
-const AddCourseCommentCard = ({
-  course,
-  Oid,
-  title,
-  changeHandler,
-  articleID,
-}) => {
+
+const ArticleDetailAddCommentsCard = ({ course,  changeHandler , Oid , changeFlager }) => {
   console.log("oid", Oid);
 
-  console.log("course 12333", course);
+  console.log("course 12333" , course )
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const addCourseComment = async (values) => {
-    console.log(values, "value");
-    const obj = new FormData();
-    obj.append("CourseId", Oid);
-    obj.append("Title", values.Title);
-    obj.append("Describe", values.Describe);
-    const result = await AddCourseCommentAPI(obj);
-    if (result.success) {
-      SuccessToastify("کامنت شما اضاف شد");
-      changeHandler();
-      closeModal();
-    } else {
-      ErrorToastify("بد اضاف کردی");
-    }
-  };
+  	const addArticleComment = async (values) => {
+		console.log(values, "value");
+		const obj = {
+			newsId: Oid,
+			title: values.Title,
+			describe: values.Describe,
+		};
+		const result = await AddArticleCommentAPI(obj);
+		if (result.success) {
+			// SuccessToastify("کامنت کردی");
+      changeFlager()
+			closeModal();
+		} else {
+			 ErrorToastify("بد کامنت کردی");
+		}
+	};
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -137,7 +133,7 @@ const AddCourseCommentCard = ({
                   <Formik
                     initialValues={{ Title: "", Describe: "" }}
                     validationSchema={AddCommentValidation}
-                    onSubmit={addCourseComment}
+                    onSubmit={addArticleComment}
                     className="mt-4 font-medium"
                   >
                     <Form>
@@ -157,10 +153,7 @@ const AddCourseCommentCard = ({
                         </h2>
                       </div>
                       <div className="pt-4">
-                        <label
-                          htmlFor="Describe"
-                          className="font-DanaFaNum-500"
-                        >
+                        <label htmlFor="Describe" className="font-DanaFaNum-500">
                           توضیحات بیشتر
                         </label>
                         <Field
@@ -184,7 +177,7 @@ const AddCourseCommentCard = ({
                     </Form>
                   </Formik>
                 </Modals>
-
+  
                 {course?.map((item) => {
                   return (
                     <CommentCom
@@ -245,4 +238,4 @@ const AddCourseCommentCard = ({
   );
 };
 
-export default AddCourseCommentCard;
+export default ArticleDetailAddCommentsCard;

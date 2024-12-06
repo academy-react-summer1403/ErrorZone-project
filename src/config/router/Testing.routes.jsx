@@ -40,6 +40,8 @@ import MyPayMents from "../../components/StudentPanelHolder/StudentPanelPage/MyP
 import NavigationsPage from "../../components/StudentPanelHolder/StudentPanelPage/UserSecurity/Navigation/Navigations";
 import ChangePassowrd from "../../components/StudentPanelHolder/StudentPanelPage/UserSecurity/ChangePassword/ChangePassowrd";
 import TwoStepVerfication from "../../components/StudentPanelHolder/StudentPanelPage/UserSecurity/TwoStepVerfication/TwoStepVerfication";
+import MyJobs from "../../components/StudentPanelHolder/StudentPanelPage/MyJobs/MyJobs";
+
 
 
 export const TestingRoutes = createBrowserRouter([
@@ -90,7 +92,9 @@ export const TestingRoutes = createBrowserRouter([
         {path:"/StudentPanel/profile" ,element: <ProfileInformation />  },
         {path:"/StudentPanel/profile/UserImages" ,element: <ProfileImages />  },      
         {path:"/StudentPanel/profile/UserAddress" ,element: <ProfileAddress />  },      
-        {path:"/StudentPanel/profile/UserLinks" ,element: <UserComponents />  },             
+        {path:"/StudentPanel/profile/UserLinks" ,element: <UserComponents />  },
+        { path: "/StudentPanel/profile/myjobs", element: <MyJobs /> },    
+
       ]},
     ],
   },

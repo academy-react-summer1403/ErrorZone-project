@@ -51,7 +51,7 @@ const TwoStepVerfication = () => {
   return (
     <>
       <Toaster />
-      <div className="flex items-center justify-center w-full ">
+      <div className="flex items-center justify-center w-full pt-20 ">
         {getloading ? (
           <ClipLoader size={50} />
         ) : (
@@ -106,7 +106,6 @@ const TwoStepVerfication = () => {
                       type="submit"
                       className="group text-white py-2 px-4  gap-1 text-sm  bg-black  rounded-full  flex  items-center  transition-all duration-200 "
                     >
-
                       <div>اعمال تغییرات</div>
                     </button>
                   </div>

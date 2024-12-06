@@ -52,20 +52,20 @@ const ReplyCom = ({
   const likeComment = async () => {
     const response = await AddLikeComment(id)
         if(response.success) {
-          SuccessToastify("لایک با موفقیت انجام شد")
+          SuccessToastify("لایک کردی")
         }
         else{
-            ErrorToastify(' نظر شما ثبت نشد ')
+            ErrorToastify('بد لایک کردی')
         }
     }
 
     const dissLikeComment = async () => {
         const response = await AddDissLikeComment(id)
         if(response.success) {
-            SuccessToastify(res.message)
+            SuccessToastify("دیسلایک کردی ")
         }
         else{
-            ErrorToastify(' نظر شما ثبت نشد ')
+            ErrorToastify('بد دیسلایک کردی')
         }
     }
     
@@ -121,8 +121,8 @@ const ReplyCom = ({
             </div>
             <div className='flex gap-6 md:items-center md:flex-row flex-col justify-start'>
                 <div className='flex gap-4'>
-                    <div className='flex gap-2 flex-row-reverse font-[500] text-gray-700 dark:text-white text-[16px]'> {likeCounted} <ThumbsUpIcon className={`${like ? 'text-red-500' : 'text-black dark:text-white' } cursor-pointer`} onClick={() => {likeComment(), liking(), countingLike()}}  /> </div>
-                    <div className='flex gap-2 flex-row-reverse font-[500] text-gray-700 dark:text-white text-[16px]'> {dislikeCounted} <ThumbsDownIcon className={`${dislike ? 'text-red-500' : 'text-black dark:text-white' } cursor-pointer`} onClick={() => {dissLikeComment(), disliking(), countingDislike()}} /> </div>
+                    <div className='flex gap-2 flex-row-reverse font-[500] text-gray-700 dark:text-white text-[16px]'> {likeCounted} <ThumbsUpIcon className={`${like ? 'text-blue' : 'text-black dark:text-white' } cursor-pointer`} onClick={() => {likeComment(), liking(), countingLike()}}  /> </div>
+                    <div className='flex gap-2 flex-row-reverse font-[500] text-gray-700 dark:text-white text-[16px]'> {dislikeCounted} <ThumbsDownIcon className={`${dislike ? 'text-red' : 'text-black dark:text-white' } cursor-pointer`} onClick={() => {dissLikeComment(), disliking(), countingDislike()}} /> </div>
                 </div>
                 {!checkAdd && <Button onClick={() => {setCheckAdd(true)}} className='bg-white dark:bg-slate-700 dark:border-none dark:text-white w-fit text-blue border rounded-full border-blue text-base font-semibold'> جواب دادن </Button>}
                 {checkAdd && <AddReply getRepliesAll={getRepliesAll} setCheckAdd={setCheckAdd} commentId={id} Oid={Oid} changeHandler={changeHandler} />}

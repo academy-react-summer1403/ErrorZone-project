@@ -1,9 +1,9 @@
 import React from 'react'
 import instance from '../../interceptor';
 
- const DissLikeCourseAPI = async (params) => {
+ const DissLikeCourseAPI = async (id) => {
   try {
-    const result = await instance.post(`/Course/AddCourseDissLike?CourseId=${params.id}`);
+    const result = await instance.post(`/Course/AddCourseDissLike?CourseId=${id}`);
     console.log(result , "Successfully added")
     return result;
   } catch (error) {

@@ -12,7 +12,7 @@ const StudentPanelHeader = () => {
 
   const data = usequery('userInfo');
 
-  const data = usequery("userInfo");
+  
   console.log(data);
 
 	const { profile } = useSelector(
@@ -25,7 +25,7 @@ const StudentPanelHeader = () => {
       <div className=" flex gap-2 items-center">
 
         <img
-          src={data?.currentPictureAddress}
+          src={profile?.currentPictureAddress}
           alt=""
           className="mobile:size-12 size-9 rounded-full"
         />
