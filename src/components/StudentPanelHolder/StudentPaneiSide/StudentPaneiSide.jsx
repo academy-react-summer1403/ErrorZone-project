@@ -11,6 +11,8 @@ import {
   MoneySend02Icon,
   Settings02Icon,
   Setup02Icon,
+
+  SecurityLockIcon,
   UserSquareIcon,
 } from "hugeicons-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -55,16 +57,25 @@ function StudentPaneiSide() {
       path: "/StudentPanel/payment",
     },
     {
+
       title: "مدیریت حساب‌ها",
       icon: <AccountSetting02Icon />,
       path: "/StudentPanel/accounts",
     },
+    {
+      title: "امنیت",
+      icon: <SecurityLockIcon />,
+      path: "/StudentPanel/security",
+    }, 
+
+
   ];
 
   const navigate = useNavigate();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
+<>
     <div className="side hidden w-[20%] text-white tablet:flex flex-col justify-between h-full">
       <div className="w-fit space-y-8">
         <LogoWithTypo />
@@ -88,8 +99,11 @@ function StudentPaneiSide() {
         <LogoutModal isOpen={isOpen} onOpenChange={onOpenChange} to="/" />
         <Logout03Icon />
         <span>خروج از حساب کاربری</span>
+
+        </div>
+
       </div>
-    </div>
+    </>
   );
 }
 

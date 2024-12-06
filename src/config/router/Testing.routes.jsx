@@ -34,7 +34,15 @@ import ForgetPassword from "../../screens/ForgetPassword/ForgetPassword";
 import ForgetPassFormStep2 from "../../components/User/LoginRegisterForgetPass/ForgetPassHolder/ForgetPassFormStep2";
 import ProfileInformation from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/ProfileUserInformation/ProfileInformation";
 import UserComponents from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/UserLinks/UserComponents";
+
 import AccountSettingsPage from "../../components/StudentPanelHolder/StudentPanelPage/Accounts";
+
+import MyPayMents from "../../components/StudentPanelHolder/StudentPanelPage/MyPayments/MyPayMents";
+import NavigationsPage from "../../components/StudentPanelHolder/StudentPanelPage/UserSecurity/Navigation/Navigations";
+import ChangePassowrd from "../../components/StudentPanelHolder/StudentPanelPage/UserSecurity/ChangePassword/ChangePassowrd";
+import TwoStepVerfication from "../../components/StudentPanelHolder/StudentPanelPage/UserSecurity/TwoStepVerfication/TwoStepVerfication";
+import MyJobs from "../../components/StudentPanelHolder/StudentPanelPage/MyJobs/MyJobs";
+
 
 export const TestingRoutes = createBrowserRouter([
   {
@@ -78,25 +86,23 @@ export const TestingRoutes = createBrowserRouter([
       { path: "/StudentPanel/reservesCourse", element: <ReservesCourse /> },
       { path: "/StudentPanel/Coursesfav", element: <CoursesFav /> },
       { path: "/StudentPanel/Blogfav", element: <BlogFav /> },
-      {
-        path: "/StudentPanel/profile",
-        element: <Profile />,
-        children: [
-          { path: "/StudentPanel/profile", element: <ProfileInformation /> },
-          {
-            path: "/StudentPanel/profile/UserImages",
-            element: <ProfileImages />,
-          },
-          {
-            path: "/StudentPanel/profile/UserAddress",
-            element: <ProfileAddress />,
-          },
-          {
-            path: "/StudentPanel/profile/UserLinks",
-            element: <UserComponents />,
-          },
-        ],
-      },
+
+      { path: "/StudentPanel/payment", element: <MyPayMents />  },
+      {path:"/StudentPanel/security", element : <NavigationsPage /> , children:[
+        {path:"/StudentPanel/security", element: <ChangePassowrd />},
+        {path:"/StudentPanel/security/TwoStepVerification", element: <TwoStepVerfication />},         
+      ]
+    
+    }  ,          
+      { path: "/StudentPanel/profile", element: <Profile /> , children:[
+        {path:"/StudentPanel/profile" ,element: <ProfileInformation />  },
+        {path:"/StudentPanel/profile/UserImages" ,element: <ProfileImages />  },      
+        {path:"/StudentPanel/profile/UserAddress" ,element: <ProfileAddress />  },      
+        {path:"/StudentPanel/profile/UserLinks" ,element: <UserComponents />  },
+        { path: "/StudentPanel/profile/myjobs", element: <MyJobs /> },    
+
+      ]},
+
     ],
   },
 

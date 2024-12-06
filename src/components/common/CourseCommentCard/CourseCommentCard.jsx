@@ -9,9 +9,6 @@ import { MakeDatePersian } from "../../../core/utils/MakeDatePersian.js/MakeDate
 const CourseCommentCard = ({ data }) => {
   const [isLike, setIsLike] = useState();
   const [isDissLike, setDissLike] = useState();
-  const [likeCount, setLikeCount] = useState();
-  const [dissLikeCount, setDissLikeCount] = useState();
-
 
   const queryclient = useQueryClient();
 

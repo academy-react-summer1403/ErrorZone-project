@@ -33,7 +33,7 @@ const CourseInfoTablePcView = ({data}) => {
             <TableCell>
               <div className="text-sm text-gray-800">دسته‌بندی</div>
               {data?.techs?.map((item,index)=>(
-              <Chip color="primary" key={index}>{item}</Chip>
+              <Chip color="primary" className="mr-1" key={index}> {item} </Chip>
               ))}
             </TableCell>
 

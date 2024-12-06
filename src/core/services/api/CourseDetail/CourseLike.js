@@ -14,3 +14,13 @@ const CourseLike =  async (courseId) => {
 }
 
 export default CourseLike
+
+export const LikeCourseAPI = async (params) => {
+  try {
+    const result = await instance.post(`/Course/AddCourseLike?CourseId=${params.id}`);
+    return result;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};

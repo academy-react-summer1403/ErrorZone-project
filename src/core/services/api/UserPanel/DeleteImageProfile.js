@@ -1,10 +1,9 @@
-import React from 'react'
 import instance from '../../interceptor'
 
-const DeleteImageProfile = async (value) => {
+const DeleteImageProfile = async (file) => {
     try {
         const response = await instance.delete("/SharePanel/DeleteProfileImage", {
-          data: value,
+          data: file,
         });
     
         return response;

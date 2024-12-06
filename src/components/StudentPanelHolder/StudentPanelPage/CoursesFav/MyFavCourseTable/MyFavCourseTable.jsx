@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Chip,
+  Pagination,
   Table,
   TableBody,
   TableCell,
@@ -12,12 +13,13 @@ import {
 } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 import { BookDownloadIcon, Cancel01Icon, ViewIcon } from "hugeicons-react";
-import { usequery } from "../../../../../core/services/api/reactQuery/usequery";
 import { convertDate } from "../../../../../core/utils/DateToShamsi";
 import { postQuery } from "../../../../../core/services/api/reactQuery/postQuery";
 import { ReservCourseModal } from "./ReservCourseModal";
+import { usequery } from "../../../../../core/services/api/reactQuery/useQuery";
 
 const MyFavCourseTable = () => {
+  const [page, setPage] = useState(1)
   const columns = [
     { name: "نام", uid: "courseTitle" },
     { name: "مدرس", uid: "teacheName" },
@@ -25,8 +27,8 @@ const MyFavCourseTable = () => {
     { name: "سطح", uid: "levelName" },
     { name: "", uid: "actions" },
   ];
-
-  const { favoriteCourseDto } = usequery("myFavCourses");
+const data = usequery("myFavCourses");
+  const { favoriteCourseDto } = data ? data : [];
 
   console.log(favoriteCourseDto);
 
@@ -106,6 +108,23 @@ const MyFavCourseTable = () => {
       <Table
         className="bg-gray-100"
         aria-label="Example table with custom cells"
+        bottomContent={
+          <div
+            className="flex w-full justify-center"
+            style={{ direction: "ltr" }}
+          >
+            <Pagination
+              // isCompact
+              loop
+              showControls
+              showShadow
+              color="primary"
+              page={page}
+              total={Math.ceil(data?.totalCount / 8)}
+              onChange={(page) => setPage(page)}
+            />
+          </div>
+        }
       >
         <TableHeader className="bg-gray-200" columns={columns}>
           {(column) => (

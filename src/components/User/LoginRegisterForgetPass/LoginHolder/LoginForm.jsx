@@ -33,16 +33,18 @@ const LoginForm = () => {
 
     try {
       const user = await LoginApi(value);
+      console.log("user" , user)
       if (user.success === true) {
         if (user.token === null) {
           dispatch(onSetLoginInfo(value));
-          user.massage;
+
 
           setTimeout(() => {
             Navigate("/login/verifycode");
           }, 2000);
           setIsDisabled(false);
         } else if (user.token !== null) {
+
           // SuccessToastify(error.massage)
           //console.log('error' , error.massage)
           // setItem("Token", {
@@ -67,6 +69,7 @@ const LoginForm = () => {
           } else {
             toast.error("قبلا با این حساب وارد شدی مشتی");
           }
+
 
           setIsDisabled(false);
         }
