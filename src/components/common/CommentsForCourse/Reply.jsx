@@ -38,7 +38,7 @@ const Reply = ({ commentId, Oid }) => {
       getRepliesAll()
     }, [changeFlag])
 
-    console.log("repliesq222" , replies)
+    
 
     return <>
         {replies?.map((reply, index) => {
