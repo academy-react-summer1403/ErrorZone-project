@@ -27,8 +27,6 @@ import ProfileAddress from "../../components/StudentPanelHolder/StudentPanelPage
 import UserLinks from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/UserLinks/UserLinks";
 import Profile from "../../components/StudentPanelHolder/StudentPanelPage/Profile/Profile";
 
-
-
 import CourseDetail from "../../screens/CourseDetail/CourseDetail";
 
 import ArticlesDetail from "../../screens/ArticlesDetail";
@@ -36,12 +34,14 @@ import ForgetPassword from "../../screens/ForgetPassword/ForgetPassword";
 import ForgetPassFormStep2 from "../../components/User/LoginRegisterForgetPass/ForgetPassHolder/ForgetPassFormStep2";
 import ProfileInformation from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/ProfileUserInformation/ProfileInformation";
 import UserComponents from "../../components/StudentPanelHolder/StudentPanelPage/ProfileComponents/UserLinks/UserComponents";
+
+import AccountSettingsPage from "../../components/StudentPanelHolder/StudentPanelPage/Accounts";
+
 import MyPayMents from "../../components/StudentPanelHolder/StudentPanelPage/MyPayments/MyPayMents";
 import NavigationsPage from "../../components/StudentPanelHolder/StudentPanelPage/UserSecurity/Navigation/Navigations";
 import ChangePassowrd from "../../components/StudentPanelHolder/StudentPanelPage/UserSecurity/ChangePassword/ChangePassowrd";
 import TwoStepVerfication from "../../components/StudentPanelHolder/StudentPanelPage/UserSecurity/TwoStepVerfication/TwoStepVerfication";
 import MyJobs from "../../components/StudentPanelHolder/StudentPanelPage/MyJobs/MyJobs";
-
 
 
 export const TestingRoutes = createBrowserRouter([
@@ -67,8 +67,11 @@ export const TestingRoutes = createBrowserRouter([
       { path: "/login/register/step1", element: <RegisterFormStep1 /> },
       { path: "/login/register/step2", element: <RegisterFormStep2 /> },
       { path: "/login/register/step3", element: <RegisterFormStep3 /> },
-      {path:  "/login/forgetpass" , element:  <ForgetPassword />},
-      {path:  "/login/forgetpass/step2/:ConfigValue" , element:  <ForgetPassFormStep2 />},      
+      { path: "/login/forgetpass", element: <ForgetPassword /> },
+      {
+        path: "/login/forgetpass/step2/:ConfigValue",
+        element: <ForgetPassFormStep2 />,
+      },
     ],
   },
 
@@ -76,11 +79,14 @@ export const TestingRoutes = createBrowserRouter([
     path: "/StudentPanel",
     element: <StudentPanel />,
     children: [
-      { path: "/StudentPanel/", element: <Dashboard />},
+      { path: "/StudentPanel/:id?", element: <Dashboard /> },
+      { path: "/StudentPanel/Accounts/", element: <AccountSettingsPage /> },
+
       { path: "/StudentPanel/myCourse", element: <MyCourse /> },
       { path: "/StudentPanel/reservesCourse", element: <ReservesCourse /> },
       { path: "/StudentPanel/Coursesfav", element: <CoursesFav /> },
       { path: "/StudentPanel/Blogfav", element: <BlogFav /> },
+
       { path: "/StudentPanel/payment", element: <MyPayMents />  },
       {path:"/StudentPanel/security", element : <NavigationsPage /> , children:[
         {path:"/StudentPanel/security", element: <ChangePassowrd />},
@@ -96,6 +102,7 @@ export const TestingRoutes = createBrowserRouter([
         { path: "/StudentPanel/profile/myjobs", element: <MyJobs /> },    
 
       ]},
+
     ],
   },
 
