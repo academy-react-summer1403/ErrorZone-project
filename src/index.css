@@ -13,11 +13,11 @@
     list-style: none;
   }
 
-
-  
+  html {
+    scroll-behavior: smooth;
+  }
 
   .stepperContainer > a {
-
     display: block;
     width: 100%;
     height: 100%;
