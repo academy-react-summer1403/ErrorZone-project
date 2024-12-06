@@ -34,24 +34,26 @@ const CommentCom = ({ pictureAddress, title, describe, likeCount, disslikeCount,
           setVisibleReply(false)
       }
     }
+    
+  
 
     const likeComment = async () => {
         const response = await CourseLike(id)
         if(response.success) {
-            SuccessToastify(response.message)
+            SuccessToastify("لایک  کردی")
         }
         else{
-            ErrorToastify(' نظر شما ثبت نشد ')
+            SuccessToastify("لایک  کردی")
         }
     }
 
     const dissLikeComment = async () => {
         const response = await CourseDislike(id)
         if(response.success) {
-            SuccessToastify(response.message)
+            SuccessToastify("دیسلایک کردی")
         }
         else{
-            ErrorToastify(' نظر شما ثبت نشد ')
+            SuccessToastify("دیسلایک کردی")
         }
     }
 
@@ -59,10 +61,10 @@ const CommentCom = ({ pictureAddress, title, describe, likeCount, disslikeCount,
         const response = await AddLikeCommentNew(id, likeType)
         if(response.success) {
             // ToastSuccess(' نظر شما با موفقیت ثبت شد ')
-            SuccessToastify(response.message)            
+            SuccessToastify("لایک کردی")            
         }
         else{
-            ErrorToastify(' نظر شما ثبت نشد ')
+            SuccessToastify("لایک  کردی")
         }
     }
 
@@ -116,9 +118,9 @@ const CommentCom = ({ pictureAddress, title, describe, likeCount, disslikeCount,
         </div>
         <div className='flex gap-6 flex-col md:flex-row items-start md:items-center'>
             <div className='flex gap-4'>
-                <div className='flex gap-2 flex-row-reverse font-DanaFaNum-500 dark:text-white text-black text-[16px]'> {likeCounted} <ThumbsUpIcon className={`${like ? 'text-red-500' : 'text-black dark:text-white'} cursor-pointer`} onClick={() => {window.location.pathname.includes('NewDetail') ? likeNew(true) : likeComment(), liking(), countingLike()}} /> </div>
+                <div className='flex gap-2 flex-row-reverse font-DanaFaNum-500 dark:text-white text-black text-[16px]'> {likeCounted} <ThumbsUpIcon className={`${like ? 'text-blue' : 'text-black dark:text-white'} cursor-pointer`} onClick={() => {window.location.pathname.includes('NewDetail') ? likeNew(true) : likeComment(), liking(), countingLike()}} /> </div>
 
-                <div className='flex gap-2 flex-row-reverse font-DanaFaNum-500 dark:text-white text-black text-[16px]'> {dislikeCounted} <ThumbsDownIcon className={`${dislike ? 'text-red-500' : 'text-black dark:text-white'} cursor-pointer`} onClick={() => {window.location.pathname.includes('NewDetail') ? likeNew(false) : dissLikeComment(), disliking(), countingDislike()}} /> </div>
+                <div className='flex gap-2 flex-row-reverse font-DanaFaNum-500 dark:text-white text-black text-[16px]'> {dislikeCounted} <ThumbsDownIcon className={`${dislike ? 'text-red' : 'text-black dark:text-white'} cursor-pointer`} onClick={() => {window.location.pathname.includes('NewDetail') ? likeNew(false) : dissLikeComment(), disliking(), countingDislike()}} /> </div>
             </div>
             <div className='flex gap-4'>
                 {!checkAdd && <Button onClick={() => {setCheckAdd(true)}} className='bg-white text-blue border rounded-full border-blue text-base font-semibold dark:bg-slate-700 dark:border-none dark:text-white'> جواب دادن </Button>}

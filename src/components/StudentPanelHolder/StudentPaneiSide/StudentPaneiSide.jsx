@@ -56,7 +56,8 @@ function StudentPaneiSide() {
       title: "امنیت",
       icon: <SecurityLockIcon />,
       path: "/StudentPanel/security",
-    },    
+    }, 
+
   ];
 
   const navigate = useNavigate();
