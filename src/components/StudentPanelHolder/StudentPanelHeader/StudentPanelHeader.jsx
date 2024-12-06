@@ -6,24 +6,19 @@ import { usequery } from "../../../core/services/api/reactQuery/useQuery";
 import HamDashboardMenu from "../StudentPanelPage/Dashboard/HamDashboardMenu";
 
 import { useSelector } from "react-redux";
-
+import { Link } from "react-router-dom";
 
 const StudentPanelHeader = () => {
+  const data = usequery("userInfo");
 
-  const data = usequery('userInfo');
-
-  
   console.log(data);
 
-	const { profile } = useSelector(
-		(s) => s.profile
-	);
+  const { profile } = useSelector((s) => s.profile);
   return (
     <div className="h-12 flex justify-between items-center ">
       <HamDashboardMenu />
 
       <div className=" flex gap-2 items-center">
-
         <img
           src={profile?.currentPictureAddress}
           alt=""
@@ -34,11 +29,18 @@ const StudentPanelHeader = () => {
             {data?.fName} {data?.lName}
           </div>
           <div className="mobile:text-sm text-[10px]"> دانشجو</div>
-
         </div>
       </div>
       <div className="flex mobile:text-base text-xs items-center mobile:gap-16 gap-4 text-white ">
-        <div className=""> صفحه اصلی </div>
+        <div className="">
+          <Link
+            to="/"
+            className="w-[77px] h-[23px] font-DanaFaNum-500 text-base"
+          >
+            {" "}
+            صفحه اصلی{" "}
+          </Link>
+        </div>
 
         <div className=""> گزارش </div>
 

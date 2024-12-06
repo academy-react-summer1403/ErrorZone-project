@@ -55,7 +55,7 @@ console.log("news1233444" ,newsComments )
             </div>
           </div>
 
-            <MyCourseTable />
+            <MyCourseTable isDashboard={true} />
         </div>
         <div className=" flex justify-center w-max mx-auto">
           <ProgressCircle />
