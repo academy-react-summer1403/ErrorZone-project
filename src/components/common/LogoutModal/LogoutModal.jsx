@@ -17,8 +17,7 @@ const LogoutModal = ({ isOpen, onOpenChange, to }) => {
 
   const onLogout = () => {
     const result = logout();
-    result === "EMPTY" && navigate("/");
-  };
+     navigate("/")};
 
   return (
     <>
@@ -52,7 +51,10 @@ const LogoutModal = ({ isOpen, onOpenChange, to }) => {
               <Button
                   color="primary"
                   size="lg"
-                  onPress={logout}
+                  onPress={()=>{
+                    onLogout()
+                    
+                  }}
                   className="font-DanaFaNum-700"
                 >
                   اره داداش ؛ راه نداره واقعا 🫡
@@ -65,15 +67,6 @@ const LogoutModal = ({ isOpen, onOpenChange, to }) => {
                   className="font-DanaFaNum-700 "
                 >
                   باشه گریه نکن ؛نمیرم😒
-                </Button>
-
-                <Button
-                  color="primary"
-                  size="lg"
-                  onPress={onLogout}
-                  className="font-DanaFaNum-700"
-                >
-                  اره داداش ؛ راه نداره واقعا 🫡
                 </Button>
 
               </ModalFooter>

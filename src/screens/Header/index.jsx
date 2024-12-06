@@ -6,10 +6,11 @@ import LogoNoTypo from "../../components/common/LogoNoTypo";
 import HeaderHolderMobile from "../../components/Header/HeaderHolderMobile";
 import { getQuery, getQueryNoApi } from "../../core/services/api/reactQuery/getQuery";
 import { getItem } from "../../core/services/common/storage.services";
+import { getTokenFromLocalStorage } from "../../core/utils/MultiAccount/getToken";
 
 const Header = () => {
   getQuery('userInfo', "/SharePanel/GetProfileInfo");
-  getQueryNoApi('isLogin', getItem('Token'));
+  getQueryNoApi('isLogin', getTokenFromLocalStorage());
 
   return (
     <div className="box2 w-full max-w-[1520px] mx-auto flex justify-between h-14 tablet:h-auto px-4 tablet:px-10 pt-6">

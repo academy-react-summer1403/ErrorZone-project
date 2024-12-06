@@ -17,10 +17,22 @@ import SelectImageProfile from "../../../../../core/services/api/UserPanel/Selec
 import { setState } from "../../../../../redux/userProfile/profile";
 import GetCurrentUserProfile from "../../../../../core/services/api/UserPanel/GetCurrentUserProfile";
 import { CheckmarkCircle02Icon, Delete02Icon } from "hugeicons-react";
+import { useQueryClient } from "@tanstack/react-query";
 
 const PFPFull = ({ isOpen, setIsOpen }) => {
+
+
+	const queryClient = useQueryClient();
 	const { profile } = useSelector((s) => s.profile);
 	const dispatch = useDispatch();
+
+	const profileData = useSelector((s) => s.profile);
+	useEffect(() => {
+	  async () => {
+		const resetProfile = await GetCurrentUserProfile();
+		dispatch(setState(resetProfile));
+	  };
+	}, [profileData]);
 
 	const SelectPicture = async (image) => {
 		const formData = new FormData();
@@ -32,6 +44,7 @@ const PFPFull = ({ isOpen, setIsOpen }) => {
 			: toast.error(result.message);
 		const resetProfile = await GetCurrentUserProfile();
 		dispatch(setState(resetProfile));
+
 	};
 
 	const DeletePicture = async (image) => {
