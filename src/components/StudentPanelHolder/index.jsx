@@ -4,14 +4,12 @@ import StudentPaneiSide from "./StudentPaneiSide/StudentPaneiSide";
 import StudentPanelPage from "./StudentPanelPage/StudentPanelPage";
 import { getQuery } from "../../core/services/api/reactQuery/getQuery";
 import HamDashboardMenu from "./StudentPanelPage/Dashboard/HamDashboardMenu";
-import { CookiesProvider, useCookies } from "react-cookie";
 import Joyride from "react-joyride";
 import VoiceAssistance from "../common/VoiceAssistance/VoiceAssistance";
 import { getTokenFromLocalStorage } from "../../core/utils/MultiAccount/getToken";
+import Cookies from "universal-cookie";
 
 const studentPanelHolder = ({ Outlet }) => {
-  const [cookies, setCookie] = useCookies(["user"]);
-  setCookie("user", JSON.parse(localStorage.getItem("users")), { path: "/" });
   const state = {
     steps: [
       {
@@ -28,25 +26,30 @@ const studentPanelHolder = ({ Outlet }) => {
       },
     ],
   };
+  const cookies = new Cookies(null, { path: "/" });
+
+  const handleCallback = (value) => {
+    console.log(cookies.get("toured"));
+    if (value.type === "tour:end") cookies.set("toured", "true");
+  };
 
   return (
     <>
-      <CookiesProvider>
-        <>
-          {cookies.user ? (
-            <Joyride
-              steps={state.steps}
-              continuous
-              styles={{
-                options: {
-                  primaryColor: "rgb(55, 114, 255 )",
-                },
-              }}
-              user={cookies.user}
-            />
-          ) : null}
-        </>
-      </CookiesProvider>
+      <>
+        {!cookies.get("toured") && (
+        <Joyride
+          steps={state.steps}
+          continuous
+          callback={handleCallback}
+          styles={{
+            options: {
+              primaryColor: "rgb(55, 114, 255 )",
+            },
+          }}
+        />
+        ) }
+        
+      </>
 
       {/* <Joyride
         steps={state.steps}
