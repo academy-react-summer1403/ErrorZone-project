@@ -30,7 +30,7 @@ const PayModal = ({ isOpen, onOpenChange, courseData }) => {
   const [image, setImage] = useState();
   const [paymentInvoice, setPaymentInvoice] = useState();
   const [paymentId, setPaymentId] = useState();
-  console.log(courseData);
+  console.log(courseData, "aLCBSB");
   // postQuery("MyCourses", "/CoursePayment/StudentAddPeyment", formData);
   const queryclient = useQueryClient();
 

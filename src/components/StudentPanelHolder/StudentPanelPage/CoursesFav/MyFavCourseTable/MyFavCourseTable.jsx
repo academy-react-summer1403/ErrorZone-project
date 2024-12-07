@@ -17,9 +17,14 @@ import { convertDate } from "../../../../../core/utils/DateToShamsi";
 import { postQuery } from "../../../../../core/services/api/reactQuery/postQuery";
 import { ReservCourseModal } from "./ReservCourseModal";
 import { usequery } from "../../../../../core/services/api/reactQuery/useQuery";
+import { DeleteArchiveCourseAPI } from "../../../../../core/services/api/CourseDetail/CourseAddToFavorite";
+import { SuccessToastify } from "../../../../../core/utils/Toastifies/SuccessToastify.Utils";
+import { ErrorToastify } from "../../../../../core/utils/Toastifies/ErrorToastify.Utils";
+import { useQueryClient } from "@tanstack/react-query";
 
 const MyFavCourseTable = () => {
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(1);
+
   const columns = [
     { name: "نام", uid: "courseTitle" },
     { name: "مدرس", uid: "teacheName" },
@@ -27,10 +32,30 @@ const MyFavCourseTable = () => {
     { name: "سطح", uid: "levelName" },
     { name: "", uid: "actions" },
   ];
-const data = usequery("myFavCourses");
+  const data = usequery("myFavCourses");
+  const queryclient = useQueryClient()
   const { favoriteCourseDto } = data ? data : [];
 
   console.log(favoriteCourseDto);
+
+  const delArchive = async (value) => {
+    const obj = new FormData();
+    obj.append("CourseFavoriteId", value?.favoriteId);
+
+    try {
+      const result = await DeleteArchiveCourseAPI(obj);
+
+      if (result?.success) {
+        SuccessToastify("دوره از لیست علاقه مندی ها حذف شد");
+        queryclient.refetchQueries(["myFavCourses"]);
+      } else {
+        ErrorToastify(" مشکلی پیش امده ");
+      }
+      
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const renderCell = React.useCallback((user, columnKey) => {
     const cellValue = user[columnKey];
@@ -89,7 +114,7 @@ const data = usequery("myFavCourses");
               courseId={user.courseId}
               courseTitle={user.courseTitle}
             />
-            <div>
+            <div onClick={() => delArchive(user)}>
               <Tooltip color="danger" content="حذف">
                 <span className="text-lg text-danger cursor-pointer active:opacity-50">
                   <Cancel01Icon />
@@ -104,52 +129,56 @@ const data = usequery("myFavCourses");
   }, []);
 
   return (
-
-      <Table
-        className="bg-gray-100"
-        aria-label="Example table with custom cells"
-        bottomContent={
-          <div
-            className="flex w-full justify-center"
-            style={{ direction: "ltr" }}
-          >
-            <Pagination
-              // isCompact
-              loop
-              showControls
-              showShadow
-              color="primary"
-              page={page}
-              total={Math.ceil(data?.totalCount / 8)}
-              onChange={(page) => setPage(page)}
-            />
-          </div>
-        }
-      >
-        <TableHeader className="bg-gray-200" columns={columns}>
-          {(column) => (
-            <TableColumn
-              key={column.uid}
-              align={column.uid === "actions" ? "center" : "start"}
+    <>
+      {data ? (
+        <Table
+          className="bg-gray-100"
+          aria-label="Example table with custom cells"
+          bottomContent={
+            <div
+              className="flex w-full justify-center"
+              style={{ direction: "ltr" }}
             >
-              {column.name}
-            </TableColumn>
-          )}
-        </TableHeader>
-        <TableBody
+              <Pagination
+                // isCompact
+                loop
+                showControls
+                showShadow
+                color="primary"
+                page={page}
+                total={Math.ceil(data?.totalCount / 8)}
+                onChange={(page) => setPage(page)}
+              />
+            </div>
+          }
+        >
+          <TableHeader className="bg-gray-200" columns={columns}>
+            {(column) => (
+              <TableColumn
+                key={column.uid}
+                align={column.uid === "actions" ? "center" : "start"}
+              >
+                {column.name}
+              </TableColumn>
+            )}
+          </TableHeader>
+          <TableBody
             emptyContent={"دوره ای برای نمایش وجود ندارد."}
-
-        items={favoriteCourseDto}>
-          {(item) => (
-            <TableRow key={item.courseId}>
-              {(columnKey) => (
-                <TableCell>{renderCell(item, columnKey)}</TableCell>
-              )}
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
-
+            items={favoriteCourseDto}
+          >
+            {(item) => (
+              <TableRow key={item.courseId}>
+                {(columnKey) => (
+                  <TableCell>{renderCell(item, columnKey)}</TableCell>
+                )}
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      ) : (
+        <div>acn</div>
+      )}
+    </>
   );
 };
 
