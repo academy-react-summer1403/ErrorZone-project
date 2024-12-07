@@ -22,7 +22,7 @@ const LandingBestTaechers = ({}) => {
         <div className=" pt-7 absolute w-2/3 left-1/2 -translate-x-1/2 top-14 bottom-14 z-10 flex tablet:flex-row flex-col items-center  justify-between">
           {/* teachers place */}
           {
-            data?.slice(0,3).map((item) => {
+            data?.slice(3,6).map((item) => {
               return (
                 <div className="">
                   <img src={item.pictureAddress === null ? TopTeachers1 : item.pictureAddress} className="rounded-full object-contain size-24" />

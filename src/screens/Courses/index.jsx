@@ -10,7 +10,7 @@ const Courses = () => {
     window.scrollTo(0, 0);
   }, []);
   GsapAnim();
-
+  
   return (
     <div className="w-full px-10 max-w-[1520px] mx-auto">
       <CourseNote />

@@ -6,7 +6,6 @@ import GetMyJobs from '../../../../core/services/api/MyJobs/MyJobs';
 const MyJobs = () => {
     const [myJobs, setMyJobs] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-
     useEffect(() => {
       getData()
     }, [])

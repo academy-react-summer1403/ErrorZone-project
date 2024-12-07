@@ -12,8 +12,8 @@ import {
 } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 import { BookDownloadIcon, Cancel01Icon, ViewIcon } from "hugeicons-react";
-import { usequery } from "../../../../../core/services/api/reactQuery/usequery";
 import { convertDate } from "../../../../../core/utils/DateToShamsi";
+import { usequery } from "../../../../../core/services/api/reactQuery/useQuery";
 
 const MyFavNewsTable = () => {
   const columns = [
@@ -87,7 +87,10 @@ const MyFavNewsTable = () => {
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody items={myFavoriteNews}>
+      <TableBody
+        emptyContent={"خبری برای نمایش وجود ندارد."}
+        items={myFavoriteNews}
+      >
         {(item) => (
           <TableRow key={item.newsId}>
             {(columnKey) => (

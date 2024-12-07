@@ -136,7 +136,10 @@ const data = usequery("myFavCourses");
             </TableColumn>
           )}
         </TableHeader>
-        <TableBody items={favoriteCourseDto}>
+        <TableBody
+            emptyContent={"دوره ای برای نمایش وجود ندارد."}
+
+        items={favoriteCourseDto}>
           {(item) => (
             <TableRow key={item.courseId}>
               {(columnKey) => (

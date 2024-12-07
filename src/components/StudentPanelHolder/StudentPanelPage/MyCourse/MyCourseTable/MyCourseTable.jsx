@@ -159,6 +159,7 @@ const MyCourseTable = ({ isDashboard }) => {
                 </div>
               )
             }
+            
           >
             <TableHeader className="bg-gray-200" columns={columns}>
               {(column) => (
@@ -171,6 +172,7 @@ const MyCourseTable = ({ isDashboard }) => {
               )}
             </TableHeader>
             <TableBody
+            emptyContent={"دوره ای برای نمایش وجود ندارد."}
               items={data?.listOfMyCourses ? data?.listOfMyCourses : []}
             >
               {(item) => (
