@@ -19,7 +19,7 @@ const CourseCommentWrapper = () => {
   const data = res?.slice(0 , 3);
 
   const {id} = useParams()
-  console.log("id11111111111111111111111" , id)
+  // console.log("id11111111111111111111111" , id)
 
 const Details = async () => {
 
@@ -29,7 +29,7 @@ const Details = async () => {
   const res = await GetCommentsCourse(params)
   setCourse(res)
 
-  console.log("res11111111111234567" , res)
+  // console.log("res11111111111234567" , res)
 }
 
 useEffect(() => {

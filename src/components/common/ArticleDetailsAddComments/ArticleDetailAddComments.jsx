@@ -18,6 +18,7 @@ import AddCommentValidation from "../../../core/validations/Schemas/Article/Comm
 import { SuccessToastify } from "../../../core/utils/Toastifies/SuccessToastify.Utils";
 import AddCourseCommentAPI from "../../../core/services/api/CourseDetail/AddCourseCommentApi";
 import { ErrorToastify } from "../../../core/utils/Toastifies/ErrorToastify.Utils";
+import ButtonSpecial from "../ButtonSpecial";
 
 
 const ArticleDetailAddCommentsCard = ({ course,  changeHandler , Oid , changeFlager }) => {
@@ -57,7 +58,7 @@ const ArticleDetailAddCommentsCard = ({ course,  changeHandler , Oid , changeFla
     <Fragment>
       <div
         onClick={onOpen}
-        className="col-span-12 sm:col-span-6 xl:col-span-3 h-72 p-4 rounded-3xl border bg-blue dark:bg-white flex flex-col justify-center items-center gap-4 shadow-md cursor-pointer"
+        className="col-span-12 sm:col-span-6 xl:col-span-3 h-72 p-4 rounded-3xl border bg-blue  dark:bg-gray-700 flex flex-col justify-center items-center gap-4 shadow-md cursor-pointer"
       >
         <div className="text-white text-center flex flex-col gap-2">
           <div>
@@ -67,7 +68,7 @@ const ArticleDetailAddCommentsCard = ({ course,  changeHandler , Oid , changeFla
             نظر شما
           </span>
         </div>
-        <div className="text-gray-100">برای نظر دادن کلیک کنید</div>
+        <div className="text-gray-100 ">برای نظر دادن کلیک کنید</div>
       </div>
 
       <Modal
@@ -113,21 +114,23 @@ const ArticleDetailAddCommentsCard = ({ course,  changeHandler , Oid , changeFla
           {(onClose) => (
             <>
               {/* <Button className='bg-blue h-[40px] text-white md:flex hidden rounded-3xl text-base font-semibold'>  نظر شما  </Button> */}
-              <motion.button
-                onClick={openModal}
-                className="bg-metricOrange pl-10 pr-7 py-2 rounded-full font-medium flex items-center justify-center gap-1"
-                whileHover={{ scale: 1.05 }}
-              >
-                نظر شما
-              </motion.button>
+             
               <ModalHeader className="flex flex-col gap-1 font-DanaFaNum-700 text-2xl">
                 نظرات دانشجو ها و اساتید
-              </ModalHeader>
+              </ModalHeader>             <motion.button
+                onClick={openModal}
+                className="bg-metricOrange  py-2 px-4 mb-4 mr-6 w-fit rounded-full flex items-center justify-center gap-1 bg-blue text-white font-DanaFaNum-600 "
+                whileHover={{ scale: 1.05 }}
+              >
+                <CommentAdd01Icon />
+                <p>نظر شما</p>
+              </motion.button>
+ 
               <ModalBody>
-                <Modals isOpen={isModalOpen} onClose={closeModal}>
+                <Modals backgroundColor="#d0d0d0" isOpen={isModalOpen} onClose={closeModal}>
                   <div className="flex justify-between">
-                    <button onClick={closeModal}>انصراف</button>
-                    <h2 className="font-semibold text-xl">نظر شما</h2>
+               
+                    <h2 className="font-semibold text-xl  dark:text-gray-900">نظر شما</h2>
                     <div className="w-12"></div>
                   </div>
                   <Formik
@@ -139,14 +142,14 @@ const ArticleDetailAddCommentsCard = ({ course,  changeHandler , Oid , changeFla
                     <Form>
                       <div className="pt-4">
                         <label htmlFor="Title" className="font-DanaFaNum-500">
-                          عنوان نظر
+                         <p className="dark:text-slate-900">  عنوان نظر</p>
                         </label>
                         <Field
                           type="text"
                           id="Title"
                           name="Title"
                           placeholder="عنوان نظر خود را وارد کنید ..."
-                          className="w-full p-3 my-2 border border-gray-300 rounded-full outline-none placeholder-gray-300 placeholder-opacity-50 font-DanaFaNum-400 px-4  "
+                          className="w-full p-3 my-2 border border-gray-300 rounded-full outline-none placeholder-gray-700 dark:placeholder-white placeholder-opacity-50 font-DanaFaNum-400 px-4  "
                         />
                         <h2 className="text-red-400 text-xs font-medium mr-4">
                           <ErrorMessage name="Title" />
@@ -154,26 +157,37 @@ const ArticleDetailAddCommentsCard = ({ course,  changeHandler , Oid , changeFla
                       </div>
                       <div className="pt-4">
                         <label htmlFor="Describe" className="font-DanaFaNum-500">
-                          توضیحات بیشتر
+                        <p className="dark:text-slate-900"> توضیحات بیشتر</p>
+                          
                         </label>
                         <Field
                           as="textarea"
                           id="Describe"
                           name="Describe"
                           placeholder="توضیحات بیشتر خود را وارد کنید ..."
-                          className="w-full border h-28 my-2 resize-none border-gray-300 rounded-3xl outline-none placeholder-gray-300 placeholder-opacity-50 font-normal px-4 py-2"
+                          className="w-full border h-28 my-2 resize-none border-gray-300 rounded-3xl outline-none placeholder-gray-700  dark:placeholder-white placeholder-opacity-50 font-normal px-4 py-2"
                         />
                         <h2 className="text-red-400 text-xs font-DanaFaNum-500 mr-4">
                           <ErrorMessage name="Describe" />
                         </h2>
                       </div>
-
+<div className="flex justify-evenly"> 
                       <button
                         type="submit"
                         className="bg-blue text-white px-4 py-2 rounded-full mt-2"
                       >
-                        ثبت نظر
+                        <p className="">    ثبت نظر </p>
                       </button>
+                      <ButtonSpecial
+                          onClick={closeModal}
+                          size="sm"
+                          className=" bg-red px-4 py-2 rounded-full mt-2 text-white"
+                          innerHtml={"انصراف"}
+                        ></ButtonSpecial>
+
+</div>
+
+
                     </Form>
                   </Formik>
                 </Modals>
@@ -226,9 +240,7 @@ const ArticleDetailAddCommentsCard = ({ course,  changeHandler , Oid , changeFla
                 )}
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  بستن
-                </Button>
+               
               </ModalFooter>
             </>
           )}

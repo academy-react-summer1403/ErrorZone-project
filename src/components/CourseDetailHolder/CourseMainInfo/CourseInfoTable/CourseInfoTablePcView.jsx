@@ -23,50 +23,50 @@ const CourseInfoTablePcView = ({data}) => {
         </TableHeader>
         <TableBody>
 
-          <TableRow key="1" className="border-b-2 border-gray-400 pb-3 mt-2 h-20">
+          <TableRow key="1" className="border-b-2 flex justify-around  border-gray-400 ">
 
             <TableCell>
-              <div className="text-sm text-gray-800">وضعیت</div>
+              <div className="text-sm text-gray-800 mb-2">وضعیت</div>
               <Chip color="danger">{data?.courseStatusName}</Chip>
             </TableCell>
 
             <TableCell>
-              <div className="text-sm text-gray-800">دسته‌بندی</div>
+              <div className="text-sm text-gray-800 mb-2">دسته‌بندی</div>
               {data?.techs?.map((item,index)=>(
-              <Chip color="primary" className="mr-1" key={index}> {item} </Chip>
+              <Chip color="primary" className="mr-1 my-1" key={index}> {item} </Chip>
               ))}
             </TableCell>
 
             <TableCell>
-              <div className="text-sm text-gray-800">سطح آموزشی</div>
+              <div className="text-sm text-gray-800 mb-2">سطح آموزشی</div>
               <Chip color="secondary">{data?.courseLevelName}</Chip>
             </TableCell>
 
             <TableCell>
-              <div className="text-sm text-gray-800">استاد دوره</div>
+              <div className="text-sm text-gray-800 mb-2">استاد دوره</div>
               <div>{data?.teacherName}</div>
             </TableCell>
 
           </TableRow>
 
-          <TableRow key="2" className="border-t-2 border-gray-400 pb-3 mt-2 h-20">
-            <TableCell>
-            <span className="text-sm text-gray-800">تاریخ برگزاری</span>
+          <TableRow key="2" className="border-t-2 border-gray-400 flex justify-around ">
+            <TableCell >
+            <span className="text-sm text-gray-800 mb-2">تاریخ برگزاری</span>
             <div>{MakeDatePersian(data?.startTime)}</div>
             </TableCell>
 
             <TableCell>
-            <span className="text-sm text-gray-800">تاریخ اتمام</span>
+            <span className="text-sm text-gray-800 mb-2">تاریخ اتمام</span>
             <div>{MakeDatePersian(data?.endTime)}</div>
             </TableCell>
 
             <TableCell>
-            <span className="text-sm text-gray-800">تعداد لایک</span>
+            <span className="text-sm text-gray-800 mb-2">تعداد لایک</span>
             <div>{data?.likeCount}</div>
             </TableCell>
 
             <TableCell>
-            <span className="text-sm text-gray-800">تعداد دیس‌لایک</span>
+            <span className="text-sm text-gray-800 mb-2">تعداد دیس‌لایک</span>
             <div>{data?.dissLikeCount}</div>
             </TableCell>
             
