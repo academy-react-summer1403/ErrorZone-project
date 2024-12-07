@@ -40,7 +40,7 @@ const StudentPanelHeader = () => {
         </div>
       </div>
       <div className="flex mobile:text-base text-xs items-center mobile:gap-16 gap-4 text-white ">
-        <div className="">
+        <div className="my-first-step">
           <Link
             to="/"
             className="w-[77px] h-[23px] font-DanaFaNum-500 text-base"

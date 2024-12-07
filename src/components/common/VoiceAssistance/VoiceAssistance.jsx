@@ -46,7 +46,7 @@ const VoiceAssistance = () => {
   return (
     <>
       <Tooltip showArrow={true}   content={
-        <div className="mx-3 py-3 rounded-lg">
+        <div className="mx-3 py-3 rounded-lg ">
           <div className=""> 
           <div className="text-lg font-bold mb-4 mr-2 text-blue "> (  راهنمای دستیار صوتی )   </div>
           <div className="text-tiny flex justify-between gap-3 mb-2 ">
@@ -74,7 +74,7 @@ const VoiceAssistance = () => {
           color={isListening ? "success" : ""}
           variant="faded"
           aria-label="Take a photo"
-          className="fixed left-5 bottom-5"
+          className="fixed left-5 bottom-5 my-last-step"
           radius="full"
           size="md"
           onPress={() => {

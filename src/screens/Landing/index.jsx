@@ -20,6 +20,7 @@ import { Button, Tooltip, HiddenSelect } from "@nextui-org/react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const Landing = () => {
+
   getQuery("topCourses", "/Home/GetCoursesTop?Count=4");
   const [scrollToTop, setScrollToTop] = useState(false);
   getQuery("landingInfo", "/Home/LandingReport");
