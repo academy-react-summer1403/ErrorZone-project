@@ -12,6 +12,8 @@ import { ErrorToastify } from '../../../../core/utils/Toastifies/ErrorToastify.U
 import { SlArrowLeft } from "react-icons/sl";
 import AuthFields from '../../../common/AuthFields/AuthFields';
 import VerifyCodeAPI from '../../../../core/services/api/Auth/Login/VerifyCodeApi';
+import { checkExist } from '../../../../core/utils/MultiAccount/checkExist';
+import { deactivateOtherUsers } from '../../../../core/utils/MultiAccount/deactivateOthers';
 
   const LoginVerifyCode = () => {
 
@@ -19,35 +21,51 @@ import VerifyCodeAPI from '../../../../core/services/api/Auth/Login/VerifyCodeAp
   
    console.log("loginInfo", LoginInfo)
 
- // const Navigate = useNavigate();
+  const Navigate = useNavigate();
   
-  // const LoginVerifyCodeApiFunction = async (value) => {
-  //   try {
-  //     const resault = await VerifyCodeAPI(LoginInfo , value);
-  //     console.log("resault" , resault)
+  const LoginVerifyCodeApiFunction = async (value) => {
+    try {
+      const resault = await VerifyCodeAPI(LoginInfo , value);
+      console.log("resault" , resault)
 
 
-      // if(resault.success === true){
-      //   console.log('resaultmassage' , resault.message)
-      //   setItem('Token' , resault.token)
-      //   SuccessToastify(resault.message)
-      //   setTimeout(() => {
-      //     Navigate('/')
-      //   }, 2000);
-      //   console.log('resault' , resault)
-      // }else if(resault.succesc === false){
-      //   ErrorToastify(resault.message)
-      // }
-  //   } catch (error) {
-  //       return false;
-  //   }
-  // }
+      if(resault.success == true){
+        console.log('resaultmassage' , resault.message)
+        const userObj = {
+          id: resault.id,
+          phoneNumber: resault.phoneNumber,
+          isActive: true,
+          token: resault.token,
+        };
+        const usersArr = JSON.parse(localStorage.getItem("users"));
+        if (!checkExist(resault.phoneNumber)) {
+          console.log(userObj)
+          usersArr
+            ? setItem("users", [...usersArr, userObj])
+            : setItem("users", [userObj]);
+          deactivateOtherUsers(resault.id);
+          setTimeout(() => {
+            Navigate("/StudentPanel");
+          }, 2000);
+        console.log('resault' , resault)
+        
+      }else if (checkExist(resault.phoneNumber)){
+        ErrorToastify('مشتی قبلا لاگین کردی با این')
+
+      }else if(resault.succesc === false){
+        ErrorToastify(resault.message)
+      }
+    } 
+  }
+  catch (error) {
+    return false;
+}}
   const handleSubmit = (value) => {
     console.log("value" , value);
 
-    // const newValue = value.verifyCode
+     const newValue = value.verifyCode
 
-    //LoginVerifyCodeApiFunction(newValue)
+    LoginVerifyCodeApiFunction(newValue)
   }
 
   return (

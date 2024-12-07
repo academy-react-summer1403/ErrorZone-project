@@ -63,7 +63,7 @@ const ImgCropper = ({
 					<img
 						ref={imgRef}
 						src={imgSrc}
-						className="h-[80vh]"
+						className="h-[50vh] mx-auto"
 						onLoad={onImageLoad}
 					/>
 				</ReactCrop>
