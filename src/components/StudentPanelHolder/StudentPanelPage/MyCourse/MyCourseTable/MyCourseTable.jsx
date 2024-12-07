@@ -106,7 +106,7 @@ const MyCourseTable = ({ isDashboard }) => {
                 </Tooltip>
               </Link>
             </div>
-            {data?.listOfMyCourses?.paymentStatus != "پرداخت نشده" ? (
+            {user?.paymentStatus != "پرداخت نشده" ? null : (
               <>
                 <div className="w-fit ">
                   <Tooltip content="پرداخت">
@@ -119,8 +119,6 @@ const MyCourseTable = ({ isDashboard }) => {
                   </Tooltip>
                 </div>
               </>
-            ) : (
-              false
             )}
           </div>
         );
@@ -159,6 +157,7 @@ const MyCourseTable = ({ isDashboard }) => {
                 </div>
               )
             }
+            
           >
             <TableHeader className="bg-gray-200" columns={columns}>
               {(column) => (
@@ -171,6 +170,7 @@ const MyCourseTable = ({ isDashboard }) => {
               )}
             </TableHeader>
             <TableBody
+            emptyContent={"دوره ای برای نمایش وجود ندارد."}
               items={data?.listOfMyCourses ? data?.listOfMyCourses : []}
             >
               {(item) => (

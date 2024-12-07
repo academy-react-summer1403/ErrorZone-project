@@ -45,7 +45,30 @@ const VoiceAssistance = () => {
 
   return (
     <>
-      <Tooltip showArrow={true} content="دستیار صوتی">
+      <Tooltip showArrow={true}   content={
+        <div className="mx-3 py-3 rounded-lg">
+          <div className=""> 
+          <div className="text-lg font-bold mb-4 mr-2 text-blue "> (  راهنمای دستیار صوتی )   </div>
+          <div className="text-tiny flex justify-between gap-3 mb-2 ">
+            <p> 1- go Home یا Home</p>
+            <p> رفتن به صفحه ی اصلی </p>
+          </div>
+          <div className="text-tiny flex  justify-between gap-3 mb-2">
+            <p>2- go course یا course</p>
+            <p> رفتن به صفحه ی دوره ها </p>
+          </div>
+          <div className="text-tiny flex justify-between gap-3 mb-2 ">
+            <p>3- go news یا news </p>
+            <p> رفتن به صفحه ی اخبار </p>
+          </div>
+          <div className="text-tiny flex justify-between gap-3 mb-1 ">
+            <p>4- go dashboard یا dashboard</p>
+            <p> رفتن به پنل کاربر </p>
+          </div>
+</div>
+
+        </div>
+      } placement="right-start">
         <Button
           isIconOnly
           color={isListening ? "success" : ""}

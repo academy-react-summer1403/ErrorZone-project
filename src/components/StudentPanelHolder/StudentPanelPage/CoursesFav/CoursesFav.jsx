@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import { getQuery } from '../../../../core/services/api/reactQuery/getQuery';
-import { usequery } from '../../../../core/services/api/reactQuery/usequery';
-import MyFavCourseTable from './MyFavCourseTable/MyFavCourseTable';
 import { DatePicker, Skeleton } from '@nextui-org/react';
 import DatePickerSpecial from '../../../common/DatePickerSpecial/DatePickerSpecial';
+import { usequery } from '../../../../core/services/api/reactQuery/useQuery';
+import MyFavCourseTable from './MyFavCourseTable/MyFavCourseTable';
+// const MyFavCourseTable = lazy(() => import("./MyFavCourseTable/MyFavCourseTable"))
 
 
 

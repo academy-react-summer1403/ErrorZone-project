@@ -12,7 +12,7 @@ export const newsSortFilDataSlice = createSlice({
   },
 
   reducers: {
-    searchCourse: (state, action) => {
+    searchNews: (state, action) => {
       state.Query = action.payload;
     },
     changePage: (state, action) => {
@@ -33,4 +33,4 @@ export const newsSortFilDataSlice = createSlice({
   },
 });
 
-export const {searchCourse, changePage, giveSortKey, giveSortType, giveNewsCategoryId, giveTotalCount } = newsSortFilDataSlice.actions;
+export const {searchNews, changePage, giveSortKey, giveSortType, giveNewsCategoryId, giveTotalCount } = newsSortFilDataSlice.actions;

@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../../app/index";
 import Landing from "../../screens/Landing";
 import StudentPanel from "../../screens/studentPanel";
-import NotFound from "../../screens/NotFound";
 import { LoginRegisterForgetPassLayout } from "../../components/User/LoginRegisterForgetPass/LoginRegisterForgetPassLayout";
 import { LoginForm } from "../../components/User/LoginRegisterForgetPass/LoginHolder/LoginForm";
 import LoginVerifyCode from "../../components/User/LoginRegisterForgetPass/LoginHolder/LoginVerifyCode";
@@ -13,7 +12,6 @@ import Articles from "../../screens/Articles";
 import Dashboard from "../../components/StudentPanelHolder/StudentPanelPage/Dashboard/Dashboard";
 import MyCourse from "../../components/StudentPanelHolder/StudentPanelPage/MyCourse/MyCourse";
 import ReservesCourse from "../../components/StudentPanelHolder/StudentPanelPage/reservesCourse/reservesCourse";
-import CoursesFav from "../../components/StudentPanelHolder/StudentPanelPage/Coursesfav/Coursesfav";
 import BlogFav from "../../components/StudentPanelHolder/StudentPanelPage/Blogfav/Blogfav";
 
 import RegisterFormStep1 from "../../components/User/LoginRegisterForgetPass/RegisterHolder/RegisterFormStep1";
@@ -42,35 +40,68 @@ import NavigationsPage from "../../components/StudentPanelHolder/StudentPanelPag
 import ChangePassowrd from "../../components/StudentPanelHolder/StudentPanelPage/UserSecurity/ChangePassword/ChangePassowrd";
 import TwoStepVerfication from "../../components/StudentPanelHolder/StudentPanelPage/UserSecurity/TwoStepVerfication/TwoStepVerfication";
 import MyJobs from "../../components/StudentPanelHolder/StudentPanelPage/MyJobs/MyJobs";
-
+import { NotFound } from "../../screens/NotFound/NotFound";
+import CoursesFav from "../../components/StudentPanelHolder/StudentPanelPage/CoursesFav/CoursesFav";
+import { Error } from "../../screens/Error/Error";
 
 export const TestingRoutes = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
     children: [
-      { path: "/", element: <Landing /> },
-      { path: "/courses", element: <Courses /> },
-      { path: "/articles", element: <Articles /> },
-      { path: "/teachers", element: <Landing /> },
-      { path: "/courses/:id", element: <CourseDetail /> },
-      { path: "/articles/detail/:articleId", element: <ArticlesDetail /> },
+      { path: "/", element: <Landing />, errorElement: <Error /> },
+      { path: "/courses", errorElement: <Error />, element: <Courses /> },
+      { path: "/articles", errorElement: <Error />, element: <Articles /> },
+      { path: "/teachers", errorElement: <Error />, element: <Landing /> },
+      {
+        path: "/courses/:id",
+        errorElement: <Error />,
+        element: <CourseDetail />,
+      },
+      {
+        path: "/articles/detail/:articleId",
+        errorElement: <Error />,
+        element: <ArticlesDetail />,
+      },
     ],
   },
 
   {
     path: "/login",
     element: <LoginRegisterForgetPassLayout />,
+    errorElement: <Error />,
     children: [
-      { path: "/login", element: <LoginForm /> },
-      { path: "/login/verifycode", element: <LoginVerifyCode /> },
-      { path: "/login/register/step1", element: <RegisterFormStep1 /> },
-      { path: "/login/register/step2", element: <RegisterFormStep2 /> },
-      { path: "/login/register/step3", element: <RegisterFormStep3 /> },
-      { path: "/login/forgetpass", element: <ForgetPassword /> },
+      { path: "/login", errorElement: <Error />, element: <LoginForm /> },
+      {
+        path: "/login/verifycode",
+        errorElement: <Error />,
+        element: <LoginVerifyCode />,
+      },
+      {
+        path: "/login/register/step1",
+        errorElement: <Error />,
+        element: <RegisterFormStep1 />,
+      },
+      {
+        path: "/login/register/step2",
+        errorElement: <Error />,
+        element: <RegisterFormStep2 />,
+      },
+      {
+        path: "/login/register/step3",
+        errorElement: <Error />,
+        element: <RegisterFormStep3 />,
+      },
+      {
+        path: "/login/forgetpass",
+        errorElement: <Error />,
+        element: <ForgetPassword />,
+      },
       {
         path: "/login/forgetpass/step2/:ConfigValue",
         element: <ForgetPassFormStep2 />,
+        errorElement: <Error />,
       },
     ],
   },
@@ -78,31 +109,94 @@ export const TestingRoutes = createBrowserRouter([
   {
     path: "/StudentPanel",
     element: <StudentPanel />,
+    errorElement: <Error />,
     children: [
-      { path: "/StudentPanel/:id?", element: <Dashboard /> },
-      { path: "/StudentPanel/Accounts/", element: <AccountSettingsPage /> },
+      {
+        path: "/StudentPanel/:id?",
+        errorElement: <Error />,
+        element: <Dashboard />,
+      },
+      {
+        path: "/StudentPanel/Accounts/",
+        errorElement: <Error />,
+        element: <AccountSettingsPage />,
+      },
 
-      { path: "/StudentPanel/myCourse", element: <MyCourse /> },
-      { path: "/StudentPanel/reservesCourse", element: <ReservesCourse /> },
-      { path: "/StudentPanel/Coursesfav", element: <CoursesFav /> },
-      { path: "/StudentPanel/Blogfav", element: <BlogFav /> },
+      {
+        path: "/StudentPanel/myCourse",
+        errorElement: <Error />,
+        element: <MyCourse />,
+      },
+      {
+        path: "/StudentPanel/reservesCourse",
+        errorElement: <Error />,
+        element: <ReservesCourse />,
+      },
+      {
+        path: "/StudentPanel/Coursesfav",
+        errorElement: <Error />,
+        element: <CoursesFav />,
+      },
+      {
+        path: "/StudentPanel/Blogfav",
+        errorElement: <Error />,
+        element: <BlogFav />,
+      },
 
-      { path: "/StudentPanel/payment", element: <MyPayMents />  },
-      {path:"/StudentPanel/security", element : <NavigationsPage /> , children:[
-        {path:"/StudentPanel/security", element: <ChangePassowrd />},
-        {path:"/StudentPanel/security/TwoStepVerification", element: <TwoStepVerfication />},         
-      ]
-    
-    }  ,          
-      { path: "/StudentPanel/profile", element: <Profile /> , children:[
-        {path:"/StudentPanel/profile" ,element: <ProfileInformation />  },
-        {path:"/StudentPanel/profile/UserImages" ,element: <ProfileImages />  },      
-        {path:"/StudentPanel/profile/UserAddress" ,element: <ProfileAddress />  },      
-        {path:"/StudentPanel/profile/UserLinks" ,element: <UserComponents />  },
-        { path: "/StudentPanel/profile/myjobs", element: <MyJobs /> },    
-
-      ]},
-
+      {
+        path: "/StudentPanel/payment",
+        errorElement: <Error />,
+        element: <MyPayMents />,
+      },
+      {
+        path: "/StudentPanel/security",
+        errorElement: <Error />,
+        element: <NavigationsPage />,
+        children: [
+          {
+            path: "/StudentPanel/security",
+            errorElement: <Error />,
+            element: <ChangePassowrd />,
+          },
+          {
+            path: "/StudentPanel/security/TwoStepVerification",
+            errorElement: <Error />,
+            element: <TwoStepVerfication />,
+          },
+        ],
+      },
+      {
+        path: "/StudentPanel/profile",
+        errorElement: <Error />,
+        element: <Profile />,
+        children: [
+          {
+            path: "/StudentPanel/profile",
+            errorElement: <Error />,
+            element: <ProfileInformation />,
+          },
+          {
+            path: "/StudentPanel/profile/UserImages",
+            errorElement: <Error />,
+            element: <ProfileImages />,
+          },
+          {
+            path: "/StudentPanel/profile/UserAddress",
+            errorElement: <Error />,
+            element: <ProfileAddress />,
+          },
+          {
+            path: "/StudentPanel/profile/UserLinks",
+            errorElement: <Error />,
+            element: <UserComponents />,
+          },
+          {
+            path: "/StudentPanel/profile/myjobs",
+            errorElement: <Error />,
+            element: <MyJobs />,
+          },
+        ],
+      },
     ],
   },
 

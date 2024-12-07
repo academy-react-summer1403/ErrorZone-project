@@ -1,6 +1,6 @@
 import React from 'react'
 import ButtonSpecial from '../../../common/ButtonSpecial';
-import { giveCostDown, giveCostUp, giveCourseLevelId, giveCourseTypeId, giveTeacherId } from '../../../../redux/coursSortFilDataSlice';
+import { giveCostDown, giveCostUp, giveCourseLevelId, giveCourseTypeId, giveTeacherId, searchCourse } from '../../../../redux/coursSortFilDataSlice';
 import { Calendar02Icon, CellsIcon, FilterRemoveIcon, Layers01Icon, Money04Icon, Search01Icon, TeacherIcon } from 'hugeicons-react';
 import SearchBox from '../../../common/SearchBox/SearchBox';
 import AutoCompleteSpecial from '../../../common/AutoCompleteSpecial/AutoCompleteSpecial';
@@ -16,6 +16,7 @@ const FilterSec = () => {
   
     const morePrice = useSelector((state) => state.coursSortFilData.CostUp);
     const lessPrice = useSelector((state) => state.coursSortFilData.CostDown);
+
     const dispatch = useDispatch();
   
     const getPriceRange = (value) => {
@@ -37,6 +38,7 @@ const FilterSec = () => {
               dispatch(getPriceRange(""));
               dispatch(giveCostDown(""));
               dispatch(giveCostUp(""));
+              dispatch(searchCourse(""));
             }}
             innerHtml={
               <>
@@ -53,7 +55,7 @@ const FilterSec = () => {
             <span>جستوجو</span>
           </div>
           <div className=" m-auto border-none">
-            <SearchBox />
+            <SearchBox isCourse={true} />
           </div>
         </div>
 

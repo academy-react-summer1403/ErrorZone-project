@@ -27,7 +27,7 @@ const Landing = () => {
     "TopBlogs",
     "/News?PageNumber=1&RowsOfPage=10&SortingCol=InsertDate&SortType=DESC"
   );
-
+  
   window.addEventListener("scroll", () => {
     window.pageYOffset > 200 ? setScrollToTop(true) : setScrollToTop(false);
   });
@@ -50,9 +50,9 @@ const Landing = () => {
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 100 }}
               exit={{ y: 100, opacity: 0 }}
-              className="bg-blackPanel bottom-10 left-12 fixed"
+              className="bg-white/60  border-2 border-gray-300 bottom-5 right-14 fixed dark:bg-slate-700 z-50 "
             >
-              <ArrowUp01Icon color="white" size={50} />{" "}
+              <ArrowUp01Icon color="black-panel"  size={43} />{" "}
             </motion.button>
           )}
         </Tooltip>

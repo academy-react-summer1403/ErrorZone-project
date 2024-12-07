@@ -13,6 +13,7 @@ const CourseCardSec = () => {
   const oredr = useSelector((state) => state.coursSortFilData.SortType);
   const sortCol = useSelector((state) => state.coursSortFilData.SortingCol);
   const pageNum = useSelector((state) => state.coursSortFilData.PageNumber);
+  // const qeury = useSelector((state) => state.coursSortFilData.Query);
   const qeury = useSelector((state) => state.coursSortFilData.Query);
   const courseType = useSelector(
     (state) => state.coursSortFilData.CourseTypeId
