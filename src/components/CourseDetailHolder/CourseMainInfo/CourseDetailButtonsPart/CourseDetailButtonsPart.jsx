@@ -25,8 +25,6 @@ const CourseDetailButtonsPart = ({ data , FlagHandler }) => {
   const like = data?.currentUserLike;
   const dislike = data?.currentUserDissLike;
 
-  console.log("like" , like)
-  console.log("dislike" , dislike)
 
   const favId = data?.userFavoriteId;
 
@@ -34,16 +32,8 @@ const CourseDetailButtonsPart = ({ data , FlagHandler }) => {
 
 const params = useParams()
 
+console.log("params" , params)
 
-  // const handleLike = async () => {
-  //   const res = await CourseLike(id);
-  //   // changeFlager()
-  //   if (res.success === true) {
-  //     SuccessToastify("ثبت نظر با موفقیت انجام شد");
-  //   } else if (res.success === false) {
-  //     ErrorToastify("ثبت نظر با مشکل مواجه شده است");
-  //   }
-  // };
 
   const handleArchive = () => {
 		!data.isUserFavorite ? AddFav() : delArchive();
@@ -56,10 +46,6 @@ const params = useParams()
 	const handleDissLike = () => {
 		dislike === "0" && dissLikeCourse();
 	};
-
-  // const { mutate:LikeHandler } = postQuery(['CourseDetailById'] , (`/Course/AddCourseLike?CourseId=${id}`) )
-
-  // const {mutate:DeleteLikeHandler } = postQuery(["CourseDetailById"] , (`/Course/AddCourseDissLike?CourseId=${id}`))
 
 
 	const likeCourse = async () => {
@@ -94,36 +80,6 @@ const params = useParams()
 		}
 	};
 
-  // const handleDissLike = async () => {
-  //   const res = await CourseDislike(id);
-  //   // changeFlager()
-  //   if (res.success === true) {
-  //     SuccessToastify("ثبت نظر با موفقیت انجام شد");
-  //   } else if (res.success === false) {
-  //     ErrorToastify("ثبت نظر با مشکل مواجه شده است");
-  //   }
-  // };
-
-
-  console.log("datafavorite", data?.isUserFavorite);
-
-  // const favoriteHandler = async () => {
-  //   if (data?.isUserFavorite === true) {
-  //     const res = await DeleteCourseFavorite(favId);
-  //     console.log("5666", res);
-  //     if (res.success === true) {
-  //       SuccessToastify("مقاله مورد نظر ار لیست علاقه مندی ها حذف شده است");
-  //     }
-  //   } else if (data?.isUserFavorite === false) {
-  //     const res = await CourseAddToFavorite(id);
-  //     if (res.success === true) {
-  //       SuccessToastify(" مقاله مورد نظر به لیست علاقه مندی ها اضافه شده است");
-  //     } else if (res.success === true) {
-  //       SuccessToastify(res.message);
-  //     }
-  //   }
-  // };
-  console.log("id111");
 
   const AddFav = async () => {
     const obj = { courseId: params.id };
@@ -149,7 +105,7 @@ const params = useParams()
 		}
 	};
 
-  console.log("data3333333333333" , data)
+
 
 
   const reserveCourse = async () => {
