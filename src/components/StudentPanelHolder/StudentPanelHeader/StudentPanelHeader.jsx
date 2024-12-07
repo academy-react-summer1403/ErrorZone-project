@@ -16,7 +16,7 @@ const StudentPanelHeader = () => {
   console.log(data);
 
   const { profile } = useSelector((s) => s.profile);
-  
+
   return (
     <div className="h-12 flex justify-between items-center ">
       <HamDashboardMenu />

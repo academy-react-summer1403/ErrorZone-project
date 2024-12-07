@@ -29,11 +29,11 @@ useEffect(() => {
       },
       (error) => {
         console.error('error getting position', error)
-        alert('unable')
+        console.log('unable')
       }
     )
    }else {
-    alert('no location')
+    console.log('no location')
    }
 }, [])
 

@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 const LoginVerifyCodeSchema = yup.object().shape({
-  VrifyCode: yup
+  verifyCode: yup
     .string()
     .min(5, "کد تایید شما باید 5 رقم باشد")
     .max(5, "کد تایید شما باید 5 رقم باشد")

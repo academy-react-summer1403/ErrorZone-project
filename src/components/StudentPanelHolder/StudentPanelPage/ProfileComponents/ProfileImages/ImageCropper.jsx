@@ -84,25 +84,27 @@ const ImgCropper = ({
           >
             <Tick01Icon className="w-12 h-12 text-white" size={30} />
           </div>
-
-          <div
-            onClick={() => {
-              setOpen(false);
-            }}
-            className="p-4 rounded-full bg-transparent  text-metricGray4 font-bold cursor-pointer"
-          >
-            <CircleArrowDownLeftIcon className="w-10 h-10 text-white" />
-          </div>
-        </div>
-        {crop && (
-          <canvas
-            ref={canvasRef}
-            className="hidden w-[250px] h-[250px] object-contain  absolute top-0 left-0"
-          />
-        )}
-      </div>
-    </div>
-  );
+			
+			
+						<div
+							onClick={() => {
+								setOpen(false);
+							}}
+							className="p-4 rounded-full bg-transparent  text-metricGray4 font-bold cursor-pointer"
+						>
+						<CircleArrowDownLeftIcon  className="w-10 h-10 text-white"/>
+						</div>
+				
+				</div>
+				{crop && (
+					<canvas
+						ref={canvasRef}
+						className="hidden w-[250px] h-[250px] object-contain  absolute top-0 left-0"
+					/>
+				)}
+			</div>
+		</div>
+	);
 };
 
 export default ImgCropper;

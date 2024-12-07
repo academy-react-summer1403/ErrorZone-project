@@ -24,7 +24,7 @@ export default function CountDown ({seconds}) {
     useEffect(() => {
       if(countdown <= 0){
         clearInterval(timerId.current)
-        alert('end')
+        console.log('end')
       }
 
     }, [countdown])

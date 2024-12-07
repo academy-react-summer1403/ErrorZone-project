@@ -13,7 +13,7 @@ import { getQuery } from "../../../../core/services/api/reactQuery/getQuery";
 import { usequery } from "../../../../core/services/api/reactQuery/useQuery";
 import { useQuery } from "@tanstack/react-query";
 import { useDispatch, useSelector } from "react-redux";
-import { giveNewsCategoryId } from "../../../../redux/newsSortFilDataSlice";
+import { giveNewsCategoryId, searchNews } from "../../../../redux/newsSortFilDataSlice";
 import { I18nProvider } from "@react-aria/i18n";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
@@ -52,6 +52,7 @@ const NewsFilter = () => {
           className="bg-red rounded-3xl py-2 text-white"
           onClick={() => {
             dispatch(giveNewsCategoryId(""));
+            dispatch(searchNews(""));
  
           }}
           innerHtml={

@@ -28,7 +28,7 @@ const Landing = () => {
     "TopBlogs",
     "/News?PageNumber=1&RowsOfPage=10&SortingCol=InsertDate&SortType=DESC"
   );
-
+  
   window.addEventListener("scroll", () => {
     window.pageYOffset > 200 ? setScrollToTop(true) : setScrollToTop(false);
   });
