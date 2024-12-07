@@ -1,33 +1,42 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { coursSortFilDataSlice } from "../../../redux/coursSortFilDataSlice";
+import { newsSortFilDataSlice } from "../../../redux/newsSortFilDataSlice";
 
-const SearchBox = () => {
+const SearchBox = ({ isCourse }) => {
   const dispatch = useDispatch();
-  const [value, setValue] = useState();
-  console.log(value);
+
   return (
     <div style={{ direction: "rtl" }}>
       <form
         className="w-full max-w-lg mx-auto"
         onSubmit={(e) => {
           e.preventDefault();
+          console.log(e.target[0].value);
           setTimeout(() => {
-            dispatch(
-              coursSortFilDataSlice.actions.searchCourse(
-                document.getElementById("search-dropdown").value
-              )
-            );
+            if (isCourse) {
+              dispatch(
+                coursSortFilDataSlice.actions.searchCourse(e.target[0].value)
+              );
+            } else {
+              dispatch(
+                newsSortFilDataSlice.actions.searchNews(e.target[0].value)
+              );
+            }
           }, 500);
         }}
         onChange={(e) => {
           e.preventDefault();
           setTimeout(() => {
-            dispatch(
-              coursSortFilDataSlice.actions.searchCourse(
-                document.getElementById("search-dropdown").value
-              )
-            );
+            if (isCourse) {
+              dispatch(
+                coursSortFilDataSlice.actions.searchCourse(e.target[0].value)
+              );
+            } else {
+              dispatch(
+                newsSortFilDataSlice.actions.searchNews(e.target[0].value)
+              );
+            }
           }, 500);
         }}
       >
@@ -35,9 +44,14 @@ const SearchBox = () => {
           <div className="relative w-full">
             <input
               type="search"
-              id="search-dropdown"
+              name="searchCourse"
+              id="search-course"
               className="block p-2.5 w-full z-20 text-sm text-gray-500 bg-gray-200 rounded-2xl border border-gray-300 focus:ring-blue focus:border-blue dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue"
-              placeholder="دوره مورد نظر را جست‌جو کنید..."
+              placeholder={
+                isCourse
+                  ? "دوره مورد نظر را جست‌جو کنید..."
+                  : "مقاله مورد نطر را جستجو کنید ..."
+              }
             />
             <button
               type="submit"
