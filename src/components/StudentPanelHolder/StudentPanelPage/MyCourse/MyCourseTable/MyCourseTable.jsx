@@ -106,7 +106,7 @@ const MyCourseTable = ({ isDashboard }) => {
                 </Tooltip>
               </Link>
             </div>
-            {data?.listOfMyCourses?.paymentStatus != "پرداخت نشده" ? (
+            {user?.paymentStatus != "پرداخت نشده" ? null : (
               <>
                 <div className="w-fit ">
                   <Tooltip content="پرداخت">
@@ -119,8 +119,6 @@ const MyCourseTable = ({ isDashboard }) => {
                   </Tooltip>
                 </div>
               </>
-            ) : (
-              false
             )}
           </div>
         );
