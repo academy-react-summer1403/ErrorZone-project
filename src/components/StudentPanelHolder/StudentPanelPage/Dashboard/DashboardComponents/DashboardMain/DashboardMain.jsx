@@ -47,7 +47,7 @@ console.log("news1233444" ,newsComments )
   return (
     <div className=" flex flex-col gap-6 mt-6">
       <div className="flex flex-wrap tablet:flex-nowrap justify-between gap-6 ">
-        <div className="flex flex-col w-full bg-gray-100 rounded-3xl ">
+        <div className="flex flex-col w-full bg-gray-100 rounded-3xl my-second-step ">
           <div className="flex items-center justify-between">
             <h2 className="  font-DanaFaNum-600 text-sm mr-4">دوره من </h2>
             <div className=" ">

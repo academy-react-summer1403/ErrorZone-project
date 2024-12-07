@@ -11,7 +11,6 @@ const studentPanel = () => {
   return (
     <>
       <StudentPanelHolder Outlet={<Outlet />} />
-      <VoiceAssistance />
     </>
   );
 };
