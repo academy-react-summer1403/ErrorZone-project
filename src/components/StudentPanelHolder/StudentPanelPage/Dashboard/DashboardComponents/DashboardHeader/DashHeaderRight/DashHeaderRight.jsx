@@ -24,7 +24,7 @@ const DashHeaderRight = () => {
       <div className="flex items-baseline tablet:gap-4 gap-2">
         <div className="font-DanaFaNum-700 text-2xl tablet:w-58 ">
           {" "}
-          سلام {data?.fName} ، روزت بخیر 👋
+          {`   سلام ${data?.fName} ، ${time.getHours() > 18 ? " شبت بخیر" : " روزت بخیر"  }👋`}{" "}
         </div>
         <div className=" text-sm  text-gray-800">
           {" "}
