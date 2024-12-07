@@ -18,7 +18,7 @@ const NextuiDropdown = ({ listDeleteImages, handleDeleteCheckbox, id }) => {
       </DropdownTrigger>
       <DropdownMenu
         aria-label="Action event example"
-        onAction={(key) => alert(key)}
+        onAction={(key) => console.log(key)}
       >
         <DropdownItem key="delete" className="text-danger " color="danger">
           delete

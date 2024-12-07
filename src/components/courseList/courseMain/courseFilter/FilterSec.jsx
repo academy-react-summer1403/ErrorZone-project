@@ -115,13 +115,7 @@ const FilterSec = () => {
             <PriceRange onchange={(value) => getPriceRange(value)} />
           </div>
         </div>
-
-        <div className=" space-y-4 h-[80px]">
-          <div className="  h-[80px] flex gap-2 text-base">
-            <Calendar02Icon />
-            <span>تاریخ برگزاری-اتمام</span>
-          </div>
-        </div>
+        
       </div>
   )
 }

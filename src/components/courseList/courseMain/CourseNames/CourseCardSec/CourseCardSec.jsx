@@ -105,7 +105,7 @@ const CourseCardSec = () => {
     skeletArray.push({});
   }
 
-  if (isError) alert("Fetching is onSuccessfull");
+  if (isError) console.log("Fetching is onSuccessfull");
   if (isLoading) <div> "Loading" </div>;
   return (
     <>
