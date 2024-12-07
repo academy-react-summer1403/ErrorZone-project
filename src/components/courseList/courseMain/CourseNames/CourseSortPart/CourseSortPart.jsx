@@ -46,8 +46,9 @@ const CourseSortPart = ({ pageNum }) => {
           onChange={setSelectedOption} // set the selected object
         />
       </div>
-      <div className="w-px h-2/3 bg-gray-400"></div>
+      <div className="w-px h-7 bg-gray-400"></div>
       <>
+
         <input
           type="radio"
           name="myRadioGroup"

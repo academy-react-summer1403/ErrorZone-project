@@ -11,15 +11,19 @@ import { useDispatch } from "react-redux";
 import { onSetLoginInfo } from "../../../../redux/auth/login";
 import { ImHome } from "react-icons/im";
 import AuthFields from "../../../common/AuthFields/AuthFields";
-import { Home03Icon, ViewIcon } from "hugeicons-react";
-import { setItem } from "../../../../core/services/common/storage.services";
+import { CloudHailstoneIcon, Home03Icon, ViewIcon } from "hugeicons-react";
+import {
+  getItem,
+  setItem,
+} from "../../../../core/services/common/storage.services";
 import { SuccessToastify } from "../../../../core/utils/Toastifies/SuccessToastify.Utils";
 import { ErrorToastify } from "../../../../core/utils/Toastifies/ErrorToastify.Utils";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import { deactivateOtherUsers } from "../../../../core/utils/MultiAccount/deactivateOthers";
+import { checkExist } from "../../../../core/utils/MultiAccount/checkExist";
 
 const LoginForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
-
 
   const dispatch = useDispatch();
   const Navigate = useNavigate();
@@ -29,26 +33,44 @@ const LoginForm = () => {
 
     try {
       const user = await LoginApi(value);
+      console.log("user" , user)
       if (user.success === true) {
         if (user.token === null) {
           dispatch(onSetLoginInfo(value));
-           (user.massage)
+
 
           setTimeout(() => {
             Navigate("/login/verifycode");
           }, 2000);
           setIsDisabled(false);
         } else if (user.token !== null) {
+
           // SuccessToastify(error.massage)
           //console.log('error' , error.massage)
           // setItem("Token", {
           //   token: user.token,
           // });
           // SuccessToastify(res.massage)
-          setItem("Token", user.token);
-          setTimeout(() => {
-            Navigate("/StudentPanel");
-          }, 2000);
+          const userObj = {
+            id: user.id,
+            phoneNumber: user.phoneNumber,
+            isActive: true,
+            token: user.token,
+          };
+          const usersArr = JSON.parse(localStorage.getItem("users"));
+          if (!checkExist(user.phoneNumber)) {
+            usersArr
+              ? setItem("users", [...usersArr, userObj])
+              : setItem("users", [userObj]);
+            deactivateOtherUsers(user.id);
+            setTimeout(() => {
+              Navigate("/StudentPanel");
+            }, 2000);
+          } else {
+            toast.error("قبلا با این حساب وارد شدی مشتی");
+          }
+
+
           setIsDisabled(false);
         }
       } else if (user.succes === false) {
@@ -61,7 +83,6 @@ const LoginForm = () => {
   return (
     <>
       <div className="  w-full h-[87%] mt-[105px]" dir="rtl">
-        
         <div className="flex gap-[20px] "></div>
         <p className="w-[200px] h-[40px] relative top-[100px] right-[60px] font-semibold text-3xl text-black font-DanaFaNum-600 dark:text-white ">
           {" "}
@@ -124,7 +145,10 @@ const LoginForm = () => {
                   <p className="w-[138p] h-[23px] text-black font-DanaFaNum-600 text-base">
                     حساب کاربری ندارید؟
                   </p>
-                  <Link to='/login/register/step1' className="border-b-sky-500 w-[125px] h-[23px] text-blue font-DanaFaNum-600 text-base border-b border-sky-400">
+                  <Link
+                    to="/login/register/step1"
+                    className="border-b-sky-500 w-[125px] h-[23px] text-blue font-DanaFaNum-600 text-base border-b border-sky-400"
+                  >
                     {" "}
                     ایجاد حساب کاربری{" "}
                   </Link>

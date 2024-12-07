@@ -24,27 +24,27 @@ const NewsInfoTablePcView = ({data}) => {
         </TableHeader>
         <TableBody>
 
-          <TableRow key="1" className="border-b-2 border-gray-400 pb-3 mt-2 h-20">
+          <TableRow key="1" className="border-b-2 border-gray-400 pb-3 mt-2 ">
 
             <TableCell>
-              <div className="text-sm text-gray-800">عنوان</div>
+              <div className="text-sm text-gray-800 mb-2">عنوان</div>
               <Chip color="danger">{data?.title}</Chip>
             </TableCell>
 
             <TableCell>
-              <div className="text-sm text-gray-800">تعداد بیننده</div>
+              <div className="text-sm text-gray-800 mb-2">تعداد بیننده</div>
              
               <Chip color="primary"> {data?.currentView} </Chip>
               
             </TableCell>
 
             <TableCell>
-              <div className="text-sm text-gray-800">سطح آموزشی</div>
+              <div className="text-sm text-gray-800 mb-2">سطح آموزشی</div>
               <Chip color="secondary">{data?.newsCatregoryName}</Chip>
             </TableCell>
 
             <TableCell>
-              <div className="text-sm text-gray-800">استاد دوره</div>
+              <div className="text-sm text-gray-800 mb-2">استاد دوره</div>
               <div>{data?.addUserFullName}</div>
             </TableCell>
 
@@ -52,22 +52,22 @@ const NewsInfoTablePcView = ({data}) => {
 
           <TableRow key="2" className="border-t-2 border-gray-400 pb-3 mt-2 h-20">
             <TableCell>
-            <span className="text-sm text-gray-800">تاریخ برگزاری</span>
+            <span className="text-sm text-gray-800 mb-2">تاریخ برگزاری</span>
             <div>{MakeDatePersian(data?.insertDate)}</div>
             </TableCell>
 
             <TableCell>
-            <span className="text-sm text-gray-800">تاریخ اتمام</span>
+            <span className="text-sm text-gray-800 mb-2">تاریخ اتمام</span>
             <div>{MakeDatePersian(data?.insertDate)}</div>
             </TableCell>
 
             <TableCell>
-            <span className="text-sm text-gray-800">تعداد لایک</span>
+            <span className="text-sm text-gray-800 mb-2">تعداد لایک</span>
             <div>{data?.currentLikeCount}</div>
             </TableCell>
 
             <TableCell>
-            <span className="text-sm text-gray-800">تعداد دیس‌لایک</span>
+            <span className="text-sm text-gray-800 mb-2">تعداد دیس‌لایک</span>
             <div>{data?.currentDissLikeCount}</div>
             </TableCell>
             

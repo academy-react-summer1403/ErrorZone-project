@@ -8,27 +8,34 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { removeItem } from "../../../core/services/common/storage.services";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { InformationCircleIcon } from "hugeicons-react";
+import { logout } from "../../../core/utils/MultiAccount/logout";
 
-const LogoutModal = ({ isOpen, onOpenChange ,to }) => {
+const LogoutModal = ({ isOpen, onOpenChange, to }) => {
   const navigate = useNavigate();
 
-  const logout = () => {
-    removeItem("Token");
-    navigate(to);
+  const { pathname } = useLocation();
+
+  const onLogout = () => {
+    const result = logout();
+    if (pathname == "/") {
+      navigate("/login");
+    } else {
+      navigate("/");
+    }
   };
 
   return (
     <>
       <Modal
-        backdrop="opaque"
+        backdrop="blur"
         size="lg"
         isOpen={isOpen}
+        placement="center"
         onOpenChange={onOpenChange}
         classNames={{
-          backdrop:
-            "bg-gradient-to-t from-zinc-900 to-zinc-900/10 backdrop-opacity-60",
+          backdrop: "from-zinc-900 to-zinc-900/10 ",
         }}
       >
         <ModalContent>
@@ -39,10 +46,20 @@ const LogoutModal = ({ isOpen, onOpenChange ,to }) => {
               </ModalHeader>
               <ModalBody>
                 <p className="mb-6 font-DanaFaNum-700 text-xl flex justify-center">
-                  با من گهری؟ واقعا میخوای بری؟🥺
+                  واقعا میخوای بری؟ با من گهری؟؟🥺
                 </p>
               </ModalBody>
               <ModalFooter className="flex justify-evenly">
+                <Button
+                  color="primary"
+                  size="lg"
+                  onPress={() => {
+                    onLogout();
+                  }}
+                  className="font-DanaFaNum-700"
+                >
+                  اره داداش ؛ راه نداره واقعا 🫡
+                </Button>
                 <Button
                   color="danger"
                   variant="light"
@@ -51,14 +68,6 @@ const LogoutModal = ({ isOpen, onOpenChange ,to }) => {
                   className="font-DanaFaNum-700 "
                 >
                   باشه گریه نکن ؛نمیرم😒
-                </Button>
-                <Button
-                  color="primary"
-                  size="lg"
-                  onPress={logout}
-                  className="font-DanaFaNum-700"
-                >
-                  اره داداش ؛ راه نداره واقعا 🫡
                 </Button>
               </ModalFooter>
             </>

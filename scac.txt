@@ -1,0 +1,89 @@
+  const ImgGenerator = useMutation({
+    mutationKey:['generateImg'],
+    mutationFn: (imgData) => CreateImg(imgData),
+  })
+  const sendAiImgUpload = useMutation({
+    mutationKey:['createUpload'],
+    mutationFn: (id) => setProfilePic(id),
+  })
+
+    const sendImgToApi = () => {
+    const imgData = {
+      "prompt": inputText,
+      "seed": 17123564234,
+      "scheduler": "DDIM",
+      "num_inference_steps": 20,
+      "negative_prompt": "NONE",
+      "samples": 1,
+      "guidance_scale": 7.5,
+      "strength": 1,
+      "shape": 512
+    }
+    
+    ImgGenerator.mutate(imgData)
+  }
+
+{ImgGenerator?.data ? (
+            <Button
+              onClick={() => sendAiImgUpload.mutate(ImgGenerator?.data)}
+              auto
+              className="max-w-40 bg-[#E7E7E7] hover:bg-gray-300 max-md:w-full"
+              size="sm"
+            >
+              آپلود عکس
+            </Button>
+          ) : (
+            <>
+              <Button className="max-md:hidden" onClick={handleSurpriseMe} size="sm"> عکس تصادفی</Button>
+              <Button
+                onClick={sendImgToApi}
+                auto
+
+                className="max-w-40 bg-[#E7E7E7] hover:bg-gray-300 max-md:w-full"
+                size="md"
+              >
+                {ImgGenerator?.status === "loading"
+                  ? "در حال ساخت"
+                  : "ساخت عکس"}
+              </Button>
+            </>
+          )}
+
+////    create Image
+
+import axios from "axios";
+
+export const CreateImg = async (imgData) => {
+  try {
+    const response = await axios.post('https://api.segmind.com/v1/sdxl1.0-txt2img', imgData,{
+    responseType: "arraybuffer", 
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": "SG_e223471534b9e8bd"
+      }
+    });
+    const imageBlob = new Blob([response.data], { type: "image/jpeg" });
+  const fileAi = new File([imageBlob] , 'image.jpg' ,{type : "image/jpeg"})
+
+    return fileAi;
+  } catch (error) {
+    console.error("Error creating image:", error);
+    throw error; 
+  }
+};
+
+////    post image 
+
+export const setProfilePic = async (id) => {
+  try {
+    let url = "/SharePanel/AddProfileImage";
+    const formData = new FormData();
+    formData.append("formFile", id);
+
+    const response = await instance.post(url, formData);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+

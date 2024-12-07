@@ -5,7 +5,7 @@ const BestTeacherSecDescribe = () => {
   return (
     <div className="w-80w tablet:w-[527px] space-y-6 mt-6">
     <span className="font-DanaFaNum-700 text-2xl">
-      اساتید برتر هفته آکادمی
+      اساتید برتر آکادمی
     </span>
     <p className="m-0 p-0 text-xl">
       در هفته جاری، اکادمی برنامه‌نویسی ما مفتخر است که از اساتید برتر خود
@@ -20,5 +20,7 @@ const BestTeacherSecDescribe = () => {
   </div>
   )
 }
+
+
 
 export default BestTeacherSecDescribe
